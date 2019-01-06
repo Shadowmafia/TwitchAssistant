@@ -1,0 +1,6 @@
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\Tools\bin\x64\Debug\Tools.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\Tools\bin\x64\Debug\Tools.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\Tools\obj\x64\Debug\Tools.csproj.CoreCompileInputs.cache
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\Tools\obj\x64\Debug\Tools.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\Tools\obj\x64\Debug\Tools.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\Tools\obj\x64\Debug\Tools.csprojAssemblyReference.cache

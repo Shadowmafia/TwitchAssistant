@@ -1,0 +1,11 @@
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\x64\Release\TwitchAuthortization.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\x64\Release\TwitchAuthortization.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\x64\Release\Newtonsoft.Json.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\x64\Release\Tools.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\x64\Release\Tools.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\x64\Release\Newtonsoft.Json.xml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\obj\x64\Release\TwitchAuthortization.csprojAssemblyReference.cache
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\obj\x64\Release\TwitchAuthortization.csproj.CoreCompileInputs.cache
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\obj\x64\Release\TwitchAuthortization.csproj.CopyComplete
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\obj\x64\Release\TwitchAuthortization.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\obj\x64\Release\TwitchAuthortization.pdb
