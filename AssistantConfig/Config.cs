@@ -27,18 +27,17 @@ namespace AssistantConfig
             PlayerConfig = new PlayerConfig();
         }
 
-        //Дефолтные настройки для процесса разработки
-        public void defaultConfig(bool debugMode = true)
+        /// <summary>
+        /// Set all application config to default
+        /// </summary>
+        /// <param name="debugMode">if true then debug mode</param>      
+        public void DefaultConfig(bool debugMode = true)
         {
+
+            //personal data
             if (debugMode)
             {
-                BotConfig = new BotConfig()
-                {
-                    IsDualMode = false,
-                    BotName = "Valerabot",
-                    StreamName = "imshadowmafia",
-                    BotColor = new BotColor() { RbgColor = new System.Windows.Media.SolidColorBrush(Color.FromRgb(255, 0, 0)), Color = ChatColorPresets.Red }
-                };
+                DebugDataConfig();
             }
             else
             {
@@ -49,57 +48,20 @@ namespace AssistantConfig
                     StreamName = "YouStreamName",
                     BotColor = new BotColor() { RbgColor = new System.Windows.Media.SolidColorBrush(Color.FromRgb(255, 0, 0)), Color = ChatColorPresets.Red }
                 };
-            }
-
-            Port = "8080";
-
-            if (debugMode)
-            {
                 Auth = new AuthorizationConfig()
                 {
                     BotAuth = new AuthorizationInstance()
                     {
                         Tokens = new TwitchAuthResponse()
                         {
-                            access_token = "14w62vkkdthuymhe93y2k9ek3ly56r"
+                            AccessToken = "You need get oauth token"
                         }
                     },
                     StreamerAuth = new AuthorizationInstance()
                     {
                         Tokens = new TwitchAuthResponse()
                         {
-                            access_token = "14w62vkkdthuymhe93y2k9ek3ly56r"
-                        }
-                    }
-                };
-                CoinConfig = new CoinSystemConfig()
-                {
-                    StreamOfflineAccrualInterval = 5,
-                    StreamOnlineAccrualInterval = 10,
-                    IsEnabled = true,
-                    CoinsName = "ShadowCoins",
-                    CoinSystemCustomMode = false,
-                    Unfollow = 5,
-                    Follower = 10,
-                    Subscriber = 20,
-                };
-            }
-            else
-            {
-                Auth = new AuthorizationConfig()
-                {
-                    BotAuth = new AuthorizationInstance()
-                    {
-                        Tokens = new TwitchAuthResponse()
-                        {
-                            access_token = "You need get oauth token"
-                        }
-                    },
-                    StreamerAuth = new AuthorizationInstance()
-                    {
-                        Tokens = new TwitchAuthResponse()
-                        {
-                            access_token = "You need get oauth token"
+                            AccessToken = "You need get oauth token"
                         }
                     }
                 };
@@ -115,7 +77,9 @@ namespace AssistantConfig
                     Subscriber = 20,
                 };
             }
+           
 
+            Port = "8080";      
             MiniChatConfig.ChatUsage = true;
             MiniChatConfig.Topmost = true;
             MiniChatConfig.IsLocked = false;
@@ -141,6 +105,45 @@ namespace AssistantConfig
 
             PlayerConfig.MinRequestRang = TwitchRangs.Unfollower;
 
+        }
+
+        private void DebugDataConfig()
+        {
+            BotConfig = new BotConfig()
+            {
+                IsDualMode = false,
+                BotName = "Valerabot",
+                StreamName = "imshadowmafia",
+                BotColor = new BotColor() { RbgColor = new System.Windows.Media.SolidColorBrush(Color.FromRgb(255, 0, 0)), Color = ChatColorPresets.Red }
+            };
+            Auth = new AuthorizationConfig()
+            {
+                BotAuth = new AuthorizationInstance()
+                {
+                    Tokens = new TwitchAuthResponse()
+                    {
+                        AccessToken = "14w62vkkdthuymhe93y2k9ek3ly56r"
+                    }
+                },
+                StreamerAuth = new AuthorizationInstance()
+                {
+                    Tokens = new TwitchAuthResponse()
+                    {
+                        AccessToken = "14w62vkkdthuymhe93y2k9ek3ly56r"
+                    }
+                }
+            };
+            CoinConfig = new CoinSystemConfig()
+            {
+                StreamOfflineAccrualInterval = 5,
+                StreamOnlineAccrualInterval = 10,
+                IsEnabled = true,
+                CoinsName = "ShadowCoins",
+                CoinSystemCustomMode = false,
+                Unfollow = 5,
+                Follower = 10,
+                Subscriber = 20,
+            };
         }
     }
 }

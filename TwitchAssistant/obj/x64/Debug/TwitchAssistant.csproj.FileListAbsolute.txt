@@ -6,7 +6,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\chrom
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\d3dcompiler_47.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\devtools_resources.pak
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\icudtl.dat
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\libcef.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\libEGL.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\libGLESv2.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\locales\am.pak
@@ -109,3 +108,18 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\Mater
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\Tools.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\Newtonsoft.Json.xml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\DateBaseController.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\EntityFramework.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\EntityFramework.SqlServer.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\SQLite.CodeFirst.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\System.Data.SQLite.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\System.Data.SQLite.EF6.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\DateBaseController.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\DateBaseController.dll.config
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\EntityFramework.xml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\EntityFramework.SqlServer.xml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\System.Data.SQLite.xml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Debug\System.Data.SQLite.dll.config
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\Tests\AuthTests\AuthWindow.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\Tests\AuthTests\AuthWindow.baml

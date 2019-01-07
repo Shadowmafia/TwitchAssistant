@@ -25,6 +25,12 @@ namespace TwitchAuthortization
             _twitchClientSecret = ClientSecret;
             _twitchRedirectUri = RedirectUri;
         }
+
+        /// <summary>
+        /// This method starting http server and wait when user give access to him channel, afer method send reqest and return object with twitch tokens.
+        /// (return null if authorization error).
+        /// </summary>
+        /// <param name="callBack">TwitchAuthResponse this object with all twitch token</param>
         public void InitHttpServerAndWaitCallBack(Action<TwitchAuthResponse> callBack)
         {           
             Task.Run(() =>
@@ -46,6 +52,8 @@ namespace TwitchAuthortization
         /// <summary>
         /// You can acces tokens with out http server if you have twtich code
         /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public async Task<TwitchAuthResponse> TwitchAuthorizationApi(string code)
         {
 
@@ -62,7 +70,7 @@ namespace TwitchAuthortization
             try
             {
                 myAuthResponse = JsonConvert.DeserializeObject<TwitchAuthResponse>(await GetPostWeb.RequestAsync("https://api.twitch.tv/kraken/oauth2/token", "POST", postDataDictionary));
-                myAuthResponse.code = code;
+                myAuthResponse.Code = code;
             }
             catch 
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,12 @@ namespace TwitchAuthortization
     //to deserialize the oAuth access token
     public class TwitchAuthResponse
     {
-        
-        public string access_token { get; set; }
-        public string refresh_token { get; set; }     
-        public List<string> scope { get; set; }
-        public string code { get; set; }
+        [JsonProperty("access_token")]
+        public string AccessToken { get; set; }
+        [JsonProperty("refresh_token")]
+        public string RefreshToken { get; set; }
+        [JsonProperty("scope")]
+        public List<string> Scope { get; set; }
+        public string Code { get; set; }
     }
 }

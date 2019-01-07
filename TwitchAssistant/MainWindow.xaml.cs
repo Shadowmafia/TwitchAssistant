@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DateBaseController.Repositories.Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TwitchAssistant.Tests;
+using TwitchAssistant.Tests.AuthTests;
+using TwitchAssistant.Tests.DateBaseTest;
 using TwitchAuthortization;
 
 namespace TwitchAssistant
@@ -24,7 +28,9 @@ namespace TwitchAssistant
     {
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            // AuthorizatorTest.Instance.Test();
+            DateBaseTester.Instance.Test();
         }
     }
 }

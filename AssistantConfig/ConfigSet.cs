@@ -27,7 +27,7 @@ namespace AssistantConfig
             if (!File.Exists(ConfigFilePath))
             {
                 //true debug
-                Config.defaultConfig(false);
+                Config.DefaultConfig(false);
                 SaveConfig();
             }
             else
