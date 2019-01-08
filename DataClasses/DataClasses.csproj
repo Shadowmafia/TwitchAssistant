@@ -179,7 +179,7 @@
     <Compile Include="ConfigDataClasses\BotColor.cs" />
     <Compile Include="ConfigDataClasses\Point.cs" />
     <Compile Include="ConfigDataClasses\Size.cs" />
-    <Compile Include="Enums\AssistantConnectedState.cs" />
+    <Compile Include="Enums\TwitchBotConnectedState.cs" />
     <Compile Include="Enums\TwitchRangs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

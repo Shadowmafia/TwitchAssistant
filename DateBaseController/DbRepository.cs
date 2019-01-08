@@ -18,14 +18,14 @@ namespace DateBaseController.Repositories.Class
         private static object _repositoryLocker = new object();
 
         private List<Viewer> _viewers;
-        private List<MessageTimer> _timers;
+        private List<MessageTimer> _messageTimers;
         private List<DefaultCommand> _defaultCommands;
 
         
         private DbRepository()
         {
             _viewers = _dbContext.Viewers.ToList();
-            _timers = _dbContext.MessageTimers.ToList();
+            _messageTimers = _dbContext.MessageTimers.ToList();
             _defaultCommands = _dbContext.DefaultCommands.ToList();
         }
 
@@ -33,12 +33,10 @@ namespace DateBaseController.Repositories.Class
         {
             return _viewers;           
         }
-
         public List<MessageTimer> GetMessageTimers()
         {
-            return _timers;
+            return _messageTimers;
         }
-
         public List<DefaultCommand> GetDefaultCommands()
         {
             return _defaultCommands;
@@ -51,7 +49,9 @@ namespace DateBaseController.Repositories.Class
                 lock (_repositoryLocker)
                 {
                    
-                    _dbContext.DefaultCommands.AddRange(_defaultCommands.ToList());
+                    _dbContext.DefaultCommands.AddOrUpdate(_defaultCommands.ToArray());
+                    _dbContext.Viewers.AddOrUpdate(_viewers.ToArray());
+                    _dbContext.MessageTimers.AddOrUpdate(_messageTimers.ToArray());
                     _dbContext.SaveChanges();
                 }
                

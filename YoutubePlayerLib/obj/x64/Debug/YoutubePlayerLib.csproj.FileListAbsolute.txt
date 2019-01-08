@@ -290,7 +290,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\chro
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\d3dcompiler_47.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\devtools_resources.pak
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\icudtl.dat
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\libcef.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\libEGL.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\libGLESv2.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\bin\x64\Debug\locales\am.pak
