@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\App.xaml
-2-557399263
+61704980883
 
-13-350677285
-29-385646095
-MainWindow.xaml;Tests\AuthTests\AuthWindow.xaml;
+34626056411
+1731939249487
+MainWindow.xaml;UserInterface\Windows\AuthBrowserWindow.xaml;Player\PlayerSettings\PlayerSettingsView.xaml;Player\PlayerView.xaml;Player\SettingsWindow\PlayerSettingsWindow.xaml;Tests\AuthTests\AuthWindow.xaml;
 
-False
+True
 

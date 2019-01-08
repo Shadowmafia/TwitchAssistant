@@ -1,23 +1,10 @@
-﻿using DateBaseController.Repositories.Class;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using TwitchAssistant.Tests;
+using AssistantConfig;
 using TwitchAssistant.Tests.AuthTests;
-using TwitchAssistant.Tests.DateBaseTest;
+using TwitchAssistant.TwitchBot;
 using TwitchAuthortization;
+using TwitchMiniChat;
 
 namespace TwitchAssistant
 {
@@ -30,7 +17,41 @@ namespace TwitchAssistant
         {
             InitializeComponent();
             // AuthorizatorTest.Instance.Test();
-            DateBaseTester.Instance.Test();
+            // DateBaseTester.Instance.Test();
+            //Authorizator auth = new Authorizator("st6xynr6cw85jt6qaz0muqjf4km1k7", "8ljxrb0fx7koj8p6igs2l4cp62jhrf", "http://localhost:8080/twitch/callback");
+            //AuthWindow authWindow = new AuthWindow();
+            //authWindow.BrowserUri = AuthorizatorTester.Instance.GetAuthUri();
+            //authWindow.Show();
+
+            //ConfigSet.Config.BotConfig.IsDualMode = false;
+            //auth.InitHttpServerAndWaitCallBack((TwitchAuthResponse) =>
+            //    {                
+            //        ConfigSet.Config.Auth.StreamerAuth.Tokens = TwitchAuthResponse;
+            //        ConfigSet.Config.Auth.BotAuth.Tokens = TwitchAuthResponse;
+
+            //    });
+            //ConfigSet.Config.BotConfig.IsDualMode = false;
+            //GlobalObjects.Player.PlayerLoaded();
+            ConfigSet.Config.BotConfig.IsDualMode = true;
+            Task.Run(() =>
+            {
+                TwitchApiController.AuthApiController("st6xynr6cw85jt6qaz0muqjf4km1k7");
+                TwitchBotGlobalObjects.Bot = new Bot();
+                TwitchBotGlobalObjects.StreamUpDownChecker = new PubSub();
+            });
+
+           MiniChatWindow miniChatWindow = new MiniChatWindow();
+           miniChatWindow.Show();
+        }
+
+        private void Window_Closed(object sender, System.EventArgs e)
+        {
+            //App.Current.Dispatcher.Invoke(() =>
+            //{
+            //    GlobalObjects.Player.PlayerClosed();
+            //    ConfigSet.SaveConfig();
+            //});
+            
         }
     }
 }

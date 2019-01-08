@@ -14,7 +14,11 @@ namespace TwitchAssistant
     /// </summary>
     public partial class App : Application
     {
-        
+    
     }
-
+    public static class AppTwitchTokens
+    {
+        public const string TwitchClientId = "st6xynr6cw85jt6qaz0muqjf4km1k7";
+        public const string TwitchClientSecret = "8ljxrb0fx7koj8p6igs2l4cp62jhrf";
+    }
 }

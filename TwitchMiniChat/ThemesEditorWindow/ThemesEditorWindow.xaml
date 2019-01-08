@@ -1,0 +1,100 @@
+﻿<Window x:Class="TwitchMiniChat.ThemesEditorWindow.ThemesEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"     
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:themesEditorControls="clr-namespace:TwitchMiniChat.ThemesEditorWindow.ThemesEditorControls"
+        AllowsTransparency="True"
+        WindowStyle="None"
+     
+        Title="Themes Editor"
+        Style="{StaticResource CustomWindowStyle}"         
+        Topmost="True"
+        d:DesignWidth="354" d:DesignHeight="427" MinWidth="100" MinHeight="200" Width="320" Height="350">
+
+
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Closed">
+                <i:InvokeCommandAction Command="{Binding EditorClosedCommand}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+    <Window.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="/CustomWindowTemplate;component/AllTemplates.xaml" />
+                <ResourceDictionary>
+
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.DeepPurple.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+
+                    <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="{StaticResource Primary100}"/>
+                    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="{StaticResource Primary100Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource Primary500}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{StaticResource Primary500Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="{StaticResource Primary700}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{StaticResource Primary700Foreground}"/>
+
+                </ResourceDictionary>
+
+                <!-- secondary colour -->
+                <ResourceDictionary>
+                    <!-- include your secondary pallette -->
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Yellow.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+
+                    <!-- include a single secondary accent color (and the associated forecolour) -->
+                    <SolidColorBrush x:Key="SecondaryAccentBrush" Color="{StaticResource Accent200}"/>
+                    <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="{StaticResource Accent200Foreground}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="SettingsAnimation" TargetType="Grid">
+                <Setter Property="Opacity" Value="0" />
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     To="1" Duration="0:0:1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     To="0" Duration="0:0:1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Name="Body">
+        <StackPanel  Width="270" Panel.ZIndex="1">
+            <StackPanel Cursor="Hand" HorizontalAlignment="Center" Orientation="Horizontal" Background="{DynamicResource PrimaryHueMidBrush}">
+                <ListView>
+                    <Label FontWeight="Bold">User editor</Label>
+                </ListView>
+                <Separator></Separator>
+                <ListView>
+                    <Label FontWeight="Bold">Themes &amp; Code editor</Label>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+        <!--<themesEditorControls:UserMiniChatEditorView></themesEditorControls:UserMiniChatEditorView>-->
+    </Grid>
+</Window>

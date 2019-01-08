@@ -11,7 +11,13 @@
     <SolidColorBrush x:Key="WindowButtonOverColor" Color="#424242"/>
     <SolidColorBrush x:Key="WindowButtonPressedColor" Color="#303030"/>
 
- 
+    <LinearGradientBrush x:Key="OrangeBrush" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        <GradientStop Color="#FFD69016"/>
+        <GradientStop Color="#FFD6511E" Offset="0.747"/>
+        <GradientStop Color="#FF9B330D" Offset="0.807"/>
+    </LinearGradientBrush>
+
+
     <templateLogic:WindowMinimizeCommand x:Key="MinimizeCommand"></templateLogic:WindowMinimizeCommand>
     <templateLogic:WindowMaximizeCommand x:Key="MaximizeCommand"></templateLogic:WindowMaximizeCommand>
     <templateLogic:WindowCloseCommand x:Key="CloseCommand"></templateLogic:WindowCloseCommand>

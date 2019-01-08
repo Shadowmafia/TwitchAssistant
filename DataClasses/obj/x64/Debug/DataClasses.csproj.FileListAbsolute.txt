@@ -138,3 +138,9 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\Serilog.x
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\Serilog.Extensions.Logging.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\Tools.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\DateBaseController.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\EntityFramework.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\SQLite.CodeFirst.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\DateBaseController.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\DateBaseController.dll.config
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Debug\EntityFramework.xml

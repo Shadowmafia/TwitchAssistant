@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using System.Data.Entity.Validation;
 using System.Linq;
 using DateBaseController.Context;
 using DateBaseController.Models;
 using Tools;
 
-namespace DateBaseController.Repositories.Class
+namespace DateBaseController
 {
     public class DbRepository : SingletonBaseTemplate<DbRepository>
     {
@@ -20,8 +17,7 @@ namespace DateBaseController.Repositories.Class
         private List<Viewer> _viewers;
         private List<MessageTimer> _messageTimers;
         private List<DefaultCommand> _defaultCommands;
-
-        
+       
         private DbRepository()
         {
             _viewers = _dbContext.Viewers.ToList();

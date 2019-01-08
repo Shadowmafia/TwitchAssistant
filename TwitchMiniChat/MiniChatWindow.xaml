@@ -1,0 +1,180 @@
+﻿<Window x:Class="TwitchMiniChat.MiniChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+        mc:Ignorable="d"     
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+    
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        AllowsTransparency="True"
+        WindowStyle="None"
+     
+        Title="Mini chat"
+        Style="{Binding ChatStyle}"             
+        Topmost="{Binding Topmost}"
+     
+        Width="{Binding Width,Mode=TwoWay}" Height="{Binding Height,Mode=TwoWay}"
+        Top="{Binding Top,Mode=TwoWay}" Left="{Binding Left,Mode=TwoWay}" d:DesignWidth="354" d:DesignHeight="427">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+                <ResourceDictionary Source="/CustomWindowTemplate;component/AllTemplates.xaml" />
+                <ResourceDictionary>
+
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.DeepPurple.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+
+                    <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="{StaticResource Primary100}"/>
+                    <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="{StaticResource Primary100Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="{StaticResource Primary500}"/>
+                    <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="{StaticResource Primary500Foreground}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="{StaticResource Primary700}"/>
+                    <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="{StaticResource Primary700Foreground}"/>
+
+                </ResourceDictionary>
+
+                <!-- secondary colour -->
+                <ResourceDictionary>
+                    <!-- include your secondary pallette -->
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/MaterialDesignColor.Yellow.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+
+                    <!-- include a single secondary accent color (and the associated forecolour) -->
+                    <SolidColorBrush x:Key="SecondaryAccentBrush" Color="{StaticResource Accent200}"/>
+                    <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="{StaticResource Accent200Foreground}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="SettingsAnimation" TargetType="Grid">
+                <Setter Property="Opacity" Value="0" />
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="True">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     To="1" Duration="0:0:1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                     To="0" Duration="0:0:1" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding ChatLoadedCommand}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding ChatClosedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseEnter">
+                <i:InvokeCommandAction Command="{Binding ShowChatSettingsCommand}"/>
+            </i:EventTrigger>
+            <i:EventTrigger EventName="MouseLeave">
+                <i:InvokeCommandAction Command="{Binding ShowChatSettingsCommand}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
+        <cefSharp:ChromiumWebBrowser Margin="-2,0,0,0" Name="ChatBrowser" Address="{Binding ChatRequestUrl}"  Panel.ZIndex="1"/>
+        <Grid IsEnabled="False" Name="ChatSettingsElement"  Style="{DynamicResource SettingsAnimation}" Width="25" Height="25" Background="#00008000" Panel.ZIndex="100"  ToolTip="Right click for chat settings" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="Settings"  Height="25" Width="25"></materialDesign:PackIcon>
+            <Grid.ContextMenu>
+                <ContextMenu  Name="ContextMenu" >
+
+                    <MenuItem StaysOpenOnClick="True">
+                        <MenuItem.Header>
+                            <StackPanel  Margin="-25,0,-25,0" Cursor="Hand" HorizontalAlignment="Center" Orientation="Horizontal" >
+                                <Label >Unlock/Lock</Label>
+                                <ToggleButton IsChecked="{Binding IsLocked}" ></ToggleButton>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding LockUnlockChatCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+
+                    <MenuItem StaysOpenOnClick="True">
+                        <MenuItem.Header>
+                            <StackPanel  Margin="-25,0,-25,0" Cursor="Hand" HorizontalAlignment="Center" Orientation="Horizontal" >
+                                <Label >Topmost</Label>
+                                <ToggleButton IsChecked="{Binding Topmost}" ></ToggleButton>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding TopmostCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+
+                    <MenuItem StaysOpenOnClick="True">
+                        <MenuItem.Header>
+                            <StackPanel  Margin="-20,0,-20,0" Cursor="Hand" HorizontalAlignment="Center" Orientation="Horizontal" >
+                                <Label >Unusable/Usable</Label>
+                                <ToggleButton IsChecked="{Binding ChatUsage}"></ToggleButton>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding UsabelUnusableCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+
+                    <MenuItem StaysOpenOnClick="True">
+                        <MenuItem.Header>
+                            <StackPanel  Margin="-25,0,-25,0" Cursor="Hand" HorizontalAlignment="Center" Orientation="Horizontal" >
+                                <Label >Input &amp; Settings</Label>
+                                <ToggleButton IsChecked="{Binding ChatSettingsAndInput}" ></ToggleButton>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding OnnOffSettingsAndInputCommand}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </StackPanel>
+                        </MenuItem.Header>
+                    </MenuItem>
+
+                    <MenuItem Cursor="Hand" HorizontalAlignment="Center"  Margin="-20,0,-20,0">
+                        <MenuItem.Header>
+                            <Label HorizontalAlignment="Center">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding StartThemesEditor}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                                Themes editor
+                            </Label>
+                        </MenuItem.Header>
+                    </MenuItem>
+                </ContextMenu>
+            </Grid.ContextMenu>
+        </Grid>
+        <Grid Visibility="{Binding LayoutVisibility}" Name="UsebleLayout" Background="#00008000" Panel.ZIndex="2"/>
+    </Grid>
+</Window>

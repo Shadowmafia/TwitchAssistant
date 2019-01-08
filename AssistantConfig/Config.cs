@@ -122,26 +122,26 @@ namespace AssistantConfig
                 {
                     Tokens = new TwitchAuthResponse()
                     {
-                        AccessToken = "14w62vkkdthuymhe93y2k9ek3ly56r"
+                        AccessToken = "51o0g399yiaqsab1vde59kpba4f685"
                     }
                 },
                 StreamerAuth = new AuthorizationInstance()
                 {
                     Tokens = new TwitchAuthResponse()
                     {
-                        AccessToken = "14w62vkkdthuymhe93y2k9ek3ly56r"
+                        AccessToken = "51o0g399yiaqsab1vde59kpba4f685"
                     }
                 }
             };
             CoinConfig = new CoinSystemConfig()
             {
-                StreamOfflineAccrualInterval = 5,
-                StreamOnlineAccrualInterval = 10,
+                StreamOfflineAccrualInterval = 1,
+                StreamOnlineAccrualInterval = 2,
                 IsEnabled = true,
                 CoinsName = "ShadowCoins",
                 CoinSystemCustomMode = false,
-                Unfollow = 5,
-                Follower = 10,
+                Unfollow = 10,
+                Follower = 15,
                 Subscriber = 20,
             };
         }
