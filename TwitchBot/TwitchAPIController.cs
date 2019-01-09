@@ -27,18 +27,18 @@ namespace TwitchBot
         public static TwitchAPI Api{get;set;}
         public static ChannelAuthed Channel;
 
-        public static void AuthApiController(string clientI,string accessToken)
+        public static void AuthApiController(string clientId)
         {          
             Api = new TwitchAPI();
-            Api.Settings.ClientId = clientI;
-            Api.Settings.AccessToken = accessToken;
+            Api.Settings.ClientId = clientId;
+            Api.Settings.AccessToken = ConfigSet.Config.Auth.StreamerAuth.Tokens.AccessToken;
             Channel = GetChanel().Result;
             ConfigSet.Config.BotConfig.StreamName = Channel.DisplayName;       
         }
         
         public static async Task<ChannelAuthed> GetChanel()
         {
-            ChannelAuthed chanel = await Api.V5.Channels.GetChannelAsync(Api.Settings.AccessToken);
+            ChannelAuthed chanel = await Api.V5.Channels.GetChannelAsync(ConfigSet.Config.Auth.StreamerAuth.Tokens.AccessToken);
             return chanel;
         }
 

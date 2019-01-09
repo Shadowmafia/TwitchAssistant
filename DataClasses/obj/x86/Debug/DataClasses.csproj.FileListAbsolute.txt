@@ -460,3 +460,7 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\CefSharp.
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\CefSharp.Core.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\CefSharp.Core.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\CefSharp.Core.xml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\MaterialDesignColors.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x86\Debug\MaterialDesignThemes.Wpf.xml

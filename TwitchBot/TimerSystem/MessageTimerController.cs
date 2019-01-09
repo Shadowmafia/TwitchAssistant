@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Timers;
 using DataClasses.Enums;
-using DateBaseController.Repositories.Class;
+using DateBaseController;
 using Tools;
 using Timer = System.Timers.Timer;
 

@@ -255,36 +255,12 @@
     <Compile Include="UserInterface\Windows\AuthBrowserWindow.xaml.cs">
       <DependentUpon>AuthBrowserWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Player\MyPlayer.cs" />
-    <Compile Include="Player\PlayerSaveObject.cs" />
-    <Compile Include="Player\PlayerSettings\PlayerSettingsView.xaml.cs">
-      <DependentUpon>PlayerSettingsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Player\PlayerSettings\PlayerSettingsViewModel.cs" />
-    <Compile Include="Player\PlayerView.xaml.cs">
-      <DependentUpon>PlayerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Player\SettingsWindow\PlayerSettingsWindow.xaml.cs">
-      <DependentUpon>PlayerSettingsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Player\Song.cs" />
     <Compile Include="Tests\AuthTests\AuthorizatorTester.cs" />
     <Compile Include="Tests\AuthTests\AuthWindow.xaml.cs">
       <DependentUpon>AuthWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tests\DateBaseTest\DateBaseTester.cs" />
     <Compile Include="Tests\ITest.cs" />
-    <Compile Include="TwitchBot\Bot.cs" />
-    <Compile Include="TwitchBot\CoinSystem\CoinSystem.cs" />
-    <Compile Include="TwitchBot\CoinSystem\ViewersController.cs" />
-    <Compile Include="TwitchBot\CommandsSystem\BotCommand.cs" />
-    <Compile Include="TwitchBot\CommandsSystem\CommandsController.cs" />
-    <Compile Include="TwitchBot\CommandsSystem\DefaultCommandsSet.cs" />
-    <Compile Include="TwitchBot\CommandsSystem\IBotCommand.cs" />
-    <Compile Include="TwitchBot\PubSub.cs" />
-    <Compile Include="TwitchBot\TimerSystem\MessageTimerController.cs" />
-    <Compile Include="TwitchBot\TwitchAPIController.cs" />
-    <Compile Include="TwitchBot\TwitchBotGlobalObjects.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -298,18 +274,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserInterface\Windows\AuthBrowserWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Player\PlayerSettings\PlayerSettingsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Player\PlayerView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Player\SettingsWindow\PlayerSettingsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -350,6 +314,10 @@
       <Project>{d6224718-3af0-4007-b253-99e6eed3673c}</Project>
       <Name>AssistantConfig</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AssitantPlayer\AssitantPlayer.csproj">
+      <Project>{0898255e-2a96-41e1-ba79-8d0ecc31ddba}</Project>
+      <Name>AssitantPlayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomWindowTemplate\CustomWindowTemplate.csproj">
       <Project>{c9b441d7-0837-45de-b2a8-fc9ff2383777}</Project>
       <Name>CustomWindowTemplate</Name>
@@ -370,6 +338,10 @@
       <Project>{12756DC0-861E-4BFA-98C0-D4714BDED7EA}</Project>
       <Name>TwitchAuthortization</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TwitchBot\TwitchBot.csproj">
+      <Project>{cc0a745d-a667-428f-8d32-e9a30c8cab0c}</Project>
+      <Name>TwitchBot</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TwitchMiniChat\TwitchMiniChat.csproj">
       <Project>{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}</Project>
       <Name>TwitchMiniChat</Name>
@@ -380,7 +352,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NoRefractorUi\" />
     <Folder Include="UserInterface\ViewModels\" />
     <Folder Include="UserInterface\Views\" />
   </ItemGroup>

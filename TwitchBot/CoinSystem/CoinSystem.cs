@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Timers;
 using AssistantConfig;
+using DateBaseController;
 using DateBaseController.Models;
-using DateBaseController.Repositories.Class;
 using Tools;
-using TwitchBot.TimerSystem;
 
 namespace TwitchBot.CoinSystem
 {
 
-    public class CoinSystem : SingletonBaseTemplate<MessageTimerController>
+    public class CoinSystem : SingletonBaseTemplate<CoinSystem>
     {
       
         public bool IsStarted { get; private set; }
@@ -22,7 +21,6 @@ namespace TwitchBot.CoinSystem
             _timer.Elapsed += AccrualCoins;
             _setInterval();
         }
-
         private void _setInterval()
         {
             _timer.Interval = _GetInterval() * 10 * 1000;
@@ -38,30 +36,6 @@ namespace TwitchBot.CoinSystem
                 return ConfigSet.Config.CoinConfig.StreamOfflineAccrualInterval;
             }
         }
-
-        public void Start()
-        {
-            if (!IsStarted && ConfigSet.Config.CoinConfig.IsEnabled)
-            {
-
-                try
-                {
-                    _setInterval();
-                    _timer.Start();
-                    IsStarted = true;
-                }
-                catch (Exception e)
-                {
-                    IsStarted = false;
-                }
-            }
-        }
-        public void Stop()
-        {
-            _timer.Start();
-        }
-
-
         private void AccrualCoins(object sender, ElapsedEventArgs e)
         {
             _timer.Stop();
@@ -74,7 +48,7 @@ namespace TwitchBot.CoinSystem
                     int accrualCounts;
                     watcher.WatchingTime = watcher.WatchingTime.Add(DateTime.Now - watcher.LastConnectToStream);
                     watcher.LastConnectToStream = DateTime.Now;
-                   
+
                     if (watcher.IsFollower)
                     {
                         accrualCounts = ConfigSet.Config.CoinConfig.Follower;
@@ -105,21 +79,32 @@ namespace TwitchBot.CoinSystem
             }
             _timer.Start();
         }
+
+        public void Start()
+        {
+            if (!IsStarted && ConfigSet.Config.CoinConfig.IsEnabled)
+            {
+
+                try
+                {
+                    _setInterval();
+                    _timer.Start();
+                    IsStarted = true;
+                }
+                catch (Exception e)
+                {
+                    IsStarted = false;
+                }
+            }
+        }
+        public void Stop()
+        {
+            _timer.Start();
+        }
+   
         public void AddCoins(Viewer user, int coins)
         {
             user.Coins += coins;
-        }
-        public bool PullOffCoins(Viewer user, int coins)
-        {
-            if (user.Coins - coins < 0)
-            {
-                return false;
-            }
-            else
-            {
-                user.Coins -= coins;
-            }
-            return true;
         }
         public bool SubtractCoins(Viewer user, int coins)
         {
@@ -136,6 +121,8 @@ namespace TwitchBot.CoinSystem
             }
             return true;
         }
+
+    
     }
 
 }

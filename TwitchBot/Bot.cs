@@ -2,8 +2,9 @@
 using System.Threading;
 using System.Windows;
 using AssistantConfig;
+using AssitantPlayer;
 using DataClasses.Enums;
-using DateBaseController.Repositories.Class;
+using DateBaseController;
 using TwitchBot.CoinSystem;
 using TwitchBot.CommandsSystem;
 using TwitchBot.TimerSystem;
@@ -22,12 +23,13 @@ namespace TwitchBot
         public string Channel { get; set; }
         public string BotName { get; }
 
+
         public Bot()
         {
             BotName = "tmpName";
             DbRepository.Instance.GetViewers();
-
             _viewersController = new ViewersController();
+
             try
             {
                 ConnectionCredentials credentials;
@@ -41,7 +43,7 @@ namespace TwitchBot
                 else
                 {
                     credentials = new ConnectionCredentials(BotName,ConfigSet.Config.Auth.StreamerAuth.Tokens.AccessToken);
-                    BotName = "@" + ConfigSet.Config.BotConfig.BotName;
+                    BotName = "@" + ConfigSet.Config.BotConfig.BotName + " : ";
                 }
                 Client = new TwitchClient();
                 Client.Initialize(credentials, ConfigSet.Config.BotConfig.StreamName);
@@ -62,9 +64,11 @@ namespace TwitchBot
             catch (Exception ex)
             {
                 MessageBox.Show("Bot constructor ex : incorrect bot name");
-            }         
+            }      
+            
         }
 
+ 
         private void Client_onDisconnected(object sender, OnDisconnectedEventArgs e)
         {
             MessageTimerController.Instance.Stop();
@@ -120,11 +124,19 @@ namespace TwitchBot
         }
         private void OnJoinedChannel(object sender, OnJoinedChannelArgs e)
         {
-            Client.SendMessage(e.Channel, $"{BotName} : Joined to chanel !");
+            MyPlayer.Instance.OnSongChanged += ChangedSongNotify;
+            Client.SendMessage(e.Channel, $"{BotName} Joined to chanel !");
         }
+        private static void ChangedSongNotify(object sender, Song e)
+        {
+            if (ConfigSet.Config.PlayerConfig.CurrentSongNotify)
+            {
+                TwitchBotGlobalObjects.Bot.SendMessage(MyPlayer.Instance.GetCurrentSongInfo());
+            }
+        }
+
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
-        {            
-            
+        {                        
             if (e.ChatMessage.Message[0] == '!')
             {
                 string commandName;
@@ -145,7 +157,7 @@ namespace TwitchBot
 
                 ThreadPool.QueueUserWorkItem((o) =>
                 {
-                    //bool result = DefaultCommandsSet.Commands.ExecuteCommandByName(e.ChatMessage, commandName, commandBody);
+                    bool result = DefaultCommandsSet.Commands.ExecuteCommandByName(e.ChatMessage, commandName, commandBody);
                 });
             }                    
         }

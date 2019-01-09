@@ -1,7 +1,5 @@
 ﻿
 using System.ComponentModel;
-using TwitchAssistant.Player;
-using TwitchAssistant.Player.PlayerSettings;
 
 namespace TwitchAssistant
 {
@@ -16,10 +14,7 @@ namespace TwitchAssistant
                 handler(null, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-
-        public static MyPlayer Player { get; set; }
-      
+     
         static GlobalObjects()
         {
    

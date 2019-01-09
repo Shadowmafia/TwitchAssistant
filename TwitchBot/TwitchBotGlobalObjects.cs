@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using DataClasses;
 using DataClasses.Enums;
-
 
 namespace TwitchBot
 {
@@ -56,5 +56,13 @@ namespace TwitchBot
             }
         }
 
+
+        static TwitchBotGlobalObjects()
+        {
+            ChanelData = new ChanelData();
+            Bot = null;
+            TwitchBotConnectedState = TwitchBotConnectedState.Disconnected;
+            IsStreamOnline = false;
+        }
     }
 }

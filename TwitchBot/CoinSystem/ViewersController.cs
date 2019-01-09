@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 using System.Windows;
+using DateBaseController;
 using DateBaseController.Models;
-using DateBaseController.Repositories.Class;
 using TwitchLib.Api.V5.Models.Channels;
 using TwitchLib.Client.Events;
 

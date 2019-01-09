@@ -1,0 +1,26 @@
+﻿<Window x:Class="AssitantPlayer.SettingsWindow.PlayerSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:playerSettings="clr-namespace:AssitantPlayer.PlayerSettings"
+        mc:Ignorable="d"
+
+        AllowsTransparency="True"
+        Style="{StaticResource CustomWindowStyle}"
+
+        Title="Player settings" Height="450" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+
+                <ResourceDictionary Source="/CustomWindowTemplate;component/AllTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+      </Window.Resources>
+    <Grid Background="{StaticResource MaterialDesignPaper}">
+        <playerSettings:PlayerSettingsView></playerSettings:PlayerSettingsView>
+    </Grid>
+</Window>
