@@ -487,4 +487,3 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\obj\x86\Debug\Yout
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\obj\x86\Debug\YoutubePlayerLib.csproj.CoreCompileInputs.cache
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\obj\x86\Debug\YoutubePlayerLib.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\obj\x86\Debug\YoutubePlayerLib.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerLib\obj\x86\Debug\YoutubePlayerLib.csprojAssemblyReference.cache

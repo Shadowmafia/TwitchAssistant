@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{2CC14981-2EE5-4A8A-8E36-A3D789DED6BB}"
 EndProject
@@ -169,10 +169,10 @@ Global
 		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Debug|x86.Build.0 = Debug|x86
 		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x64.ActiveCfg = Release|Any CPU
-		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x64.Build.0 = Release|Any CPU
-		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x86.ActiveCfg = Release|Any CPU
-		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x86.Build.0 = Release|Any CPU
+		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x64.ActiveCfg = Release|x64
+		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x64.Build.0 = Release|x64
+		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x86.ActiveCfg = Release|x86
+		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Release|x86.Build.0 = Release|x86
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Debug|x64.ActiveCfg = Debug|x64
@@ -181,10 +181,10 @@ Global
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Debug|x86.Build.0 = Debug|x86
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x64.ActiveCfg = Release|Any CPU
-		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x64.Build.0 = Release|Any CPU
-		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x86.ActiveCfg = Release|Any CPU
-		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x86.Build.0 = Release|Any CPU
+		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x64.ActiveCfg = Release|x64
+		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x64.Build.0 = Release|x64
+		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x86.ActiveCfg = Release|x86
+		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

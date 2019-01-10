@@ -1,0 +1,148 @@
+﻿<UserControl x:Class="TwitchAssistant.UserInterface.Views.GeneralControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:GO="clr-namespace:TwitchAssistant"
+             xmlns:twitchBot="clr-namespace:TwitchBot;assembly=TwitchBot"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="BotColorCmbTemplate">
+            <StackPanel Cursor="Hand"  Margin="0,-4,0,-5"  Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Circle" Width="16" Height="16"  Foreground="{Binding RbgColor}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+                <Label  Content="{Binding Color}" VerticalAlignment="Bottom" Foreground="{Binding RbgColor}" HorizontalAlignment="Center" FontSize="12"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <!--Connect Btn Triggers-->
+        <Style x:Key="connectBtnLabel" TargetType="Label">
+            <Setter Property="Content" Value="Connect"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Disconnected">
+                    <Setter Property="Content" Value="Connect" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Connected">
+                    <Setter Property="Content" Value="Disconnect" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Reconnect">
+                    <Setter Property="Content" Value="Reconnect..." />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="WaitConnect">
+                    <Setter Property="Content" Value="Please wait..." />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="connectBtnIcon" TargetType="materialDesign:PackIcon">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Disconnected">
+                    <Setter Property="Kind" Value="Network" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Connected">
+                    <Setter Property="Kind" Value="CloseNetwork" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="CheckBotStatusStackPanelOn" TargetType="Grid">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Disconnected">
+                    <Setter Property="Visibility" Value="Visible" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="WaitConnect">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Connected">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="CheckBotStatusStackPanelOFF" TargetType="Grid">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="Disconnected">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=(twitchBot:TwitchBotGlobalObjects.TwitchBotConnectedState)}" Value="WaitConnect">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid Style="{StaticResource CheckBotStatusStackPanelOn}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="0,-5,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel  HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Label Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">Bot port :</Label>
+                        <TextBox HorizontalContentAlignment="Center" Text="{Binding BotPort}" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" Width="80"></TextBox>
+                    </StackPanel>
+                    <Label Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="20">All bot configs</Label>
+                    <StackPanel Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                        <DockPanel HorizontalAlignment="Center" LastChildFill="False">
+                            <Label DockPanel.Dock="Left" FontWeight="Bold" Foreground="#FF905CEE"  FontSize="14" >Bot mode :</Label>
+                            <ToggleButton  DockPanel.Dock="Right" IsChecked="{Binding IsDualMode}" Margin="3,0,0,0"  Name="DualModeCheckBox"  Cursor="Hand"></ToggleButton>
+                        </DockPanel>
+
+                        <DockPanel HorizontalAlignment="Center" LastChildFill="False" Margin="0,10,0,0">
+                            <Label DockPanel.Dock="Left" FontWeight="Bold" Foreground="#FF905CEE"  FontSize="14" >Bot color :</Label>
+                            <ComboBox DockPanel.Dock="Right"  Cursor="Hand"  TextSearch.TextPath="Color" SelectedItem="{Binding BotColor}" ItemsSource="{Binding ColorsList}" ItemTemplate="{StaticResource BotColorCmbTemplate}" Margin="5,0,0,0"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Width="125" FontWeight="Bold">
+                            </ComboBox>
+                        </DockPanel>
+
+                    </StackPanel>
+                    <Label Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">Single mode</Label>
+                    <StackPanel Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                        <DockPanel HorizontalAlignment="Stretch" LastChildFill="False">
+                            <Label DockPanel.Dock="Left" FontWeight="Bold" Foreground="#FF905CEE"  FontSize="14" >Bot name :</Label>
+                            <TextBox DockPanel.Dock="Right" Text="{Binding BotName}"    Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Width="125" FontWeight="Bold"></TextBox>
+                        </DockPanel>
+
+                        <DockPanel HorizontalAlignment="Stretch" LastChildFill="False" Margin="0,10,0,0">
+                            <Label VerticalAlignment="Center" DockPanel.Dock="Left" FontWeight="Bold" Foreground="#FF905CEE"  FontSize="14" >Streamer OAuth :</Label>
+                            <Button VerticalAlignment="Center" DockPanel.Dock="Left" Command="{Binding BotAuthCommand}" HorizontalAlignment="Center" Margin="10,0,10,0" Height="35" >
+                                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                                    <Label Margin="0,-2,0,0" FontSize="16"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" >Get</Label>
+                                    <materialDesign:PackIcon Margin="0,5,0,0" Kind="Key" Height="20" Width="20" />
+                                </StackPanel>
+                            </Button>
+                            <TextBox VerticalAlignment="Center" DockPanel.Dock="Right" Text="{Binding StreamerOAuth}"  Margin="10,0,0,0"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Width="125" FontWeight="Bold" ></TextBox>
+                        </DockPanel>
+                    </StackPanel>
+                    <Label Margin="0,15,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">Dual mode</Label>
+                    <StackPanel Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                        <DockPanel  HorizontalAlignment="Stretch" LastChildFill="False" Margin="0,10,0,0">
+                            <Label VerticalAlignment="Center" DockPanel.Dock="Left" FontWeight="Bold" Foreground="#FF905CEE"  FontSize="14" >Bot OAuth :</Label>
+                            <Button VerticalAlignment="Center" DockPanel.Dock="Left" Command="{Binding StreamerAuthCommand}" HorizontalAlignment="Center" Margin="47,0,10,0" Height="35" >
+                                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                                    <Label Margin="0,-2,0,0" FontSize="16"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" >Get</Label>
+                                    <materialDesign:PackIcon Margin="0,5,0,0" Kind="Key" Height="20" Width="20" />
+                                </StackPanel>
+                            </Button>
+                            <TextBox Margin="10,0,0,0"  VerticalAlignment="Center" DockPanel.Dock="Right" Text="{Binding BotOAuth}"   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Width="125" FontWeight="Bold"></TextBox>
+                        </DockPanel>
+                        <DockPanel HorizontalAlignment="Stretch" LastChildFill="False" Margin="0,10,0,0">
+                            <Label DockPanel.Dock="Left" FontWeight="Bold" Foreground="#FF905CEE"  FontSize="14" >Chanel name to bot connect :</Label>
+                            <TextBox DockPanel.Dock="Right" Text="{Binding ChanelName}"   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Width="125" FontWeight="Bold"></TextBox>
+                        </DockPanel>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Style="{StaticResource CheckBotStatusStackPanelOFF}" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <Label Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="20">Disconnect for edit these settings</Label>
+                <Button Command="{Binding AssistantConnectCommand}" VerticalAlignment="Center" Panel.ZIndex="10" HorizontalAlignment="Center" Margin="10" Height="35">
+                    <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                        <Label Style="{DynamicResource connectBtnLabel}" Margin="0,-2,0,0" FontSize="16" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" ></Label>
+                        <materialDesign:PackIcon Style="{DynamicResource connectBtnIcon}"  Margin="5,0,0,0" Height="26" Width="26" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</UserControl>

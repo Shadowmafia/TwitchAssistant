@@ -1,24 +1,18 @@
-﻿
-using System.ComponentModel;
+﻿using TwitchAssistant.UserInterface.Windows;
+using TwitchAuthortization;
+using TwitchBot;
+using TwitchMiniChat;
 
 namespace TwitchAssistant
 {
-    public static class GlobalObjects 
+    public static class GlobalObjects
     {
-        public static event PropertyChangedEventHandler StaticPropertyChanged;
-        private static void OnStaticPropertyChanged(string propertyName)
-        {
-            var handler = StaticPropertyChanged;
-            if (handler != null)
-            {
-                handler(null, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-     
-        static GlobalObjects()
-        {
-   
+       
+        public static MiniChatWindow MiniChat = null;
+        public static Authorizator Authorizator = null;
+        public static AuthBrowserWindow AuthBrowser = null;
+        static GlobalObjects(){
+
         }
     }
- 
 }

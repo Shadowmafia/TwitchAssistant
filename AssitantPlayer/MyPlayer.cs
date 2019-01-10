@@ -17,14 +17,14 @@ using YoutubePlayerLib;
 
 namespace AssitantPlayer
 {
-    public class MyPlayer :SingletonBaseTemplate<MyPlayer>, INotifyPropertyChanged
+    public class MyPlayer : SingletonBaseTemplate<MyPlayer>, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
+       
         public event EventHandler<Song> OnSongChanged;
         protected virtual void OnOnSongChanged(Song e)
         {
@@ -32,7 +32,7 @@ namespace AssitantPlayer
         }
         private PlayerControl _player;
 
-      
+
         public ObservableCollection<Song> StreamerPlaylist { get; set; } = new ObservableCollection<Song>();
         private Song _lastStreamerSong;
         public Song LastStreamerSong
@@ -63,7 +63,7 @@ namespace AssitantPlayer
             get { return _currentSong; }
             set
             {
-                _currentSong = value;              
+                _currentSong = value;
                 OnPropertyChanged(nameof(CurrentSong));
                 OnOnSongChanged(value);
             }
@@ -80,7 +80,8 @@ namespace AssitantPlayer
         }
 
         private MyPlayer()
-        {                 
+        {
+       
             StreamerPlaylist.CollectionChanged += StreamerReindexSongs;
             ChatPlayList.CollectionChanged += ChatReindexSongs;
             //GlobalObjects.Player = this;
@@ -110,7 +111,7 @@ namespace AssitantPlayer
         }
 
         public void SetPlayerControl(PlayerControl player)
-        {
+        {        
             _player = player;
             _player.Player.bound.PlayerPlayingChanged += EndSongCheck;
         }
@@ -229,7 +230,7 @@ namespace AssitantPlayer
                 if (_player.Player.StartCommand.CanExecute(null))
                 {
                     _player.Player.StartCommand.Execute(null);
-                    Autoplay = ConfigSet.Config.PlayerConfig.Autoplay;                   
+                    Autoplay = ConfigSet.Config.PlayerConfig.Autoplay;
                 }
             }
 
@@ -263,7 +264,7 @@ namespace AssitantPlayer
         public void PlayNextSong()
         {
             bool nextChatSong = false;
-           
+
             if (ConfigSet.Config.PlayerConfig.ChatPlaylistOn)
             {
                 if (ChatPlayList.Count != 0)
@@ -291,9 +292,9 @@ namespace AssitantPlayer
                 nextChatSong = false;
             }
             if (StreamerPlaylist.Count != 0 && nextChatSong == false)
-            {              
+            {
                 int index = 1;
-                if (LastStreamerSong!=null)
+                if (LastStreamerSong != null)
                 {
                     if (LastStreamerSong.Index == StreamerPlaylist.Count)
                     {
@@ -305,7 +306,7 @@ namespace AssitantPlayer
                         Song tmp = StreamerPlaylist.First(song => song.Index == needindex);
                         index = tmp.Index;
                     }
-                }             
+                }
                 PlayStreamerSongByIndex(index);
             }
         }
@@ -530,7 +531,7 @@ namespace AssitantPlayer
                     item.IsSelected = false;
                 }
                 CurrentSong.IsSelected = true;
-           
+
             }
             else
             {
@@ -564,7 +565,7 @@ namespace AssitantPlayer
                     item.IsSelected = false;
                 }
                 CurrentSong.IsSelected = true;
-                            
+
             }
             else
             {
@@ -606,8 +607,11 @@ namespace AssitantPlayer
         public string AddChatSong(string idOrYoutubeLink, string viewer)
         {
             string resp = "";
+            //_player.Dispatcher.Invoke()
             //App.Current.Dispatcher.Invoke(() =>
             //{
+            _player.Dispatcher.Invoke(() =>
+            {
                 Song song = CreateSongById(idOrYoutubeLink);
                 if (song != null)
                 {
@@ -640,6 +644,8 @@ namespace AssitantPlayer
                 {
                     resp = "";
                 }
+            });
+
             //});
             return resp;
         }
@@ -649,6 +655,9 @@ namespace AssitantPlayer
             string resp = "";
             //App.Current.Dispatcher.Invoke(() =>
             //{
+            _player.Dispatcher.Invoke(() =>
+            {
+
                 Song song = CreateSongById(idOrYoutubeLink);
                 if (song != null)
                 {
@@ -671,13 +680,15 @@ namespace AssitantPlayer
                     {
                         ChatPlayList.Insert(LastChatSong.Index, song);
                     }
+
                     resp = $"song was added out of turn! you position in qeue : '{qeuePosition}'";
                 }
                 else
                 {
                     resp = "";
                 }
-           // });
+            });
+            // });
             return resp;
         }
 
@@ -700,7 +711,7 @@ namespace AssitantPlayer
             return resp;
         }
 
-      
+
         //GetPlaylist in strings 
         public string GetStreamerPlaylistInfo()
         {
@@ -727,6 +738,6 @@ namespace AssitantPlayer
         }
 
 
-     
+
     }
 }

@@ -190,6 +190,7 @@
     <Compile Include="Enums\TwitchBotConnectedState.cs" />
     <Compile Include="Enums\TwitchRangs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIDataClasses\StreamGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -5,7 +5,7 @@ using SQLite.CodeFirst;
 
 namespace DateBaseController.Context
 {
-    public class TwitchAssistantModelInitializer : SqliteDropCreateDatabaseAlways<TwitchAssistantContext>
+    public class TwitchAssistantModelInitializer : SqliteCreateDatabaseIfNotExists<TwitchAssistantContext>
     {
         public TwitchAssistantModelInitializer(DbModelBuilder modelBuilder) : base(modelBuilder)
         {

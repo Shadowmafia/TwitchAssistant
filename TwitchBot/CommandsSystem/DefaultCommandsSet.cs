@@ -129,7 +129,6 @@ namespace TwitchBot.CommandsSystem
         {
            
             string playerResponse = "empty";
-
             try
             {
                 if (ConfigSet.Config.PlayerConfig.ChatPlaylistOn)

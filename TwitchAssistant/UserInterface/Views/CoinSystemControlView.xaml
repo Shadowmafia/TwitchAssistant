@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="TwitchAssistant.UserInterface.Views.CoinSystemControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-15,0,0">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">Coin system on :</Label>
+                <CheckBox IsChecked="{Binding CoinSystemOn}" Cursor="Hand" Name="CoinSystemStateCheckBox" VerticalAlignment="Center" Margin="5,5,0,0"></CheckBox>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,0">
+                <Label Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">Coins name :</Label>
+                <TextBox HorizontalContentAlignment="Center" Text="{Binding CoinsName}" Width="100" Cursor="Hand"  VerticalAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" Margin="5,5,0,0"></TextBox>
+            </StackPanel>
+            <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="16" Margin="0,5,0,0">Coin system Mode</Label>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Label FontSize="14">Twitch rangs</Label>
+                <ToggleButton  Margin="5,0,5,0" Name="CoinSystemModeToggle" Cursor="Hand"></ToggleButton>
+                <Label FontSize="14">Custom rangs</Label>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Name="TwitchRangsMode" Grid.Column="0" Margin="5">
+                    <StackPanel MinWidth="130">
+                        <DockPanel>
+                            <Label Foreground="#FF905CEE" FontWeight="Bold">Rang name</Label>
+                            <materialDesign:PackIcon Width="20" Height="20" Kind="Coin" HorizontalAlignment="Center" Margin="21,3,0,0" VerticalAlignment="Center"   Foreground="{DynamicResource MaterialDesignDarkForeground}" ></materialDesign:PackIcon>
+                        </DockPanel>
+                        <StackPanel VerticalAlignment="Center">
+
+                            <DockPanel>
+                                <Label  HorizontalAlignment="Left">Unfollow</Label>
+                                <TextBox Text="{Binding Unfollow}" HorizontalContentAlignment="Center" Name="UnfollowTB" HorizontalAlignment="Right" Width="35" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"></TextBox>
+                            </DockPanel>
+
+                            <DockPanel>
+                                <Label HorizontalAlignment="Left">Follower</Label>
+                                <TextBox Text="{Binding Follower}" HorizontalContentAlignment="Center" Name="FolloweTB" HorizontalAlignment="Right" Width="35" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"></TextBox>
+                            </DockPanel>
+
+                            <DockPanel>
+                                <Label HorizontalAlignment="Left">Subscriber</Label>
+                                <TextBox Text="{Binding Subscriber}" HorizontalContentAlignment="Center" Name="SubscriberTB" HorizontalAlignment="Right" Width="35" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"></TextBox>
+                            </DockPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid IsEnabled="False" Name="CustomRangsMode" Grid.Column="1" Margin="30,5,5,5">
+                    <StackPanel VerticalAlignment="Center">
+                        <DockPanel>
+                            <Label Foreground="#FF905CEE" FontWeight="Bold">Select ranking Set</Label>
+                        </DockPanel>
+                        <ComboBox></ComboBox>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <StackPanel Margin="0,5,0,0">
+                <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">Accrual timer</Label>
+                <Label HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#3eb247">Stream online</Label>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Foreground="#FF905CEE" FontWeight="Bold">Accural interval</Label>
+                    <TextBox Text="{Binding OnlineInterval}" HorizontalContentAlignment="Center" Name="AcOnlineMinets" Width="35" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"></TextBox>
+                    <Label>minets.</Label>
+                </StackPanel>
+
+                <Label Margin="0,5,0,0" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="#cf1717">Stream offline</Label>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Foreground="#FF905CEE" FontWeight="Bold">Accural interval</Label>
+                    <TextBox Text="{Binding OfflineInterval}" HorizontalContentAlignment="Center" Name="AcOfflineMinets" Width="35" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"></TextBox>
+                    <Label>minets.</Label>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -43,14 +43,12 @@ namespace DateBaseController
             try
             {                           
                 lock (_repositoryLocker)
-                {
-                   
+                {               
                     _dbContext.DefaultCommands.AddOrUpdate(_defaultCommands.ToArray());
                     _dbContext.Viewers.AddOrUpdate(_viewers.ToArray());
                     _dbContext.MessageTimers.AddOrUpdate(_messageTimers.ToArray());
                     _dbContext.SaveChanges();
-                }
-               
+                }               
             }
             catch (Exception e)
             {    

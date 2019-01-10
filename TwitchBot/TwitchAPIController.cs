@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Threading.Tasks;
 using AssistantConfig;
 using Tools;
@@ -105,6 +106,15 @@ namespace TwitchBot
            return  await Api.V5.Streams.BroadcasterOnlineAsync(Channel.Id);
         }
 
+
+        public static string CheckAccessToken(string accessToken)
+        {
+            NameValueCollection headers = new NameValueCollection();
+            headers.Add("Authorization", $"OAuth {accessToken}");
+            string response = GetPostWeb.Request("https://id.twitch.tv/oauth2/validate", "GET", "", null,
+                headers);
+            return response;
+        }
     }
  
 }

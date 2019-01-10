@@ -2,14 +2,14 @@
 using System.ComponentModel;
 using DataClasses;
 using DataClasses.Enums;
+using Tools;
 
 namespace TwitchBot
 {
     public static class TwitchBotGlobalObjects
     {
-
-        public static event PropertyChangedEventHandler StaticPropertyChanged;
-
+    
+        public static event PropertyChangedEventHandler StaticPropertyChanged;    
         private static void OnStaticPropertyChanged(string propertyName)
         {
             var handler = StaticPropertyChanged;
@@ -19,7 +19,14 @@ namespace TwitchBot
             }
         }
 
-        //public static MyPlayer Player { get; set; }
+        static TwitchBotGlobalObjects()
+        {
+            ChanelData = new ChanelData();
+            Bot = null;
+            TwitchBotConnectedState = TwitchBotConnectedState.Disconnected;
+            IsStreamOnline = false;
+        }
+
         public static Bot Bot { get; set; }
         public static PubSub StreamUpDownChecker { get; set; }
         public static ChanelData ChanelData { get; set; }
@@ -57,12 +64,6 @@ namespace TwitchBot
         }
 
 
-        static TwitchBotGlobalObjects()
-        {
-            ChanelData = new ChanelData();
-            Bot = null;
-            TwitchBotConnectedState = TwitchBotConnectedState.Disconnected;
-            IsStreamOnline = false;
-        }
+     
     }
 }

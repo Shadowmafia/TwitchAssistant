@@ -138,6 +138,11 @@ namespace Tools
             }
         }
 
+        public static Task<string> RequestAsync(string v1, string v2, string v3, object p, NameValueCollection headers)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Raise exceptions relevant to this HttpWebResponse -- EG, to signal that our oauth token has expired.
         /// </summary>

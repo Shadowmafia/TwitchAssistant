@@ -6,6 +6,7 @@ namespace Tools
 
     public class SingletonBaseTemplate<T> where T : class
     {
+
         /// <summary>The one and only instance of the Singleton class.</summary>
         private static readonly Lazy<T> _instance = new Lazy<T>(
             () => (T)typeof(T).

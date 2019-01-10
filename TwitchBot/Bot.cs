@@ -16,7 +16,7 @@ using TwitchLib.Communication.Events;
 
 namespace TwitchBot
 {
-    public class Bot
+    public class Bot 
     {
         private readonly ViewersController _viewersController;
         public TwitchClient Client { get;}
@@ -83,6 +83,14 @@ namespace TwitchBot
             Client.Disconnect();
             TwitchBotGlobalObjects.TwitchBotConnectedState = TwitchBotConnectedState.Disconnected;
             MessageBox.Show($"Disconnected");
+            try
+            {
+                MyPlayer.Instance.OnSongChanged -= ChangedSongNotify;
+            }
+            catch
+            {
+                // ignored
+            }
         }
         private void Client_OnConnected(object sender, OnConnectedArgs e)
         {
@@ -93,6 +101,18 @@ namespace TwitchBot
             Client.ChangeChatColor(ConfigSet.Config.BotConfig.StreamName, ConfigSet.Config.BotConfig.BotColor.Color);
             TwitchBotGlobalObjects.TwitchBotConnectedState = TwitchBotConnectedState.Connected;
             Channel = e.AutoJoinChannel;
+        }
+        private void OnJoinedChannel(object sender, OnJoinedChannelArgs e)
+        {
+            MyPlayer.Instance.OnSongChanged += ChangedSongNotify;
+            Client.SendMessage(e.Channel, $"{BotName} Joined to chanel !");
+        }
+        private static void ChangedSongNotify(object sender, Song e)
+        {
+            if (ConfigSet.Config.PlayerConfig.CurrentSongNotify)
+            {
+                TwitchBotGlobalObjects.Bot.SendMessage(MyPlayer.Instance.GetCurrentSongInfo());
+            }
         }
         private void Client_OnConnectedError(object sender, OnConnectionErrorArgs e)
         {
@@ -122,18 +142,8 @@ namespace TwitchBot
         {
             MessageBox.Show("New subscriber!!!");
         }
-        private void OnJoinedChannel(object sender, OnJoinedChannelArgs e)
-        {
-            MyPlayer.Instance.OnSongChanged += ChangedSongNotify;
-            Client.SendMessage(e.Channel, $"{BotName} Joined to chanel !");
-        }
-        private static void ChangedSongNotify(object sender, Song e)
-        {
-            if (ConfigSet.Config.PlayerConfig.CurrentSongNotify)
-            {
-                TwitchBotGlobalObjects.Bot.SendMessage(MyPlayer.Instance.GetCurrentSongInfo());
-            }
-        }
+   
+    
 
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {                        
