@@ -5,10 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:uiConverters="clr-namespace:TwitchAssistant.UIConverters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.Resources>
+            <uiConverters:DateToWatchingTimeConverter x:Key="WatchingTimeConverter"/>
             <DropShadowEffect x:Key="ButtonEffect" Color="#FFD67619" RenderingBias="Quality" BlurRadius="40" Direction="0"/>
             <DataTemplate   x:Key="StreamerSongTempplate">
                 <CheckBox></CheckBox>
@@ -52,7 +54,7 @@
             <DataGrid.Columns>
                 <materialDesign:MaterialDataGridTextColumn Header="Name" Binding="{Binding Path=Username}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Coins" Binding="{Binding Path=Coins}"/>
-                <materialDesign:MaterialDataGridTextColumn Header="Watching time" Binding="{Binding Path=WatchingTime}"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Watching time" Binding="{Binding Path=WatchingTime,Converter={StaticResource WatchingTimeConverter}}"/>
                 <DataGridCheckBoxColumn   Header="Follower"  Binding="{Binding Path=IsFollower}"/>
                 <DataGridCheckBoxColumn  Header="Subscriber" Binding="{Binding Path=IsSubscriber}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Last user connect to stream" Binding="{Binding Path=LastConnectToStream}"/>

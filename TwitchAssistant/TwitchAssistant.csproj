@@ -253,6 +253,7 @@
     </ApplicationDefinition>
     <Compile Include="GlobalObjects.cs" />
     <Compile Include="UIConverters\DateToWatchingTimeConverter.cs" />
+    <Compile Include="UIConverters\TicksToTimeSpanConverter.cs" />
     <Compile Include="UserInterface\CompositeViews\SettingsControlView.xaml.cs">
       <DependentUpon>SettingsControlView.xaml</DependentUpon>
     </Compile>

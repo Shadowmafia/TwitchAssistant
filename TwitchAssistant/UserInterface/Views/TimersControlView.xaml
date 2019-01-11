@@ -6,9 +6,11 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:dd="urn:gong-wpf-dragdrop"
+             xmlns:uiConverters="clr-namespace:TwitchAssistant.UIConverters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        <uiConverters:TicksToTimeSpanConverter x:Key="TimeSpanConverter"/>
         <DataTemplate x:Key="TimerItemTemplate">
             <materialDesign:Card Padding="10,0,10,10" Margin="16">
                 <DockPanel  LastChildFill="True" HorizontalAlignment="Stretch">
@@ -16,7 +18,7 @@
                         <StackPanel Margin="0,0,0,0" DockPanel.Dock="Left">
                             <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="16">interval</Label>
                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                                <TextBox Text="{Binding Interval}" LostFocus="UIElement_OnLostFocus"  MinWidth="20"  FontWeight="Bold"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" HorizontalContentAlignment="Center" Margin="0,0,0,0">
+                                <TextBox Text="{Binding Interval,Converter={StaticResource TimeSpanConverter}}" LostFocus="UIElement_OnLostFocus"  MinWidth="20"  FontWeight="Bold"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" HorizontalContentAlignment="Center" Margin="0,0,0,0">
                                     
                                 </TextBox>
                             </StackPanel>
@@ -34,6 +36,7 @@
                 </DockPanel>
             </materialDesign:Card>
         </DataTemplate>
+       
     </UserControl.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">

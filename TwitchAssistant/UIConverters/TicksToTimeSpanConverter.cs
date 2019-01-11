@@ -8,27 +8,31 @@ using System.Windows.Data;
 
 namespace TwitchAssistant.UIConverters
 {
-    public class DateToWatchingTimeConverter:IValueConverter
+    public class TicksToTimeSpanConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var watchingTime = value as DateTime?;      
-            if (watchingTime == null)
+            var ticks = (long?)value;
+            if (ticks == null)
             {
-                return "";
+                return new TimeSpan();
             }
-            DateTime? startingPoint = new DateTime();
-            TimeSpan different =  watchingTime.Value.Subtract(startingPoint.Value);
-            return $"{different.Days} days {different:hh\\:mm\\:ss} hours";
+            return new TimeSpan((long)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return new DateTime();
+            string x = value as string;
+            TimeSpan time;
+            if (TimeSpan.TryParse(x, out time))
+            {
+                return time.Ticks;
+            }
+            else
+            {
+                return  new TimeSpan();
+            }
+           
         }
-
     }
-
-
- 
 }

@@ -695,14 +695,10 @@ namespace AssitantPlayer
         public string GetCurrentSongInfo()
         {
             string resp;
-            string custnomer = CurrentSong.Viewer;
-            if (custnomer == null)
-            {
-                custnomer = " Broadcaster ";
-            }
+            string customer = CurrentSong.Viewer ?? " Broadcaster ";
             if (CurrentSong != null)
             {
-                resp = $"Curent song : ' {CurrentSong.Title} '.    \n Link : {CurrentSong.YoutubeLink} .      \n Сustomer : {custnomer}";
+                resp = $"Current song : ' {CurrentSong.Title} '.    \n Link : {CurrentSong.YoutubeLink} .      \n Customer : {customer}";
             }
             else
             {

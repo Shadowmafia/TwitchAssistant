@@ -63,7 +63,6 @@
                                 </Grid>
                             </VisualBrush.Visual>
                         </VisualBrush>
-                        <!--<ImageBrush ImageSource="{Binding Image}"/>-->
                     </Button.Background>
                     <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}"  VerticalAlignment="Center" Width="20" Height="20">
                         <materialDesign:PackIcon.Resources>
@@ -96,6 +95,7 @@
                 </Button>
             </DockPanel>
         </DataTemplate>
+        
         <DataTemplate   x:Key="ChatSongTemplate">
             <DockPanel Tag="{Binding Index}" Background="#02FF0000"  HorizontalAlignment="Stretch" LastChildFill="False" MouseLeftButtonDown="PlayChatSongDocPanel">
 
