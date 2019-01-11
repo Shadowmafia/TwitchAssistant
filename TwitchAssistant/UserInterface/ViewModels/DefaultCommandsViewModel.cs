@@ -2,7 +2,7 @@
 using Tools.MVVMBaseClasses;
 using TwitchBot.CommandsSystem;
 
-namespace TwitchAssistant.NoRefarcatorUi.BotCommandsControl.DefaultCommandsControl
+namespace TwitchAssistant.UserInterface.ViewModels
 {
     class DefaultCommandsViewModel:ViewModelBase
     {

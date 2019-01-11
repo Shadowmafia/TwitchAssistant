@@ -12,7 +12,7 @@
         xmlns:assitantPlayer="clr-namespace:AssitantPlayer;assembly=AssitantPlayer"
         xmlns:twitchBot="clr-namespace:TwitchBot;assembly=TwitchBot"
         xmlns:views="clr-namespace:TwitchAssistant.UserInterface.Views"
-        xmlns:settingsControl="clr-namespace:TwitchAssistant.UserInterface.RootWindow.RootWindowUserControls.SettingsControl"
+        xmlns:compositeViews="clr-namespace:TwitchAssistant.UserInterface.CompositeViews"
         mc:Ignorable="d"
         Title="Twitch Assistant" Name="RootWindowViev" Height="500" Width="850" Background="{DynamicResource MaterialDesignPaper}" Loaded="RootWindowView_OnLoaded" Closed="RootWindowView_OnClosed">
     
@@ -43,7 +43,7 @@
                 <views:UsersGridView></views:UsersGridView>
             </TabItem>
             <TabItem Header="Settings">
-                <settingsControl:SettingsControlView></settingsControl:SettingsControlView>
+                <compositeViews:SettingsControlView></compositeViews:SettingsControlView>
             </TabItem>
 
         </dragablz:TabablzControl>

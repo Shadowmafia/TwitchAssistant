@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace TwitchAssistant.NoRefarcatorUi.BotCommandsControl
+namespace TwitchAssistant.UserInterface.CompositeViews
 {
     /// <summary>
     /// Логика взаимодействия для BotCommandsControlView.xaml

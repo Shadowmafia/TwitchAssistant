@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace TwitchAssistant.UserInterface.RootWindow.RootWindowUserControls.SettingsControl
+namespace TwitchAssistant.UserInterface.CompositeViews
 {
     /// <summary>
     /// Логика взаимодействия для SettingsControlView.xaml

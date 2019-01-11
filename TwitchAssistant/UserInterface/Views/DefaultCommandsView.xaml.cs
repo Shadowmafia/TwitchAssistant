@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
+using TwitchAssistant.UserInterface.ViewModels;
 
-namespace TwitchAssistant.NoRefarcatorUi.BotCommandsControl.DefaultCommandsControl
+namespace TwitchAssistant.UserInterface.Views
 {
     /// <summary>
     /// Логика взаимодействия для DefailtCommandsView.xaml

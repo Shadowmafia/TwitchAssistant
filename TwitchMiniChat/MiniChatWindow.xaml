@@ -104,7 +104,7 @@
         <Grid IsEnabled="False" Name="ChatSettingsElement"  Style="{DynamicResource SettingsAnimation}" Width="25" Height="25" Background="#00008000" Panel.ZIndex="100"  ToolTip="Right click for chat settings" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="Settings"  Height="25" Width="25"></materialDesign:PackIcon>
             <Grid.ContextMenu>
-                <ContextMenu  Name="ContextMenu" >
+                <ContextMenu>
 
                     <MenuItem StaysOpenOnClick="True">
                         <MenuItem.Header>

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media.Imaging;
 
-namespace TwitchAssistant.UserInterface.RootWindow.RootWindowUserControls.ConfigControl.Model
+namespace DataClasses.UIDataClasses
 {
     public class StreamGame
     {
