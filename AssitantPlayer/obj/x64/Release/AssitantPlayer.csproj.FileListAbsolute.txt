@@ -133,3 +133,4 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Release\Assi
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Release\AssitantPlayer.csproj.CopyComplete
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Release\AssitantPlayer.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Release\AssitantPlayer.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x64\Release\libcef.dll

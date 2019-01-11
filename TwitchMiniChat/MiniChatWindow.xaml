@@ -4,11 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
         mc:Ignorable="d"     
-        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
     
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:awe="http://schemas.awesomium.com/winfx"
+        xmlns:cefSharp="clr-namespace:CefSharp;assembly=CefSharp.Core"
+        xmlns:wpf="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+
         AllowsTransparency="True"
         WindowStyle="None"
      
@@ -86,7 +89,7 @@
             <i:InvokeCommandAction Command="{Binding ChatClosedCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
+   
     <Grid>
         
         <i:Interaction.Triggers>
@@ -97,8 +100,7 @@
                 <i:InvokeCommandAction Command="{Binding ShowChatSettingsCommand}"/>
             </i:EventTrigger>
         </i:Interaction.Triggers>
-
-        <cefSharp:ChromiumWebBrowser Margin="-2,0,0,0" Name="ChatBrowser" Address="{Binding ChatRequestUrl}"  Panel.ZIndex="1"/>
+        <wpf:ChromiumWebBrowser Name="ConnectBrowser" Address="{Binding ChatRequestUrl}"/>
         <Grid IsEnabled="False" Name="ChatSettingsElement"  Style="{DynamicResource SettingsAnimation}" Width="25" Height="25" Background="#00008000" Panel.ZIndex="100"  ToolTip="Right click for chat settings" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="Settings"  Height="25" Width="25"></materialDesign:PackIcon>
             <Grid.ContextMenu>

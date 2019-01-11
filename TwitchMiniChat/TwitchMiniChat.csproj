@@ -8,7 +8,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}</ProjectGuid>
+    <ProjectGuid>{0D57A706-6837-49A0-9175-BFDF7711FD3D}</ProjectGuid>
     <OutputType>library</OutputType>
     <RootNamespace>TwitchMiniChat</RootNamespace>
     <AssemblyName>TwitchMiniChat</AssemblyName>
@@ -37,6 +37,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
@@ -59,13 +77,12 @@
     <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1284, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.2.5.1-ci1284\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1286, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.1-ci1286\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -103,32 +120,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MiniChatWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ThemesEditorWindow\ThemesEditorWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="MiniChatWindow.xaml.cs">
-      <DependentUpon>MiniChatWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MiniChatViewModel.cs" />
-    <Compile Include="ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorView.xaml.cs">
-      <DependentUpon>UserMiniChatEditorView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorViewModel.cs" />
-    <Compile Include="ThemesEditorWindow\ThemesEditorModel.cs" />
-    <Compile Include="ThemesEditorWindow\ThemesEditorWindow.xaml.cs">
-      <DependentUpon>ThemesEditorWindow.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -142,6 +133,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="MiniChatViewModel.cs" />
+    <Compile Include="MiniChatWindow.xaml.cs">
+      <DependentUpon>MiniChatWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorView.xaml.cs">
+      <DependentUpon>UserMiniChatEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorViewModel.cs" />
+    <Compile Include="ThemesEditorWindow\ThemesEditorModel.cs" />
+    <Compile Include="ThemesEditorWindow\ThemesEditorWindow.xaml.cs">
+      <DependentUpon>ThemesEditorWindow.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -154,8 +157,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MiniChatWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ThemesEditorWindow\ThemesEditorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\AssistantConfig\AssistantConfig.csproj">
-      <Project>{D6224718-3AF0-4007-B253-99E6EED3673C}</Project>
+      <Project>{d6224718-3af0-4007-b253-99e6eed3673c}</Project>
       <Name>AssistantConfig</Name>
     </ProjectReference>
     <ProjectReference Include="..\CustomWindowTemplate\CustomWindowTemplate.csproj">
@@ -163,7 +180,7 @@
       <Name>CustomWindowTemplate</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataClasses\DataClasses.csproj">
-      <Project>{76CCE549-B4CB-4349-9ECF-587670CD3380}</Project>
+      <Project>{76cce549-b4cb-4349-9ecf-587670cd3380}</Project>
       <Name>DataClasses</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tools\Tools.csproj">

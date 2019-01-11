@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using System.Windows.Media;
 using AssistantConfig;
-using CefSharp;
+//using CefSharp;
 using Tools.MVVMBaseClasses;
 
 namespace TwitchMiniChat.ThemesEditorWindow.ThemesEditorControls
@@ -53,7 +53,7 @@ namespace TwitchMiniChat.ThemesEditorWindow.ThemesEditorControls
             chatElements[2].setAttribute('style', 'background:rgba(255,255,255,0) !important');
             ";
 
-            _miniChatWindow.ChatBrowser.ExecuteScriptAsync(changeColorScript);
+           // _miniChatWindow.ChatBrowser.ExecuteScriptAsync(changeColorScript);
         }
 
         private ICommand _defaultSettingsCommand;
@@ -68,7 +68,7 @@ namespace TwitchMiniChat.ThemesEditorWindow.ThemesEditorControls
         private void DefaultSettings()
         {
             BgColor = Color.FromArgb(255, 239, 238, 241);
-            _miniChatWindow.ChatBrowser.Reload();
+           // _miniChatWindow.ChatBrowser.Reload();
         }
     }
 }

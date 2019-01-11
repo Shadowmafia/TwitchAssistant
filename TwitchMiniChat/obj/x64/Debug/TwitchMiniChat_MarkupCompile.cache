@@ -8,13 +8,13 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\obj\x64\Debug\
 TwitchMiniChat
 none
 false
-
+DEBUG;TRACE
 
 3-986074842
 
-13-472666829
-31-1692894885
+936949012
+30968404852
 MiniChatWindow.xaml;ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorView.xaml;ThemesEditorWindow\ThemesEditorWindow.xaml;
 
-True
+False
 

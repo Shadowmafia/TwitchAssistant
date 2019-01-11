@@ -302,3 +302,4 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Debug\
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Debug\YoutubePlayerExample.csproj.CopyComplete
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Debug\YoutubePlayerExample.exe
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Debug\YoutubePlayerExample.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\bin\x64\Debug\libcef.dll

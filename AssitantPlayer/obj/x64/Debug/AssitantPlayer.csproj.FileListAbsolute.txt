@@ -134,3 +134,4 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Debug\Settin
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Debug\SettingsWindow\PlayerSettingsWindow.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Debug\PlayerControl.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x64\Debug\PlayerControl.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x64\Debug\libcef.dll

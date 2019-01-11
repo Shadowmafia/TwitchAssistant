@@ -195,3 +195,4 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Releas
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Release\YoutubePlayerExample.csproj.CoreCompileInputs.cache
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Release\YoutubePlayerExample.csproj.CopyComplete
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\obj\x64\Release\YoutubePlayerExample.exe
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\YoutubePlayerExample\bin\x64\Release\libcef.dll

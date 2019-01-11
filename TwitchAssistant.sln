@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28407.52
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{2CC14981-2EE5-4A8A-8E36-A3D789DED6BB}"
 EndProject
@@ -25,11 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWindowTemplate", "Cus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseController", "DateBaseController\DataBaseController.csproj", "{85B8DFC9-DB83-4B08-A71A-DFD7D2822F63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchMiniChat", "TwitchMiniChat\TwitchMiniChat.csproj", "{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssitantPlayer", "AssitantPlayer\AssitantPlayer.csproj", "{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchBot", "TwitchBot\TwitchBot.csproj", "{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwitchMiniChat", "TwitchMiniChat\TwitchMiniChat.csproj", "{0D57A706-6837-49A0-9175-BFDF7711FD3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,18 +149,6 @@ Global
 		{85B8DFC9-DB83-4B08-A71A-DFD7D2822F63}.Release|x64.Build.0 = Release|x64
 		{85B8DFC9-DB83-4B08-A71A-DFD7D2822F63}.Release|x86.ActiveCfg = Release|x86
 		{85B8DFC9-DB83-4B08-A71A-DFD7D2822F63}.Release|x86.Build.0 = Release|x86
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Debug|x64.ActiveCfg = Debug|x64
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Debug|x64.Build.0 = Debug|x64
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Debug|x86.ActiveCfg = Debug|x86
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Debug|x86.Build.0 = Debug|x86
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Release|x64.ActiveCfg = Release|x64
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Release|x64.Build.0 = Release|x64
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Release|x86.ActiveCfg = Release|x86
-		{6663CDA3-34F8-4E7A-8911-4D4CAC8A2A36}.Release|x86.Build.0 = Release|x86
 		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0898255E-2A96-41E1-BA79-8D0ECC31DDBA}.Debug|x64.ActiveCfg = Debug|x64
@@ -185,6 +173,18 @@ Global
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x64.Build.0 = Release|x64
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x86.ActiveCfg = Release|x86
 		{CC0A745D-A667-428F-8D32-E9A30C8CAB0C}.Release|x86.Build.0 = Release|x86
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Debug|x64.ActiveCfg = Debug|x64
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Debug|x64.Build.0 = Debug|x64
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Debug|x86.ActiveCfg = Debug|x86
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Debug|x86.Build.0 = Debug|x86
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Release|x64.ActiveCfg = Release|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Release|x64.Build.0 = Release|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D57A706-6837-49A0-9175-BFDF7711FD3D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

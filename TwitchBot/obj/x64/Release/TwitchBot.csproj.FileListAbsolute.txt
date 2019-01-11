@@ -239,3 +239,4 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\obj\x64\Release\TwitchBot
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\obj\x64\Release\TwitchBot.csproj.CopyComplete
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\obj\x64\Release\TwitchBot.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\obj\x64\Release\TwitchBot.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\bin\x64\Release\libcef.dll
