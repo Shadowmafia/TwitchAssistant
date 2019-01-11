@@ -50,7 +50,7 @@ namespace AssitantPlayer
         }
         private void PlayStreamerSongDocPanel(object sender, MouseButtonEventArgs e)
         {
-            int index = Int32.Parse(((DockPanel)sender).Tag.ToString());
+            int index = Int32.Parse(((Grid)sender).Tag.ToString());
             MyPlayer.Instance.PlayStreamerSongByIndex(index);
         }
 
@@ -61,7 +61,7 @@ namespace AssitantPlayer
         }
         private void PlayChatSongDocPanel(object sender, MouseButtonEventArgs e)
         {
-            int index = Int32.Parse(((DockPanel)sender).Tag.ToString());
+            int index = Int32.Parse(((Grid)sender).Tag.ToString());
             MyPlayer.Instance.PlayChatSongByIndex(index);
         }
         private void AddToStreamerPlaylist(object sender, RoutedEventArgs e)

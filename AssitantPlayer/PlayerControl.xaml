@@ -25,10 +25,17 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        <DataTemplate   x:Key="StreamerSongTemplate">
-            <DockPanel Background="#02FF0000" Tag="{Binding Index}" HorizontalAlignment="Stretch" LastChildFill="False" MouseLeftButtonDown="PlayStreamerSongDocPanel">
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Index}" Margin="5,10,10,10" VerticalAlignment="Center"/>
-                <Button Tag="{Binding Index}" DockPanel.Dock="Left"   HorizontalAlignment="Left" Margin="10,5,5,5" Click="PlayStreamerSong">
+        <DataTemplate  x:Key="StreamerSongTemplate">
+            <Grid Background="#02FF0000" Tag="{Binding Index}" Margin="0,0,0,0" HorizontalAlignment="Stretch" MouseLeftButtonDown="PlayStreamerSongDocPanel">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Name="SongIndex" Width="18"/>
+                    <ColumnDefinition Name="PlayButton" Width="65"/>
+                    <ColumnDefinition Name="SongName" Width="*"/>
+                    <ColumnDefinition Name="RightSideBt1" Width="40"/>
+                    <ColumnDefinition Name="RightSidebt2" Width="43"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Index}" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <Button Tag="{Binding Index}" Grid.Column="1"   HorizontalAlignment="Center"  Margin="10,5,0,5" Click="PlayStreamerSong">
                     <Button.Resources>
                         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
                             <Setter Property="BorderBrush" Value="{x:Null}" />
@@ -82,25 +89,30 @@
                         </materialDesign:PackIcon.Resources>
                     </materialDesign:PackIcon>
                 </Button>
-                <TextBlock Width="100"  DockPanel.Dock="Left" Text="{Binding Title}" Margin="10,0" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"></TextBlock>
-
-
-                <Button Tag="{Binding Index}" DockPanel.Dock="Right"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="DeleteSongStreamerPlaylist">
+                <TextBlock Grid.Column="2" ToolTip="{Binding Title}"  Text="{Binding Title}" Margin="15,0" VerticalAlignment="Center" HorizontalAlignment="Left"  TextTrimming="CharacterEllipsis"></TextBlock>
+                <Button Tag="{Binding Index}"  Grid.Column="3"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="DeleteSongStreamerPlaylist">
                     <materialDesign:PackIcon Kind="Delete" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" VerticalAlignment="Center" Width="20" Height="20">
                     </materialDesign:PackIcon>
                 </Button>
-                <Button Tag="{Binding Index}" DockPanel.Dock="Right"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="CopySongLinkStreamerPlaylist">
+                <Button Tag="{Binding Index}" Grid.Column="4"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="CopySongLinkStreamerPlaylist">
                     <materialDesign:PackIcon Kind="ContentCopy" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" VerticalAlignment="Center" Width="20" Height="20">
                     </materialDesign:PackIcon>
                 </Button>
-            </DockPanel>
-        </DataTemplate>
-        
-        <DataTemplate   x:Key="ChatSongTemplate">
-            <DockPanel Tag="{Binding Index}" Background="#02FF0000"  HorizontalAlignment="Stretch" LastChildFill="False" MouseLeftButtonDown="PlayChatSongDocPanel">
 
-                <TextBlock DockPanel.Dock="Left" Text="{Binding Index}" Margin="5,10,10,10" VerticalAlignment="Center"/>
-                <Button Tag="{Binding Index}" DockPanel.Dock="Left"   HorizontalAlignment="Left" Margin="10,5,5,5" Click="PlayChatSong">
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate   x:Key="ChatSongTemplate">
+            <Grid Tag="{Binding Index}" Background="#02FF0000"  HorizontalAlignment="Stretch" MouseLeftButtonDown="PlayChatSongDocPanel">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Name="SongIndex" Width="18"/>
+                    <ColumnDefinition Name="PlayButton" Width="65"/>
+                    <ColumnDefinition Name="SongName" Width="*"/>
+                    <ColumnDefinition Name="RightSideBt1" Width="40"/>
+                    <ColumnDefinition Name="RightSidebt2" Width="43"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="{Binding Index}" HorizontalAlignment="Center" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <Button Tag="{Binding Index}" Grid.Column="1"   HorizontalAlignment="Center"  Margin="10,5,0,5" Click="PlayChatSong">
                     <Button.Resources>
                         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
                             <Setter Property="BorderBrush" Value="{x:Null}" />
@@ -156,14 +168,14 @@
                         </materialDesign:PackIcon.Resources>
                     </materialDesign:PackIcon>
                 </Button>
-                <TextBlock Width="100"  DockPanel.Dock="Left" Text="{Binding Title}" Margin="10,0" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"></TextBlock>
+                <TextBlock Grid.Column="2" ToolTip="{Binding Title}"  Text="{Binding Title}" Margin="15,0" VerticalAlignment="Center" HorizontalAlignment="Left"  TextTrimming="CharacterEllipsis"></TextBlock>
 
-                <Button Tag="{Binding Index}" DockPanel.Dock="Right"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="AddToStreamerPlaylist">
+                <Button Tag="{Binding Index}" Grid.Column="3"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0" Click="AddToStreamerPlaylist">
                     <materialDesign:PackIcon Kind="Plus" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" VerticalAlignment="Center" Width="20" Height="20">
                     </materialDesign:PackIcon>
                 </Button>
 
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Tag="{Binding Index}"  DockPanel.Dock="Right"  Background="{x:Null}" BorderBrush="{x:Null}"  Margin="0,0,0,0" Click="OpenContextMenu">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Tag="{Binding Index}"  Grid.Column="4"  Background="{x:Null}" BorderBrush="{x:Null}"  Margin="0,0,0,0" Click="OpenContextMenu">
                     <Button.ContextMenu>
                         <ContextMenu>
                             <MenuItem Tag="{Binding Path=PlacementTarget.Tag, RelativeSource={RelativeSource AncestorType=ContextMenu}}" Cursor="Hand">
@@ -210,7 +222,7 @@
                     </Button.ContextMenu>
                     <materialDesign:PackIcon Kind="DotsHorizontal" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" VerticalAlignment="Center" Width="20" Height="20"></materialDesign:PackIcon>
                 </Button>
-            </DockPanel>
+            </Grid>
         </DataTemplate>
     </UserControl.Resources>
     <Grid Background="{DynamicResource MaterialDesignPaper}">
@@ -243,7 +255,8 @@
                     </Button>
                 </StackPanel>
                 <materialDesign:Card VerticalAlignment="Stretch" Margin="0,40,0,0">
-                    <ListBox dd:DragDrop.IsDragSource = " True" dd:DragDrop.IsDropTarget ="True" SelectedItem="{Binding LastStreamerSong}" ItemsSource="{Binding StreamerPlaylist}"  ItemTemplate="{StaticResource StreamerSongTemplate}" VerticalAlignment="Top"  Margin="5" Foreground="LightSteelBlue">
+                    
+                        <ListBox dd:DragDrop.IsDragSource = " True" dd:DragDrop.IsDropTarget ="True" MinHeight="100" SelectedItem="{Binding LastStreamerSong}" ItemsSource="{Binding StreamerPlaylist}"  ItemTemplate="{StaticResource StreamerSongTemplate}" VerticalAlignment="Top"  Margin="4,5,5,5" Foreground="LightSteelBlue">
                         <ListBox.Resources>
                             <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesignListBoxItem}" >
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -256,7 +269,8 @@
                             </Style>
                         </ListBox.Resources>
                     </ListBox>
-                </materialDesign:Card>
+               
+                    </materialDesign:Card>
             </Grid>
             <Grid Row="1">
                 <StackPanel  VerticalAlignment="Top" HorizontalAlignment="Center" Orientation="Horizontal">
@@ -273,7 +287,7 @@
 
                 </StackPanel>
                 <materialDesign:Card VerticalAlignment="Stretch" Margin="0,35,0,0">
-                    <ListBox MinHeight="100" dd:DragDrop.IsDragSource ="True" dd:DragDrop.IsDropTarget ="True" SelectedItem="{Binding LastChatSong}" ItemsSource="{Binding ChatPlayList}"  ItemTemplate="{StaticResource ChatSongTemplate}" VerticalAlignment="Top"  Margin="5" Foreground="LightSteelBlue">
+                    <ListBox MinHeight="100" dd:DragDrop.IsDragSource ="True" dd:DragDrop.IsDropTarget ="True" SelectedItem="{Binding LastChatSong}" ItemsSource="{Binding ChatPlayList}"  ItemTemplate="{StaticResource ChatSongTemplate}" VerticalAlignment="Top"  Margin="4,5,5,5" Foreground="LightSteelBlue">
                         <ListBox.Resources>
                             <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesignListBoxItem}" >
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
