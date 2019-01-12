@@ -10,14 +10,10 @@ namespace TwitchMiniChat.ThemesEditorWindow
     {
         public ThemesEditorWindow(MiniChatWindow miniChatWindow)
         {                 
-            this.DataContext= new ThemesEditorModel();        
-           //miniChatEditor.TO      
+            this.DataContext= new ThemesEditorModel();           
             InitializeComponent();
             UserMiniChatEditorView miniChatEditor = new UserMiniChatEditorView(miniChatWindow);
             Body.Children.Add(miniChatEditor);
-
-        }
-
-      
+        }      
     }
 }

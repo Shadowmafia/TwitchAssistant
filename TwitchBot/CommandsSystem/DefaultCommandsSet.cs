@@ -35,6 +35,7 @@ namespace TwitchBot.CommandsSystem
 
             (AssistantDb.Instance.DefaultCommands.GetAll()).ToList().AddRange(userCommands);
             AssistantDb.Instance.SaveChanges();
+
         }
         private static void InitUserCommands()
         {
@@ -389,6 +390,7 @@ namespace TwitchBot.CommandsSystem
                 }
             }
             CommandMessage(user.Username, result, command);
+
         }
         private static void sayHello(ChatMessage user, string body, BotCommand command)
         {

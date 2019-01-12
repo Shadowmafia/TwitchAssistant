@@ -22,15 +22,7 @@ namespace TwitchBot.CommandsSystem
         }
 
         public bool RemoveCommand(string commandName)
-        {
-            //if (CommandList.Remove(command => command.Name == commandName) > 0)
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}          
+        {          
             return true;
         }
 

@@ -15,7 +15,6 @@ namespace TwitchMiniChat.ThemesEditorWindow
                 return _editorClosedCommand ?? (_editorClosedCommand = new Command((arg) => EditorClosed()));
             }
         }
-
         private void EditorClosed()
         {
             ConfigSet.SaveConfig();

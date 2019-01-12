@@ -54,7 +54,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\Twitc
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Windows\AuthBrowserWindow.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\App.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Windows\AuthBrowserWindow.g.cs
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\Tests\AuthTests\AuthWindow.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\App.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant_MarkupCompile.cache
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant_MarkupCompile.lref
@@ -287,7 +286,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x86\Debug\ro\Xc
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x86\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x86\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x86\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\Tests\AuthTests\AuthWindow.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant.g.resources
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant.Properties.Resources.resources
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant.csproj.GenerateResource.cache
