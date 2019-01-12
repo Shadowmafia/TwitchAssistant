@@ -18,8 +18,8 @@ namespace TwitchMiniChat
             this.DataContext = new MiniChatViewModel(this);
             InitializeComponent();
            // ChatBrowser.Source = $"https://www.twitch.tv/popout/{ ConfigSet.Config.BotConfig.StreamName }/chat?popout=";
-             // ChatBrowser.MenuHandler = new MyCustomMenuHandler();
-          //   ChatBrowser.BrowserSettings.BackgroundColor = 0x00;
+            ChatBrowser.MenuHandler = new MyCustomMenuHandler();
+            ChatBrowser.BrowserSettings.BackgroundColor = 0x00;
         }
 
       

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using AssistantConfig;
-
+using CefSharp;
 using Tools.MVVMBaseClasses;
 using TwitchMiniChat.ThemesEditorWindow;
 using TwitchMiniChat.ThemesEditorWindow.ThemesEditorControls;
@@ -11,10 +11,10 @@ namespace TwitchMiniChat
     public class MiniChatViewModel : ViewModelBase
     {
         private MiniChatWindow _miniChatWindow;
-
+        private AppearanceJavaScriptsExecuter _javaScriptsExecuter;
         public  MiniChatViewModel(MiniChatWindow miniChatWindow)
         {
-            _miniChatWindow = miniChatWindow;
+            _miniChatWindow = miniChatWindow;          
         }
         private bool _isBrowserLoaded =false;
         //Browser settings___________________________________________________
@@ -78,7 +78,7 @@ namespace TwitchMiniChat
                 ConfigSet.Config.MiniChatConfig.ChatSettingsAndInput = value;
                 if (_isBrowserLoaded)
                 {
-                    ExecuteChatShowHideScript();
+                    ShowHideInputAndSettings();
                 }            
                 OnPropertyChanged(nameof(ChatSettingsAndInput));
             }
@@ -128,7 +128,6 @@ namespace TwitchMiniChat
                 OnPropertyChanged(nameof(ChatStyle));
             }
         }
-
         private void LoadLock()
         {     
                 if (IsLocked)
@@ -184,20 +183,26 @@ namespace TwitchMiniChat
         private void LoadSettings()
         {
             LoadLock();
+            _javaScriptsExecuter = new AppearanceJavaScriptsExecuter(_miniChatWindow.ChatBrowser);
             ChatUsage = ConfigSet.Config.MiniChatConfig.ChatUsage;
             ChatRequestUrl = $"https://www.twitch.tv/popout/{ ConfigSet.Config.BotConfig.StreamName }/chat?popout=";
 
-            //_miniChatWindow.ChatBrowser.LoadingStateChanged += (sender, args) =>
-            //{
-            //    _isBrowserLoaded = false;
-            //    //Wait for the Page to finish loading
-            //    if (args.IsLoading == false)
-            //    {
-            //        _isBrowserLoaded = true;
-            //        ExecuteChatShowHideScript();
-            //        PreparationForBackground();
-            //    }
-            //};
+            _miniChatWindow.ChatBrowser.LoadingStateChanged += (sender, args) =>
+            {
+                _isBrowserLoaded = false;
+                //Wait for the Page to finish loading
+                if (args.IsLoading == false)
+                {
+                    _isBrowserLoaded = true;
+                    if (!ChatSettingsAndInput)
+                    {
+                        _javaScriptsExecuter.HideChatSettingsAndInputScriptWithDeley();
+                    }
+                    _javaScriptsExecuter.PreparationForBackGround();
+                    UserMiniChatEditorViewModel tmp = new UserMiniChatEditorViewModel(_miniChatWindow);
+                    tmp.ChangeBackgroundColor();
+                }
+            };
 
         }
 
@@ -265,84 +270,18 @@ namespace TwitchMiniChat
         {          
             ChatSettingsAndInput = !ChatSettingsAndInput;
         }
-        private void ExecuteChatShowHideScript()
+        private void ShowHideInputAndSettings()
         {
-            //string hideScript = @"         
-            //var chatHeader = document.getElementsByClassName('room-selector__open-header-wrapper');
-            //for (i = 0; i < chatHeader.length; i++) {
-            //   chatHeader[i].style.display = 'none';
-            //};
-            //var chatHeaderClosed = document.getElementsByClassName('room-selector__header');
-            //for (i = 0; i < chatHeaderClosed.length; i++) {
-            //    chatHeaderClosed[i].classList.remove('tw-flex');
-            //    chatHeaderClosed[i].style.display = 'none';
-            //};
-            //var roomPicker = document.getElementsByClassName('room-picker');
-            //for (i = 0; i < roomPicker.length; i++) {
-            //    roomPicker[i].style.display = 'none';
-            //};
-            //var chatInput = document.getElementsByClassName('chat-input');
-            //for (i = 0; i < chatInput.length; i++) {
-            //    chatInput[i].classList.remove('tw-block');
-            //    chatInput[i].style.display = 'none';
-            //};
-            //";
-            //string showScript = @"
-            //var chatHeader = document.getElementsByClassName('room-selector__open-header-wrapper');
-            //for (i = 0; i < chatHeader.length; i++) {
-            //   chatHeader[i].style.display = 'block';
-            //};
-            //var chatHeaderClosed = document.getElementsByClassName('room-selector__header');
-            //for (i = 0; i < chatHeaderClosed.length; i++) {
-            //    chatHeaderClosed[i].classList.add('tw-flex');
-            //    chatHeaderClosed[i].style.display = 'block';
-            //};
-            //var roomPicker = document.getElementsByClassName('room-picker');
-            //for (i = 0; i < roomPicker.length; i++) {
-            //    roomPicker[i].style.display = 'block';
-            //};
-            //var chatInput = document.getElementsByClassName('chat-input');
-            //for (i = 0; i < chatInput.length; i++) {
-            //    chatInput[i].classList.add('tw-block');
-            //    chatInput[i].style.display = 'block';
-            //};
-            //";
-            //if (ChatSettingsAndInput)
-            //{
-            //    _miniChatWindow.ChatBrowser.ExecuteScriptAsync(showScript);
-            //}
-            //else
-            //{
+            if (ChatSettingsAndInput)
+            {
+                _javaScriptsExecuter.ShowChatSettingsAndInputScript();
+            }
+            else
+            {
+                _javaScriptsExecuter.HideChatSettingsAndInputScript();
 
-            //    _miniChatWindow.ChatBrowser.ExecuteScriptAsync(hideScript);
-            //}
-        }
-  
-        private void PreparationForBackground()
-        {
-            string changeColorScript = @"
-            var chatElements = document.getElementsByClassName('tw-c-background-alt');
-            chatElements[0].setAttribute('style', 'background:rgba(255,255,255,0) !important');       
-  
-            var chatRoot = document.getElementsByClassName('twilight-minimal-root');
-            chatRoot[0].setAttribute('style', 'background:rgba(255,255,255,0) !important');
-
-            var root = document.getElementsByClassName('tw-root--theme-light');
-            chatElements[0].setAttribute('style', 'background:rgba(255,255,255,0) !important');
-
-            var chatBorders = document.getElementsByClassName('tw-border-r');
-            for (i = 0; i < chatBorders.length; i++) {
-                chatBorders[i].setAttribute('style', 'border-right:none !important');
-            };         
-            ";
-          //  _miniChatWindow.ChatBrowser.ExecuteScriptAsync(changeColorScript);
-
-            UserMiniChatEditorViewModel tmpEditor = new UserMiniChatEditorViewModel(_miniChatWindow);
-            tmpEditor.ChangeBackgroundColor();
-
-        }
-
-        
+            }
+        } 
         private ICommand _showChatSettingsCommand;
         public ICommand ShowChatSettingsCommand
         {
