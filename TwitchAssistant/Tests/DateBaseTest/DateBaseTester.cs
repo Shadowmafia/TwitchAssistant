@@ -14,7 +14,7 @@ namespace TwitchAssistant.Tests.DateBaseTest
         private DateBaseTester() { }
         public bool Test()
         {
-            var x = DbRepository.Instance.GetDefaultCommands();
+            var x = AssistantDb.Instance.DefaultCommands.GetAll().ToList();
             int itttt = 0;
             for (int i = 0; i < 50; i++)
             {
@@ -32,7 +32,7 @@ namespace TwitchAssistant.Tests.DateBaseTest
                             Message = false,
                             Whisp = false,
                         });
-                        DbRepository.Instance.SaveChanges();
+                        AssistantDb.Instance.SaveChanges();
                         it++;
                     }                 
                 }).Start();

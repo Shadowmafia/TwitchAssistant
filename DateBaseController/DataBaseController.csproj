@@ -100,13 +100,17 @@
   <ItemGroup>
     <Compile Include="Context\TwitchAssistantContext.cs" />
     <Compile Include="Context\TwitchAssistantModelInitializer.cs" />
+    <Compile Include="ModelsRepositoryes\DefaultCommandRepository.cs" />
+    <Compile Include="ModelsRepositoryes\IRepository.cs" />
+    <Compile Include="ModelsRepositoryes\MessageTimerRepository.cs" />
+    <Compile Include="ModelsRepositoryes\ViewerRepository.cs" />
     <Compile Include="Models\Rang.cs" />
     <Compile Include="Models\RangSet.cs" />
     <Compile Include="Models\MessageTimer.cs" />
     <Compile Include="Models\Viewer.cs" />
     <Compile Include="Models\DefaultCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DbRepository.cs" />
+    <Compile Include="AssistantDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

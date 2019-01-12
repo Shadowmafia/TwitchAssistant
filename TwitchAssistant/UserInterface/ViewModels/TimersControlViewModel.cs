@@ -21,12 +21,10 @@ namespace TwitchAssistant.UserInterface.ViewModels
         {
             MessageTimers.Clear();
 
-            foreach (var timer in DbRepository.Instance.GetMessageTimers())
+            foreach (var timer in AssistantDb.Instance.Timers.GetAll())
             {
                 MessageTimers.Add(timer);
             }
-
-            var x = 10;
         }
 
         private ICommand _addTimerCommand;
@@ -47,13 +45,13 @@ namespace TwitchAssistant.UserInterface.ViewModels
                 LastShow = DateTime.Now
             };
             MessageTimers.Add(newTimer);
-            DbRepository.Instance.GetMessageTimers().Add(newTimer);
+            AssistantDb.Instance.Timers.Add(newTimer);
             SaveChange();
         }
 
         public void SaveChange()
         {
-            DbRepository.Instance.SaveChanges();
+            AssistantDb.Instance.SaveChanges();
         }
 
         public void DeleteTimerById(int id)
@@ -62,8 +60,8 @@ namespace TwitchAssistant.UserInterface.ViewModels
             if (timer != null)
             {
                 MessageTimers.Remove(timer);
-                DbRepository.Instance.GetMessageTimers().Remove(timer);
-                DbRepository.Instance.SaveChanges();
+                AssistantDb.Instance.Timers.Delete(timer.Id);
+                AssistantDb.Instance.SaveChanges();
             }          
         }
     }

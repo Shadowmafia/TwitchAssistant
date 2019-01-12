@@ -33,8 +33,8 @@ namespace TwitchBot.CommandsSystem
                 userCommands.Add(new DefaultCommand() { Id = command.Id, Name = command.Name, Message = command.Message, IsEnabled = command.IsEnabled, Whisp = command.Whisp, Description = command.Description });
             }
 
-            DbRepository.Instance.GetDefaultCommands().AddRange(userCommands);
-            DbRepository.Instance.SaveChanges();
+            (AssistantDb.Instance.DefaultCommands.GetAll()).ToList().AddRange(userCommands);
+            AssistantDb.Instance.SaveChanges();
         }
         private static void InitUserCommands()
         {
@@ -45,7 +45,7 @@ namespace TwitchBot.CommandsSystem
                 userInfo, coins, upTime, help
 
             };
-            List<DefaultCommand> userCommands = DbRepository.Instance.GetDefaultCommands();
+            List<DefaultCommand> userCommands = AssistantDb.Instance.DefaultCommands.GetAll().ToList();
 
             for (int i = 0; i < userCommands.Count; i++)
             {
@@ -133,7 +133,7 @@ namespace TwitchBot.CommandsSystem
             {
                 if (ConfigSet.Config.PlayerConfig.ChatPlaylistOn)
                 {
-                    var tmpUser = DbRepository.Instance.GetViewers().First(user1 => user1.Username == user.Username);
+                    var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
                     MinRangCheck(tmpUser);
                     bool coinSystemSuccess = false;
                     
@@ -186,7 +186,7 @@ namespace TwitchBot.CommandsSystem
             {
                 if (ConfigSet.Config.PlayerConfig.ChatPlaylistOn)
                 {
-                    var tmpUser = DbRepository.Instance.GetViewers().First(user1 => user1.Username == user.Username);
+                    var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
                     MinRangCheck(tmpUser);
                     bool coinSystemSuccess = false;
 
@@ -240,7 +240,7 @@ namespace TwitchBot.CommandsSystem
             {
                 if (ConfigSet.Config.PlayerConfig.IsUsingCoinSystem)
                 {
-                    var tmpUser = DbRepository.Instance.GetViewers().First(user1 => user1.Username == user.Username);
+                    var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
                     MinRangCheck(tmpUser);
 
                     if (CoinSystem.CoinSystem.Instance.SubtractCoins(tmpUser, ConfigSet.Config.PlayerConfig.SkipSongPrice))
@@ -309,7 +309,7 @@ namespace TwitchBot.CommandsSystem
         //Db methods 
         private static void myInfo(ChatMessage user, string body, BotCommand command)
         {
-            var tmpUser = DbRepository.Instance.GetViewers().First(user1 => user1.Username == user.Username);
+            var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
             string responseMessage = $@"info by user : {tmpUser.Username} 
              ||| Coins :{tmpUser.Coins} 
              ||| Watching Time :{tmpUser.WatchingTime} 
@@ -327,7 +327,7 @@ namespace TwitchBot.CommandsSystem
             string responseMessage;
             try
             {
-                var tmpUser = DbRepository.Instance.GetViewers().First(user1 => user1.Username == body);
+                var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == body);
                 responseMessage = $@"info by user : {tmpUser.Username} 
                  ||| {ConfigSet.Config.CoinConfig.CoinsName} :{tmpUser.Coins} 
                  ||| Watching Time :{tmpUser.WatchingTime} 
@@ -347,7 +347,7 @@ namespace TwitchBot.CommandsSystem
         }
         private static void coins(ChatMessage user, string body, BotCommand command)
         {
-            var tmpUser = DbRepository.Instance.GetViewers().First(user1 => user1.Username == user.Username);
+            var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
             string responseMessage = $"You balance : {tmpUser.Coins}";
             CommandMessage(user.Username, responseMessage, command);
         }

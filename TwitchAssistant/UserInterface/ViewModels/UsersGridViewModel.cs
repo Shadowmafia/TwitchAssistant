@@ -36,12 +36,12 @@ namespace TwitchAssistant.UserInterface.ViewModels
 
             Users.Clear();
             //UsersRepository usersRepository = new UsersRepository();
-            foreach (var user in DbRepository.Instance.GetViewers())
+            foreach (var user in AssistantDb.Instance.Viewers.GetAll())
             {
                 Users.Add(user);
             }
 
-            TotalUsers = DbRepository.Instance.GetViewers().Count;
+            TotalUsers = AssistantDb.Instance.Viewers.GetAll().ToList().Count;
             FilterUsers();
         }
 
@@ -86,12 +86,12 @@ namespace TwitchAssistant.UserInterface.ViewModels
         }
         private void RefreshCoins()
         {
-            foreach (var user in DbRepository.Instance.GetViewers())
+            foreach (var user in AssistantDb.Instance.Viewers.GetAll())
             {
                 user.Coins = 0;
             }
 
-            DbRepository.Instance.SaveChanges();
+            AssistantDb.Instance.SaveChanges();
             RefreshUserList();
             ShowHideRefreshDialog();
             // MessageBox.Show("Implement method!!!");
@@ -163,7 +163,7 @@ namespace TwitchAssistant.UserInterface.ViewModels
         {
             ICollectionView cv = CollectionViewSource.GetDefaultView(Users);
 
-            List<Viewer> Subscribers = DbRepository.Instance.GetViewers();
+            List<Viewer> Subscribers = AssistantDb.Instance.Viewers.GetAll().ToList();
             cv.Filter = o =>
             {
                 Viewer u = o as Viewer;

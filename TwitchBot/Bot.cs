@@ -5,6 +5,7 @@ using AssistantConfig;
 using AssitantPlayer;
 using DataClasses.Enums;
 using DateBaseController;
+using DateBaseController.ModelsRepositoryes;
 using TwitchBot.CoinSystem;
 using TwitchBot.CommandsSystem;
 using TwitchBot.TimerSystem;
@@ -27,7 +28,7 @@ namespace TwitchBot
         public Bot()
         {
             BotName = "tmpName";
-            DbRepository.Instance.GetViewers();
+            ViewerRepository load = AssistantDb.Instance.Viewers;
             _viewersController = new ViewersController();
 
             try

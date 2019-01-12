@@ -17,4 +17,3 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\CustomWindowTemplate\obj\Debug\Cust
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\CustomWindowTemplate\obj\Debug\Templates\NoneWindowTemplate.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\CustomWindowTemplate\obj\Debug\Templates\CustomWindowTemplate.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\CustomWindowTemplate\obj\Debug\AllTemplates.baml
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\CustomWindowTemplate\obj\Debug\CustomWindowTemplate.csprojAssemblyReference.cache

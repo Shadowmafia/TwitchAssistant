@@ -14,17 +14,11 @@ namespace TwitchBot.CoinSystem
     public class ViewersController
     {
         private readonly string _channelId;
-        private Timer _timer;
+        private readonly Timer _timer;
 
         public ViewersController()
         {
             _channelId = TwitchApiController.GetChanel().Result.Id;
-  
-
-            //TODO:DEBUG interval value;
-            //     _timer = new Timer(20000);
-            // _timer.Elapsed += _ubdateWatchers;
-            //     Start();
             SyncUsersTwitchRang();
 
         }
@@ -39,7 +33,7 @@ namespace TwitchBot.CoinSystem
             }
 
             //Unfollow exist user in  date base  with was unfollow.
-            var usersToUnfollow = DbRepository.Instance.GetViewers().Where(new Func<Viewer, bool>((user) =>
+            var usersToUnfollow = AssistantDb.Instance.Viewers.GetAll().Where(new Func<Viewer, bool>((user) =>
             {
                 return user.IsFollower && 
                        !TwitchBotGlobalObjects.ChanelData.Followers.Any(follow => follow.User.Id == user.Id.ToString());
@@ -57,7 +51,7 @@ namespace TwitchBot.CoinSystem
                 new Func<ChannelFollow, bool>(
                     (follow) =>
                     {
-                        return !DbRepository.Instance.GetViewers().Any(user => user.Id.ToString() == follow.User.Id);
+                        return !AssistantDb.Instance.Viewers.GetAll().Any(user => user.Id.ToString() == follow.User.Id);
                     }
                 )
             );
@@ -66,11 +60,11 @@ namespace TwitchBot.CoinSystem
             {
                 int viewerId = int.Parse(newUsers.User.Id);
                 Viewer joinedViewer = new Viewer() { Id = viewerId, Username = newUsers.User.Name, IsFollower = true };
-                DbRepository.Instance.GetViewers().Add(joinedViewer);              
+                AssistantDb.Instance.Viewers.Add(joinedViewer);              
             }
 
             //Update exist users follow  status.
-            var existUsersToFollower = DbRepository.Instance.GetViewers().Where(
+            var existUsersToFollower = AssistantDb.Instance.Viewers.GetAll().Where(
                 new Func<Viewer, bool>(
                 (user) =>
                 {
@@ -84,7 +78,7 @@ namespace TwitchBot.CoinSystem
                 userToFollower.IsFollower = true;
             }
 
-            DbRepository.Instance.SaveChanges();
+            AssistantDb.Instance.SaveChanges();
         }
 
         public void Start()
@@ -104,7 +98,7 @@ namespace TwitchBot.CoinSystem
             {
                 try
                 {
-                    Viewer joinedUser = DbRepository.Instance.GetViewers().FirstOrDefault(viewer => viewer.Username == e.Username);
+                    Viewer joinedUser = AssistantDb.Instance.Viewers.GetAll().FirstOrDefault(viewer => viewer.Username == e.Username);
 
                     if (joinedUser == null)
                     {
@@ -112,13 +106,13 @@ namespace TwitchBot.CoinSystem
                         int viewerId = int.Parse(user.Matches[0].Id);
                         joinedUser = new Viewer() { Id = viewerId, Username = e.Username, Rang = new Rang() { RangSets = new List<RangSet>() { new RangSet() } } };
                     
-                        DbRepository.Instance.GetViewers().Add(joinedUser);
-                        joinedUser = DbRepository.Instance.GetViewers().Find((viewer => viewer.Id == joinedUser.Id));
+                        AssistantDb.Instance.Viewers.Add(joinedUser);
+                        joinedUser = AssistantDb.Instance.Viewers.Get(joinedUser.Id);
 
                     }
                     joinedUser.LastCoinUpdate = DateTime.Now;
                     joinedUser.LastConnectToStream=DateTime.Now;
-                    DbRepository.Instance.SaveChanges();
+                    AssistantDb.Instance.SaveChanges();
                     TwitchBotGlobalObjects.ChanelData.Watchers.Add(joinedUser);
                 }
                 catch (Exception exception)
@@ -134,7 +128,7 @@ namespace TwitchBot.CoinSystem
             TwitchBotGlobalObjects.ChanelData.Watchers.Remove(LeftUser);
             LeftUser.WatchingTime= LeftUser.WatchingTime.Add(DateTime.Now - LeftUser.LastConnectToStream);
             LeftUser.LastConnectToStream = DateTime.Now;
-            DbRepository.Instance.SaveChanges(); 
+            AssistantDb.Instance.SaveChanges(); 
         }
     }
 }

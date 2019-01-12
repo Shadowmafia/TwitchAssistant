@@ -75,7 +75,7 @@ namespace TwitchBot.CoinSystem
                     }
 
                 }
-                DbRepository.Instance.SaveChanges();
+                AssistantDb.Instance.SaveChanges();
             }
             _timer.Start();
         }

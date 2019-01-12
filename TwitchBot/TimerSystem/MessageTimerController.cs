@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Timers;
 using DataClasses.Enums;
 using DateBaseController;
+using DateBaseController.Models;
 using Tools;
 using Timer = System.Timers.Timer;
 
@@ -28,15 +30,17 @@ namespace TwitchBot.TimerSystem
         
             if (TwitchBotGlobalObjects.TwitchBotConnectedState == TwitchBotConnectedState.Connected)
             {
-                foreach (var timer in DbRepository.Instance.GetMessageTimers())
+               List<MessageTimer> timers = AssistantDb.Instance.Timers.GetAll() as List<MessageTimer>;
+                for (int i = 0; i < timers.Count; i++)
                 {
-                    if (timer.IsEnabled&& timer.LastShow <= DateTime.Now.Subtract(new TimeSpan(timer.Interval)))
+                    if (timers[i].IsEnabled && timers[i].LastShow <= DateTime.Now.Subtract(new TimeSpan(timers[i].Interval)))
                     {
-                        TwitchBotGlobalObjects.Bot.SendMessage(timer.Message);
-                        Thread.Sleep(600);
-                        timer.LastShow = DateTime.Now;
+                        TwitchBotGlobalObjects.Bot.SendMessage(timers[i].Message);
+                        timers[i].LastShow = DateTime.Now;
+                        Thread.Sleep(200);                    
                     }
                 }
+
             }
          
             if (IsStarted)

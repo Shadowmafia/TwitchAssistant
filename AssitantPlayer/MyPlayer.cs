@@ -619,7 +619,7 @@ namespace AssitantPlayer
                     {
                         song.Image.Freeze();
                     }
-                    catch (Exception e)
+                    catch
                     {
 
                     }

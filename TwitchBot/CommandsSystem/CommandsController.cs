@@ -38,18 +38,18 @@ namespace TwitchBot.CommandsSystem
         {
             try
             {
-                Viewer joinedUser = DbRepository.Instance.GetViewers().FirstOrDefault(viewer => viewer.Username == user.Username);
+                Viewer joinedUser = AssistantDb.Instance.Viewers.GetAll().FirstOrDefault(viewer => viewer.Username == user.Username);
                 if (joinedUser == null)
                 {
                     var result = TwitchApiController.Api.V5.Users.GetUserByNameAsync(user.Username).Result;
                     int viewerId = int.Parse(result.Matches[0].Id);
                     joinedUser = new Viewer() { Id = viewerId, Username = user.Username, Rang = new Rang() { RangSets = new List<RangSet>() { new RangSet() } } };
 
-                    DbRepository.Instance.GetViewers().Add(joinedUser);
-                    joinedUser = DbRepository.Instance.GetViewers().Find((viewer => viewer.Id == joinedUser.Id));
+                    AssistantDb.Instance.Viewers.Add(joinedUser);
+                    joinedUser = AssistantDb.Instance.Viewers.Get(joinedUser.Id);
                     joinedUser.LastCoinUpdate = DateTime.Now;
                     joinedUser.LastConnectToStream = DateTime.Now;
-                    DbRepository.Instance.SaveChanges();
+                    AssistantDb.Instance.SaveChanges();
                     TwitchBotGlobalObjects.ChanelData.Watchers.Add(joinedUser);
                 }
                
