@@ -14,9 +14,6 @@ namespace AssistantConfig
         static ConfigSet()
         {
             Config = new Config();     
-            //CefSettings settings = new CefSettings();
-            //settings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
-            //Cef.Initialize(settings);
 
             string path = $@"AsistantTemproryFiles";
             if (!Directory.Exists(path))

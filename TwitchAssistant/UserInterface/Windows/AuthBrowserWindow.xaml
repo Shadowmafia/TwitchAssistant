@@ -9,7 +9,7 @@
         Style="{StaticResource CustomWindowStyle}"
 
         Title="AuthBrowserView" Height="512.963" Width="407.408" Loaded="Window_Loaded">
-    <Grid>
-        <cefSharp:ChromiumWebBrowser Name="ConnectBrowser"/>
+    <Grid Name="BrowserContainer">
+       
     </Grid>
 </Window>

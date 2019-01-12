@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using AssistantConfig;
 using CefSharp;
 using CefSharp.Wpf;
@@ -11,17 +12,28 @@ namespace TwitchMiniChat
     /// </summary>
     public partial class MiniChatWindow : Window
     {
-        
+
+        public ChromiumWebBrowser ChatBrowser { get; set; }
         public MiniChatWindow()
         {
-        
-            this.DataContext = new MiniChatViewModel(this);
-            InitializeComponent();
-           // ChatBrowser.Source = $"https://www.twitch.tv/popout/{ ConfigSet.Config.BotConfig.StreamName }/chat?popout=";
+            //cef settings
+            RequestContextSettings requestContextSettings = new RequestContextSettings();
+            requestContextSettings.PersistSessionCookies = false;
+            requestContextSettings.PersistUserPreferences = false;
+            requestContextSettings.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\TwitchAssistant\Streamer";
+            ChatBrowser = new ChromiumWebBrowser();
+            ChatBrowser.RequestContext = new RequestContext(requestContextSettings);
             ChatBrowser.MenuHandler = new MyCustomMenuHandler();
             ChatBrowser.BrowserSettings.BackgroundColor = 0x00;
+            ChatBrowser.Name = "ChatBrowser";
+           
+
+            this.DataContext = new MiniChatViewModel(this);
+            InitializeComponent();
+            BrowserContainer.Children.Add(ChatBrowser);
+            ChatBrowser.Address = $"https://www.twitch.tv/popout/{ ConfigSet.Config.BotConfig.StreamName }/chat?popout=";
+           
         }
 
-      
     }
 }

@@ -30,7 +30,7 @@ namespace TwitchBot.TimerSystem
         
             if (TwitchBotGlobalObjects.TwitchBotConnectedState == TwitchBotConnectedState.Connected)
             {
-               List<MessageTimer> timers = AssistantDb.Instance.Timers.GetAll() as List<MessageTimer>;
+                List<MessageTimer> timers = AssistantDb.Instance.Timers.GetAll() as List<MessageTimer>;
                 for (int i = 0; i < timers.Count; i++)
                 {
                     if (timers[i].IsEnabled && timers[i].LastShow <= DateTime.Now.Subtract(new TimeSpan(timers[i].Interval)))
@@ -40,7 +40,6 @@ namespace TwitchBot.TimerSystem
                         Thread.Sleep(200);                    
                     }
                 }
-
             }
          
             if (IsStarted)

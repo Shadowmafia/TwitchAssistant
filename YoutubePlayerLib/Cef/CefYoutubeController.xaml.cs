@@ -178,6 +178,7 @@ namespace YoutubePlayerLib.Cef
 
         public CefYoutubeController()
         {
+
             InitializeComponent();
             HttpServer.InitHttpServer(SucsesReqest);
             HttpServer.Run();

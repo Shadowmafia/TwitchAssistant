@@ -290,7 +290,7 @@ namespace TwitchAssistant.UserInterface.ViewModels
             if (GlobalObjects.Authorizator == null)
             {
                 GlobalObjects.Authorizator = new Authorizator(AppInteractionConfig.TwitchClientId, AppInteractionConfig.TwitchClientSecret, AppInteractionConfig.OAuthRedirectUrl);
-                AuthBrowserWindow authBrowserWindow = new AuthBrowserWindow();
+                AuthBrowserWindow authBrowserWindow = new AuthBrowserWindow(false);
                 GlobalObjects.Authorizator.InitHttpServerAndWaitCallBack((twitchAuthResponse) =>
                 {
                     BotOAuth = twitchAuthResponse.AccessToken;
@@ -308,7 +308,7 @@ namespace TwitchAssistant.UserInterface.ViewModels
             if (GlobalObjects.Authorizator == null)
             {
                 GlobalObjects.Authorizator = new Authorizator(AppInteractionConfig.TwitchClientId, AppInteractionConfig.TwitchClientSecret, AppInteractionConfig.OAuthRedirectUrl);
-                AuthBrowserWindow authBrowserWindow = new AuthBrowserWindow();
+                AuthBrowserWindow authBrowserWindow = new AuthBrowserWindow(true);
                 GlobalObjects.Authorizator.InitHttpServerAndWaitCallBack((twitchAuthResponse) =>
                 {
                     StreamerOAuth = twitchAuthResponse.AccessToken;

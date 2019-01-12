@@ -20,7 +20,6 @@ namespace TwitchAssistant.UserInterface.ViewModels
         public void LoadTimersFromDb()
         {
             MessageTimers.Clear();
-
             foreach (var timer in AssistantDb.Instance.Timers.GetAll())
             {
                 MessageTimers.Add(timer);
