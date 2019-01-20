@@ -35,7 +35,7 @@ namespace TwitchAssistant.UserInterface.Windows
         private void RootWindowView_OnClosed(object sender, EventArgs e)
         {
             MyPlayer.Instance.PlayerClosed();
-            DefaultCommandsSet.SaveCommands();
+            CommandsController.SaveCommands();
             ConfigSet.SaveConfig();
         }
     }

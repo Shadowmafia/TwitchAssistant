@@ -12,7 +12,7 @@
     <Grid>
 
 
-        <TabControl Background="{DynamicResource MaterialDesignPaper}" Style="{StaticResource ShowcaseTabControlStyle}">
+        <TabControl  Background="{DynamicResource MaterialDesignPaper}" Style="{StaticResource ShowcaseTabControlStyle}">
             <TabItem  Cursor="Hand"  Height="60" Name="GeneralListMenu">
                 <TabItem.Header>
                     <StackPanel  Orientation="Horizontal" Margin="10,0" >

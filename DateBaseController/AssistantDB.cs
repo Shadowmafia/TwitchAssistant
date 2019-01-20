@@ -20,8 +20,9 @@ namespace DateBaseController
 
         private ViewerRepository _viewerRepository;
         private MessageTimerRepository _messageTimerRepository;
-        private DefaultCommandRepository _defaultCommandRepository;
 
+        private DefaultCommandRepository _defaultCommandRepository;
+        private PlayerCommandRepository _playerCommandRepository;
 
         public ViewerRepository Viewers
         {
@@ -32,7 +33,6 @@ namespace DateBaseController
                 return _viewerRepository;
             }
         }
-
         public MessageTimerRepository Timers
         {
             get
@@ -50,6 +50,15 @@ namespace DateBaseController
                 if (_defaultCommandRepository == null)
                     _defaultCommandRepository = new DefaultCommandRepository(_db);
                 return _defaultCommandRepository;
+            }
+        }
+        public PlayerCommandRepository PlayerCommands
+        {
+            get
+            {
+                if (_playerCommandRepository == null)
+                    _playerCommandRepository = new PlayerCommandRepository(_db);
+                return _playerCommandRepository;
             }
         }
 

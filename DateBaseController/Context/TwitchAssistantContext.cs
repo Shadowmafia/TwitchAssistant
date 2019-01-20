@@ -10,6 +10,7 @@ namespace DateBaseController.Context
         public virtual DbSet<Viewer> Viewers { get; set; } 
         public virtual DbSet<MessageTimer> MessageTimers { get; set; }
         public virtual DbSet<DefaultCommand> DefaultCommands { get; set; }
+        public virtual DbSet<PlayerCommand> PlayerCommands { get; set; }
 
         // public virtual DbSet<Rang> Rangs { get; set; }
         // public virtual DbSet<RangSet> RangSets { get; set; }

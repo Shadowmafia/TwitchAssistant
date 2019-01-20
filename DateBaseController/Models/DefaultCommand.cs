@@ -10,6 +10,8 @@ namespace DateBaseController.Models
         public bool IsEnabled { get; set; }
         public bool Whisp { get; set; }
         public bool Message { get; set; }
+
+        public string Action { get; set; }
         public DateTime LastCommandCall { get; set; }
     }
 }

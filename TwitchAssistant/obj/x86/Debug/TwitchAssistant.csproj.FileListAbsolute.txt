@@ -312,3 +312,5 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserI
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Views\CoinSystemControlView.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\CompositeViews\SettingsControlView.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\CompositeViews\BotCommandsControlView.baml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Views\PlayerCommandsView.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Views\PlayerCommandsView.baml

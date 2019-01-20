@@ -5,9 +5,11 @@ using AssistantConfig;
 using AssitantPlayer;
 using DataClasses.Enums;
 using DateBaseController;
+using DateBaseController.Models;
 using DateBaseController.ModelsRepositoryes;
 using TwitchBot.CoinSystem;
 using TwitchBot.CommandsSystem;
+using TwitchBot.CommandsSystem.Commands;
 using TwitchBot.TimerSystem;
 using TwitchLib.Client;
 using TwitchLib.Client.Events;
@@ -168,7 +170,7 @@ namespace TwitchBot
 
                 ThreadPool.QueueUserWorkItem((o) =>
                 {
-                    bool result = DefaultCommandsSet.Commands.ExecuteCommandByName(e.ChatMessage, commandName, commandBody);
+                    bool result = CommandsController.ExecuteCommandByName(e.ChatMessage, commandName, commandBody);
                 });
             }                    
         }
@@ -182,6 +184,38 @@ namespace TwitchBot
         {
             Client.SendWhisper(user,BotName+message);
         }
+
+        public static void MinRangCheck(Viewer user)
+        {
+            if (ConfigSet.Config.PlayerConfig.MinRequestRang == TwitchRangs.Follower)
+            {
+                if (!user.IsFollower)
+                {
+                    throw new Exception($"You must be '{ConfigSet.Config.PlayerConfig.MinRequestRang}' or upper");
+                }
+            }
+            if (ConfigSet.Config.PlayerConfig.MinRequestRang == TwitchRangs.Subscriber)
+            {
+                if (!user.IsSubscriber)
+                {
+                    throw new Exception($"You must be '{ConfigSet.Config.PlayerConfig.MinRequestRang}' or upper");
+                }
+            }
+        }
+
+        public static void CommandMessage<T>(string user, string message, T command)where T:BotCommand<T>
+        {
+            if (command.Message)
+            {
+                TwitchBotGlobalObjects.Bot.SendMessage($"{user} {message}");
+                Thread.Sleep(500);
+            }
+            if (command.Whisp)
+            {
+                TwitchBotGlobalObjects.Bot.WhispMessage(user, message);
+            }
+        }
+
     }
 
 }

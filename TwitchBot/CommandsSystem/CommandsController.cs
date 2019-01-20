@@ -4,29 +4,22 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using DateBaseController;
 using DateBaseController.Models;
+using TwitchBot.CommandsSystem.Commands;
+using TwitchBot.CommandsSystem.CommandsFunctional;
 using TwitchLib.Client.Models;
 
 namespace TwitchBot.CommandsSystem
 {
-    public class CommandsController
+    public static class CommandsController
     {
-        public ObservableCollection<IBotCommand> CommandList { get;} = new ObservableCollection<IBotCommand>();
+        public static ObservableCollection<DefaultBotCommand> DefaultCommandsList = new ObservableCollection<DefaultBotCommand>();
+        public static ObservableCollection<PlayerBotCommand> PlayerCommandsList = new ObservableCollection<PlayerBotCommand>();
 
-        public void AddCommand(BotCommand command)
+        static CommandsController()
         {
-            if((CommandList.FirstOrDefault(botCommand => botCommand.Id== command.Id)!=null))
-            {
-                return;
-            }
-            CommandList.Add(command);
+            InitAllCommands();
         }
-
-        public bool RemoveCommand(string commandName)
-        {          
-            return true;
-        }
-
-        public bool ExecuteCommandByName(ChatMessage user,string commandName,string commandBody=null)
+        public static bool ExecuteCommandByName(ChatMessage user,string commandName,string commandBody=null)
         {
             try
             {
@@ -44,13 +37,12 @@ namespace TwitchBot.CommandsSystem
                     AssistantDb.Instance.SaveChanges();
                     TwitchBotGlobalObjects.ChanelData.Watchers.Add(joinedUser);
                 }
-               
 
-                IBotCommand x=CommandList.First(command => "!"+command.Name == commandName);
-                if (x.IsEnabled)
-                {
-                    x.ExecuteCommand(user, commandBody);
-                }              
+                DefaultBotCommand xBotCommand = DefaultCommandsList.FirstOrDefault(command => "!" + command.Name == commandName);
+                TryExecuteCommand(user,commandBody, xBotCommand);
+                PlayerBotCommand xPlayerCommand = PlayerCommandsList.FirstOrDefault(command => "!" + command.Name == commandName);
+                TryExecuteCommand(user, commandBody, xPlayerCommand);
+
                 return true;
             }
             catch (Exception e)
@@ -58,6 +50,40 @@ namespace TwitchBot.CommandsSystem
                 return false;
             }
           
+        }
+        private static void TryExecuteCommand<T>(ChatMessage user,string commandBody, T command) where T : BotCommand<T>
+        {
+            if (command != null)
+            {
+                if (command.IsEnabled)
+                {
+                    command.ExecuteCommand(user,commandBody);                
+                }
+            }
+        }
+
+        private static void InitAllCommands()
+        {
+            List<DefaultCommand> defaultCommands = AssistantDb.Instance.DefaultCommands.GetAll().ToList();
+            foreach (var command in defaultCommands)
+            {
+                DefaultCommandsList.Add(new DefaultBotCommand(command.Name, command.Id, command.Description,
+                    command.IsEnabled, command.Whisp, command.Message,
+                    DefaultCommandsFunctional.Actions[command.Action]));
+            }
+
+            List<PlayerCommand> playerCommands = AssistantDb.Instance.PlayerCommands.GetAll().ToList();
+            foreach (var command in playerCommands)
+            {
+                PlayerCommandsList.Add(new PlayerBotCommand(command.Name, command.Id, command.Description,
+                    command.IsEnabled, command.Whisp, command.Message,
+                    PlayerCommandsFunctional.Actions[command.Action]));
+            }
+        }
+
+        public static void SaveCommands()
+        {
+
         }
     }
 }

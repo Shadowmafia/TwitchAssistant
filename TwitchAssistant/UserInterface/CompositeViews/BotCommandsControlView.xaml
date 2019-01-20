@@ -4,20 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:TwitchAssistant.UserInterface.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <StackPanel>
-            <StackPanel Cursor="Hand" Width="300" Orientation="Horizontal" Background="{DynamicResource PrimaryHueMidBrush}">
-                <ListView>
-                    <Label FontWeight="Bold">Default commands</Label>
-                </ListView>
-                <Separator></Separator>
-                <ListView>
-                    <Label FontWeight="Bold">Command constructor</Label>
-                </ListView>
-            </StackPanel>
-        </StackPanel>
-        <views:DefaultCommandsView Margin="0,50,0,0"></views:DefaultCommandsView>
+        <TabControl   Background="{DynamicResource MaterialDesignPaper}" Style="{StaticResource TopperTabControl}">
+            <TabItem  Cursor="Hand" Height="40" Width="133">
+                <TabItem.Header>
+                    <StackPanel Margin="3,0,0,0"  Orientation="Horizontal">
+                        <Label VerticalAlignment="Center">Default commands</Label>
+                    </StackPanel>
+                </TabItem.Header>
+
+                <Grid>
+                    <views:DefaultCommandsView></views:DefaultCommandsView>
+                </Grid>
+            </TabItem>
+
+            <TabItem  Cursor="Hand"   Height="40" Width="126">
+                <TabItem.Header>
+                    <StackPanel Margin="3,0,0,0"  Orientation="Horizontal">
+                        <Label VerticalAlignment="Center">Player commands</Label>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <views:PlayerCommandsView></views:PlayerCommandsView>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
     </Grid>
 </UserControl>

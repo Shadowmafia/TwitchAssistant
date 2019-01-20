@@ -103,7 +103,9 @@
     <Compile Include="ModelsRepositoryes\DefaultCommandRepository.cs" />
     <Compile Include="ModelsRepositoryes\IRepository.cs" />
     <Compile Include="ModelsRepositoryes\MessageTimerRepository.cs" />
+    <Compile Include="ModelsRepositoryes\PlayerCommandRepository.cs" />
     <Compile Include="ModelsRepositoryes\ViewerRepository.cs" />
+    <Compile Include="Models\PlayerCommand.cs" />
     <Compile Include="Models\Rang.cs" />
     <Compile Include="Models\RangSet.cs" />
     <Compile Include="Models\MessageTimer.cs" />

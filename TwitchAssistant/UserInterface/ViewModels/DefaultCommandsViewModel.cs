@@ -1,11 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using Tools.MVVMBaseClasses;
 using TwitchBot.CommandsSystem;
+using TwitchBot.CommandsSystem.Commands;
 
 namespace TwitchAssistant.UserInterface.ViewModels
 {
     class DefaultCommandsViewModel:ViewModelBase
-    {     
-       public ObservableCollection<IBotCommand> Commands { get; set; }=DefaultCommandsSet.Commands.CommandList;     
+    {
+        public ObservableCollection<DefaultBotCommand> Commands { get; set; } = CommandsController.DefaultCommandsList;
     }
 }
