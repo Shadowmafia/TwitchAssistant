@@ -83,7 +83,21 @@ namespace TwitchBot.CommandsSystem
 
         public static void SaveCommands()
         {
+            List<DefaultCommand> defaultCommands = new List<DefaultCommand>();
+            foreach (var command in DefaultCommandsList)
+            {
+                defaultCommands.Add(new DefaultCommand() { Id = command.Id, Name = command.Name, Message = command.Message, IsEnabled = command.IsEnabled, Whisp = command.Whisp, Description = command.Description });
+            }
+            (AssistantDb.Instance.DefaultCommands.GetAll()).ToList().AddRange(defaultCommands);
 
+            List<PlayerCommand> playerCommands = new List<PlayerCommand>();
+            foreach (var command in DefaultCommandsList)
+            {
+                playerCommands.Add(new PlayerCommand() { Id = command.Id, Name = command.Name, Message = command.Message, IsEnabled = command.IsEnabled, Whisp = command.Whisp, Description = command.Description });
+            }
+            (AssistantDb.Instance.PlayerCommands.GetAll()).ToList().AddRange(playerCommands);
+
+            AssistantDb.Instance.SaveChanges();
         }
     }
 }
