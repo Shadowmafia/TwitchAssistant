@@ -4,7 +4,10 @@
     {
         Unfollower,
         Follower,
-        Subscriber
+        Subscriber,
+        Moderator,
+        Editor,
+        Broadcaster
     }
  
 }

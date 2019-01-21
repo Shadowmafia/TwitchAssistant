@@ -19,8 +19,7 @@ namespace DateBaseController.Context
         protected override void Seed(TwitchAssistantContext context)
         {
 
-            // db.Users.Add(new User() {Username = "TestUser", LastCoinUpdate = DateTime.Now});
-
+         
             MessageTimer[] timers = new MessageTimer[]
             {
                 new MessageTimer(){LastShow = DateTime.Now,Interval = new TimeSpan(0,5,0).Ticks,IsEnabled = true,Message = "enter !help for get all commands!"},
@@ -31,7 +30,7 @@ namespace DateBaseController.Context
             {
                 new DefaultCommand()
                 {
-                    Id = 1, Name = "help", Message = true, IsEnabled = false, Whisp = false, Description = "Get all enabled commands",Action = "Help"
+                    Id = 1, Name = "help", Message = true, IsEnabled = true, Whisp = false, Description = "Get all enabled commands",Action = "Help"
                 },
                 new DefaultCommand()
                 {

@@ -105,12 +105,13 @@
     <Compile Include="ModelsRepositoryes\MessageTimerRepository.cs" />
     <Compile Include="ModelsRepositoryes\PlayerCommandRepository.cs" />
     <Compile Include="ModelsRepositoryes\ViewerRepository.cs" />
-    <Compile Include="Models\PlayerCommand.cs" />
+    <Compile Include="Models\CommandsModels\BaseCommand.cs" />
+    <Compile Include="Models\CommandsModels\PlayerCommand.cs" />
     <Compile Include="Models\Rang.cs" />
     <Compile Include="Models\RangSet.cs" />
     <Compile Include="Models\MessageTimer.cs" />
     <Compile Include="Models\Viewer.cs" />
-    <Compile Include="Models\DefaultCommand.cs" />
+    <Compile Include="Models\CommandsModels\DefaultCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AssistantDB.cs" />
   </ItemGroup>
@@ -119,6 +120,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataClasses\DataClasses.csproj">
+      <Project>{76CCE549-B4CB-4349-9ECF-587670CD3380}</Project>
+      <Name>DataClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Tools\Tools.csproj">
       <Project>{2cc14981-2ee5-4a8a-8e36-a3d789ded6bb}</Project>
       <Name>Tools</Name>

@@ -80,7 +80,6 @@ namespace TwitchBot.CommandsSystem
                     PlayerCommandsFunctional.Actions[command.Action]));
             }
         }
-
         public static void SaveCommands()
         {
             List<DefaultCommand> defaultCommands = new List<DefaultCommand>();

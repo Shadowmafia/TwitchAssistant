@@ -295,7 +295,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\Use
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Views\UsersGridView.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Views\ConfigControlView.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Windows\AuthBrowserWindow.g.cs
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\Tests\AuthTests\AuthWindow.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Windows\RootWindow.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\App.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\GeneratedInternalTypeHelper.g.cs
@@ -305,7 +304,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\Use
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\CompositeViews\BotCommandsControlView.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Views\GeneralSettingsControlView.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Views\ConfigControlView.baml
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\Tests\AuthTests\AuthWindow.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Windows\RootWindow.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\TwitchAssistant.g.resources
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\TwitchAssistant.Properties.Resources.resources
@@ -314,3 +312,5 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\Twi
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\TwitchAssistant.csproj.CopyComplete
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\TwitchAssistant.exe
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\TwitchAssistant.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Views\PlayerCommandsView.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Release\UserInterface\Views\PlayerCommandsView.baml

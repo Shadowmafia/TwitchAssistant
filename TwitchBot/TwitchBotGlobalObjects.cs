@@ -3,6 +3,7 @@ using System.ComponentModel;
 using DataClasses;
 using DataClasses.Enums;
 using Tools;
+using TwitchBot.CoinSystem;
 
 namespace TwitchBot
 {

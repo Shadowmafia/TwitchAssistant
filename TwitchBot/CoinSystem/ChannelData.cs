@@ -2,7 +2,7 @@
 using DateBaseController.Models;
 using TwitchLib.Api.V5.Models.Channels;
 
-namespace DataClasses
+namespace TwitchBot.CoinSystem
 {
     public class ChanelData
     {

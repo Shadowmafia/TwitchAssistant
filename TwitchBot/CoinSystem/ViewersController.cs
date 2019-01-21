@@ -13,18 +13,27 @@ namespace TwitchBot.CoinSystem
 
     public class ViewersController
     {
-        private readonly string _channelId;
+        private  string _channelId;
         private readonly Timer _timer;
-
         public ViewersController()
         {
             _channelId = TwitchApiController.GetChanel().Result.Id;
             SyncUsersTwitchRang();
 
         }
-
-        public void SyncUsersTwitchRang()
+        public void Start()
         {
+            _channelId = TwitchApiController.GetChanel().Result.Id;
+            _timer.Start();
+        }
+
+        public void Stop()
+        {
+            _timer.Stop();
+        }
+    
+        public void SyncUsersTwitchRang()
+        {        
             List<ChannelFollow> followers = TwitchApiController.Api.V5.Channels.GetAllFollowersAsync(_channelId).Result;
             TwitchBotGlobalObjects.ChanelData.Followers.Clear();
             foreach (var follower in followers)
@@ -80,20 +89,9 @@ namespace TwitchBot.CoinSystem
 
             AssistantDb.Instance.SaveChanges();
         }
-
-        public void Start()
-        {
-            _timer.Start();
-        }
-
-        public void Stop()
-        {
-            _timer.Stop();
-        }
-        
+   
         internal void OnUserJoined(object sender, OnUserJoinedArgs e)
         {
-
             if (!TwitchBotGlobalObjects.ChanelData.Watchers.Any(user => user.Username == e.Username))
             {
                 try

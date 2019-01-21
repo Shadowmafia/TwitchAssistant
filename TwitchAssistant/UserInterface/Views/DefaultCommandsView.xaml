@@ -9,28 +9,47 @@
     <UserControl.Resources>
         <DataTemplate x:Key="CommandItemTemplate">
             <StackPanel>
-                <StackPanel  DockPanel.Dock="Left" Margin="15,0,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Label Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Description : </Label>
-                    <TextBox Text="{Binding Description}"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
-                </StackPanel>
+                <Grid Margin="16,0,16,0" HorizontalAlignment="Stretch">
+                    <StackPanel  Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Label Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Description :</Label>
+                        <TextBox Text="{Binding Description}"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                        <Button Background="#00000000" BorderBrush="#70702222" Height="35"  HorizontalAlignment="Center">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFD67619" RenderingBias="Quality" BlurRadius="40" Direction="0"/>
+                            </Button.Effect>
+                            <StackPanel  Margin="-10,0,-10,0" Orientation="Horizontal">
+                                <Label Margin="0,-2,0,0" FontSize="12"  Foreground="{DynamicResource OrangeBrush}" FontWeight="Bold" >Deteils settings</Label>
+                                <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Margin="0,2,0,0" Kind="Settings" Height="22" Width="22" />
+                            </StackPanel>  
+                        </Button>
+                    </StackPanel>
+                </Grid>
                 <materialDesign:Card Padding="10,0,10,10" Margin="16,5,16,16">
                     <DockPanel  HorizontalAlignment="Stretch" LastChildFill="True">
-                       
 
                         <StackPanel DockPanel.Dock="Left" Margin="15,0,0,0">
                             <Label Margin="0,0,0,0" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Command</Label>
                             <StackPanel Orientation="Horizontal">
-                                <Label Foreground="{StaticResource OrangeBrush}">!</Label>
+                                <Label  Foreground="{StaticResource OrangeBrush}">!</Label>
                                 <TextBox Text="{Binding Name}"  Width="65" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
                             </StackPanel>
                         </StackPanel>
 
+
                         <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
-                            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" Margin="10,5,0,0" FontSize="14">Enable:</Label>
-                            <ToggleButton DockPanel.Dock="Left" ToolTip="Enable/Disable timer" IsChecked="{Binding IsEnabled}" Margin="10,10,0,0"></ToggleButton>
+                            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" Margin="10,5,0,0" FontSize="14">Enable :</Label>
+                            <ToggleButton DockPanel.Dock="Left" ToolTip="Enable/Disable Command" IsChecked="{Binding IsEnabled}" Margin="10,10,0,0"></ToggleButton>
                         </StackPanel>
 
-                        <StackPanel  Margin="20,0,15,0"  DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Right">
+                            <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" Margin="10,5,0,0" FontSize="14">Userlevel :</Label>
+                            <ComboBox Width="80"></ComboBox>
+                        </StackPanel>
+
+                        <StackPanel  Margin="10,0,0,0"  DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Margin="0,0,0,0" DockPanel.Dock="Left">
                                 <Label HorizontalAlignment="Center" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Message response</Label>
                                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
@@ -50,8 +69,8 @@
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-    <Grid>
 
+    <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Commands}" ItemTemplate="{StaticResource CommandItemTemplate}">
                 <ItemsControl.ItemsPanel>
@@ -62,4 +81,5 @@
             </ItemsControl>
         </ScrollViewer>
     </Grid>
+
 </UserControl>

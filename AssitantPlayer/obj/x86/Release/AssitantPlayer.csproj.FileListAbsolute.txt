@@ -94,13 +94,7 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\Tool
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\YoutubePlayerLib.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\TwitchLib.Client.Enums.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\TwitchAuthortization.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\DateBaseController.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\TwitchLib.Api.V5.Models.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\netstandard.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\EntityFramework.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\SQLite.CodeFirst.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\TwitchLib.Api.Core.Interfaces.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\TwitchLib.Api.Core.Enums.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\AssistantConfig.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\AssistantConfig.dll.config
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\DataClasses.pdb
@@ -115,9 +109,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\Mate
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\MaterialDesignThemes.Wpf.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\Newtonsoft.Json.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\TwitchAuthortization.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\DateBaseController.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\DateBaseController.dll.config
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Release\EntityFramework.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x86\Release\AssitantPlayer.csprojAssemblyReference.cache
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x86\Release\PlayerSettings\PlayerSettingsView.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x86\Release\PlayerControl.baml

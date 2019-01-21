@@ -17,7 +17,7 @@
                 </TabItem.Header>
 
                 <Grid>
-                    <views:DefaultCommandsView></views:DefaultCommandsView>
+                    <views:DefaultCommandsView Margin="0,3,0,0"></views:DefaultCommandsView>
                 </Grid>
             </TabItem>
 
@@ -28,7 +28,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <Grid>
-                    <views:PlayerCommandsView></views:PlayerCommandsView>
+                    <views:PlayerCommandsView Margin="0,3,0,0"></views:PlayerCommandsView>
                 </Grid>
             </TabItem>
         </TabControl>

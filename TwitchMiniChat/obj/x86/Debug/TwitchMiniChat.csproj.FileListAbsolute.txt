@@ -100,13 +100,7 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\Xceed.
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\TwitchLib.Client.Enums.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\TwitchAuthortization.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\Newtonsoft.Json.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\DateBaseController.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\TwitchLib.Api.V5.Models.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\netstandard.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\EntityFramework.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\SQLite.CodeFirst.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\TwitchLib.Api.Core.Interfaces.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\TwitchLib.Api.Core.Enums.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\AssistantConfig.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\AssistantConfig.dll.config
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\DataClasses.pdb
@@ -119,9 +113,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\Micros
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\System.Windows.Interactivity.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\TwitchAuthortization.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\Newtonsoft.Json.xml
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\DateBaseController.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\DateBaseController.dll.config
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\EntityFramework.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\bin\x86\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll

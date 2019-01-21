@@ -60,7 +60,6 @@ namespace TwitchBot
 
                 Client.OnJoinedChannel += OnJoinedChannel;
                 Client.OnMessageReceived += OnMessageReceived;
-
                 Client.Connect();
 
             }
@@ -149,30 +148,35 @@ namespace TwitchBot
     
 
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
-        {                        
-            if (e.ChatMessage.Message[0] == '!')
+        {
+            ExecuteCommandIfCommandMessage(e.ChatMessage);                   
+        }
+
+        private void ExecuteCommandIfCommandMessage(ChatMessage chatMessage)
+        {
+            if (chatMessage.Message[0] == '!')
             {
                 string commandName;
                 string commandBody;
-               
-               
-                int index = e.ChatMessage.Message.IndexOf(' ');
+
+
+                int index = chatMessage.Message.IndexOf(' ');
                 if (index == -1)
                 {
-                    commandName = e.ChatMessage.Message;
+                    commandName = chatMessage.Message;
                     commandBody = null;
                 }
                 else
                 {
-                    commandName = e.ChatMessage.Message.Substring(0, index);
-                    commandBody = e.ChatMessage.Message.Substring(index + 1);
+                    commandName = chatMessage.Message.Substring(0, index);
+                    commandBody = chatMessage.Message.Substring(index + 1);
                 }
 
                 ThreadPool.QueueUserWorkItem((o) =>
                 {
-                    bool result = CommandsController.ExecuteCommandByName(e.ChatMessage, commandName, commandBody);
+                    bool result = CommandsController.ExecuteCommandByName(chatMessage, commandName, commandBody);
                 });
-            }                    
+            }
         }
 
         public void SendMessage(string message)

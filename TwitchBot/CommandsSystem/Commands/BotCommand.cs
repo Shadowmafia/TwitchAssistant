@@ -12,6 +12,7 @@ namespace TwitchBot.CommandsSystem.Commands
         public bool Whisp { get; set; }
         public bool Message { get; set; }
 
+        public DateTime LastCall { get; set; }
         protected Action<ChatMessage, string,T> _method { get; set; }
         public  BotCommand(string name,int id,string description,bool isEnabled,bool whisp,bool message, Action<ChatMessage, string,T> action)
         {
@@ -29,6 +30,7 @@ namespace TwitchBot.CommandsSystem.Commands
         }
         public  void ExecuteCommand(ChatMessage viewer, string commandBody = null)
         {
+            
             if(this is T)
             {
                 _method(viewer, commandBody, this as T);

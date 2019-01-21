@@ -182,7 +182,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChannelData.cs" />
     <Compile Include="ConfigDataClasses\AuthorizationInstance.cs" />
     <Compile Include="ConfigDataClasses\BotColor.cs" />
     <Compile Include="ConfigDataClasses\Point.cs" />
@@ -197,10 +196,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DateBaseController\DataBaseController.csproj">
-      <Project>{85B8DFC9-DB83-4B08-A71A-DFD7D2822F63}</Project>
-      <Name>DataBaseController</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TwitchAuthortization\TwitchAuthortization.csproj">
       <Project>{12756dc0-861e-4bfa-98c0-d4714bded7ea}</Project>
       <Name>TwitchAuthortization</Name>

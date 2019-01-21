@@ -94,13 +94,7 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\Tools.
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\YoutubePlayerLib.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\TwitchLib.Client.Enums.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\TwitchAuthortization.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\DateBaseController.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\TwitchLib.Api.V5.Models.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\netstandard.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\EntityFramework.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\SQLite.CodeFirst.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\TwitchLib.Api.Core.Interfaces.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\TwitchLib.Api.Core.Enums.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\AssistantConfig.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\AssistantConfig.dll.config
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\DataClasses.pdb
@@ -115,9 +109,6 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\Materi
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\Newtonsoft.Json.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\TwitchAuthortization.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\DateBaseController.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\DateBaseController.dll.config
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\bin\x86\Debug\EntityFramework.xml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x86\Debug\AssitantPlayer.csprojAssemblyReference.cache
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssitantPlayer\obj\x86\Debug\AssitantPlayer_MarkupCompile.cache
