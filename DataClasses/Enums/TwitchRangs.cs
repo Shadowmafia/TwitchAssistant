@@ -6,7 +6,6 @@
         Follower,
         Subscriber,
         Moderator,
-        Editor,
         Broadcaster
     }
  

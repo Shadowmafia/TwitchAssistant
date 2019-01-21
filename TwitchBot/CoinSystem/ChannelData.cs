@@ -8,6 +8,8 @@ namespace TwitchBot.CoinSystem
     {
         public ObservableCollection<Viewer> Watchers { get; set; }
         public ObservableCollection<ChannelFollow> Followers { get; set; }
+        public ObservableCollection<TwitchLib.Api.V5.Models.Subscriptions.Subscription> Subscribers { get; set; }
+        public ObservableCollection<ChannelFollow> Moderators { get; set; }
         public ChanelData()
         {
             Watchers = new ObservableCollection<Viewer>();

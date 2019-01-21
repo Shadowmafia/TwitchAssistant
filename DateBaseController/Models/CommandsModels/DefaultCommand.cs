@@ -1,13 +1,6 @@
-﻿using System;
-using DataClasses.Enums;
-using DateBaseController.Models.CommandsModels;
-
-namespace DateBaseController.Models
+﻿namespace DateBaseController.Models.CommandsModels
 {
    public class DefaultCommand :BaseCommand
-    {
-
-    
-       
-    }
+   {     
+   }
 }

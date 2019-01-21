@@ -9,46 +9,29 @@ using System.Threading.Tasks;
 
 namespace DateBaseController.ModelsRepositoryes
 {
-    public class MessageTimerRepository : IRepository<MessageTimer>
+    public class MessageTimerRepository : BaseRepository<MessageTimer>
     {
-
-        private TwitchAssistantContext _db;
-        List<MessageTimer> _messageTimers;
-        public MessageTimerRepository(TwitchAssistantContext context)
+        public MessageTimerRepository(TwitchAssistantContext context) : base(context)
         {
-            this._db = context;
-            _messageTimers = _db.MessageTimers.ToList();
+            _items = _db.MessageTimers.ToList();
         }
 
-        public MessageTimer Get(int id)
+        public override void AddOrUpdate(IEnumerable<MessageTimer> items)
         {
-           return _messageTimers.Find((timer)=> timer.Id==id);
+            throw new NotImplementedException();
         }
 
-        public IEnumerable<MessageTimer> GetAll()
-        {
-            return _messageTimers;
-        }
-
-        public void Add(MessageTimer timer)
-        {         
-            _messageTimers.Add(timer);
-            _db.Entry(timer).State = EntityState.Added;
-        }
-
-        public void Update(MessageTimer timer)
-        {
-            _db.Entry(timer).State = EntityState.Modified;
-        }
-
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             MessageTimer timer = _db.MessageTimers.Find(id);
             if (timer != null)
-                _messageTimers.Remove(timer);
-                _db.Entry(timer).State = EntityState.Deleted;
+                _items.Remove(timer);
+            _db.Entry(timer).State = EntityState.Deleted;
         }
 
-     
+        public override MessageTimer Get(int id)
+        {
+            return _items.Find((timer) => timer.Id == id);
+        }
     }
 }

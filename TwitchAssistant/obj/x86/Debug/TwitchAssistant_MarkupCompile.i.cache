@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\App.xaml
-111415128441
+121854827241
 
-29755568450
-1761726590291
-UserInterface\CompositeViews\SettingsControlView.xaml;UserInterface\CompositeViews\BotCommandsControlView.xaml;UserInterface\Views\DefaultCommandsView.xaml;UserInterface\Views\CoinSystemControlView.xaml;UserInterface\Views\PlayerCommandsView.xaml;UserInterface\Views\TimersControlView.xaml;UserInterface\Views\GeneralSettingsControlView.xaml;UserInterface\Views\UsersGridView.xaml;UserInterface\Views\ConfigControlView.xaml;UserInterface\Windows\AuthBrowserWindow.xaml;UserInterface\Windows\RootWindow.xaml;
+321837031932
+176-1866932619
+UserInterface\CompositeViews\SettingsControlView.xaml;UserInterface\CompositeViews\BotCommandsControlView.xaml;UserInterface\Views\DefaultCommandsView.xaml;UserInterface\Views\CoinSystemControlView.xaml;UserInterface\Views\PlayerCommandsView.xaml;UserInterface\Views\TimersControlView.xaml;UserInterface\Views\GeneralSettingsControlView.xaml;UserInterface\Views\UsersGridView.xaml;UserInterface\Views\ConfigControlView.xaml;UserInterface\Windows\AuthBrowserWindow.xaml;UserInterface\Windows\DetailsCommandSettingsWindow.xaml;UserInterface\Windows\RootWindow.xaml;
 
 True
 

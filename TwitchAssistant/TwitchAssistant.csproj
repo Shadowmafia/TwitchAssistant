@@ -254,12 +254,14 @@
     <Compile Include="GlobalObjects.cs" />
     <Compile Include="UIConverters\DateToWatchingTimeConverter.cs" />
     <Compile Include="UIConverters\TicksToTimeSpanConverter.cs" />
+    <Compile Include="UIConverters\TimespanToStringConverter.cs" />
     <Compile Include="UserInterface\CompositeViews\SettingsControlView.xaml.cs">
       <DependentUpon>SettingsControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\CompositeViews\BotCommandsControlView.xaml.cs">
       <DependentUpon>BotCommandsControlView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserInterface\ViewModels\DetailsCommandSettingsViewModel.cs" />
     <Compile Include="UserInterface\ViewModels\PlayerCommandsViewModel.cs" />
     <Compile Include="UserInterface\Views\DefaultCommandsView.xaml.cs">
       <DependentUpon>DefaultCommandsView.xaml</DependentUpon>
@@ -290,6 +292,9 @@
     <Compile Include="UserInterface\ViewModels\RootWindowViewModel.cs" />
     <Compile Include="UserInterface\Windows\AuthBrowserWindow.xaml.cs">
       <DependentUpon>AuthBrowserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Windows\DetailsCommandSettingsWindow.xaml.cs">
+      <DependentUpon>DetailsCommandSettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Windows\RootWindow.xaml.cs">
       <DependentUpon>RootWindow.xaml</DependentUpon>
@@ -337,6 +342,10 @@
     <Page Include="UserInterface\Windows\AuthBrowserWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserInterface\Windows\DetailsCommandSettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserInterface\Windows\RootWindow.xaml">
       <SubType>Designer</SubType>

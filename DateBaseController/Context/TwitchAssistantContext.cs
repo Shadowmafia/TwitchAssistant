@@ -1,5 +1,6 @@
 using System.Data.Entity;
 using DateBaseController.Models;
+using DateBaseController.Models.CommandsModels;
 
 namespace DateBaseController.Context
 {

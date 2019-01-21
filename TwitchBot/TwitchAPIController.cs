@@ -23,8 +23,7 @@ namespace TwitchBot
     }
 
     public  static class TwitchApiController
-    {
-      
+    {     
         public static TwitchAPI Api{get;set;}
         public static ChannelAuthed Channel;
 
@@ -57,13 +56,24 @@ namespace TwitchBot
             }
             return null;
         }
-
+       
         public static async Task<List<TwitchLib.Api.Core.Models.Undocumented.Chatters.ChatterFormatted>> GetChatters()
-        {           
+        {        
             List<TwitchLib.Api.Core.Models.Undocumented.Chatters.ChatterFormatted> x = await Api.Undocumented.GetChattersAsync(Channel.Name);
             return x;
         }
-
+        public static async Task<List<TwitchLib.Api.V5.Models.Channels.ChannelFollow>> GetFollowes()
+        {
+            var x = await Api.V5.Channels.GetAllFollowersAsync(Channel.Id);
+            return x;
+        }
+        public static async Task<TwitchLib.Api.V5.Models.Channels.ChannelSubscribers> GetSubscribers()
+        {           
+            var x = await Api.V5.Channels.GetChannelSubscribersAsync(Channel.Id);
+            return x;
+        }
+      
+      
         public static async Task<Game[]> GetAllGames()
         {
             GetTopGamesResponse games = await Api.Helix.Games.GetTopGamesAsync(null, null, 100);
@@ -100,13 +110,10 @@ namespace TwitchBot
             TimeSpan? upTime = await Api.V5.Streams.GetUptimeAsync(Channel.Id);
             return upTime ?? null;
         }
-
         public static async Task<bool> CheckStreamOnline()
         {
-           return  await Api.V5.Streams.BroadcasterOnlineAsync(Channel.Id);
+           return await Api.V5.Streams.BroadcasterOnlineAsync(Channel.Id);
         }
-
-
         public static string CheckAccessToken(string accessToken)
         {
             NameValueCollection headers = new NameValueCollection();

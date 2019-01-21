@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace DateBaseController.Models
 {
     public partial class Rang
-    {
-      
+    {     
         public Rang()
         {
             Users = new List<Viewer>();

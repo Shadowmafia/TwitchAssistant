@@ -5,9 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TwitchAssistant.UserInterface.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:DataClasses.Enums;assembly=DataClasses"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:TwitchRangs"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
         <DataTemplate x:Key="CommandItemTemplate">
             <StackPanel>
                 <Grid Margin="16,0,16,0" HorizontalAlignment="Stretch">
@@ -16,11 +24,11 @@
                         <TextBox Text="{Binding Description}"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                        <Button Background="#00000000" BorderBrush="#70702222" Height="35"  HorizontalAlignment="Center">
+                        <Button Tag="{Binding Id}" Click="ButtonBase_OnClick" Background="#00000000" BorderBrush="#70702222" Height="35"  HorizontalAlignment="Center">
                             <Button.Effect>
                                 <DropShadowEffect Color="#FFD67619" RenderingBias="Quality" BlurRadius="40" Direction="0"/>
                             </Button.Effect>
-                            <StackPanel  Margin="-10,0,-10,0" Orientation="Horizontal">
+                            <StackPanel Margin="-10,0,-10,0" Orientation="Horizontal">
                                 <Label Margin="0,-2,0,0" FontSize="12"  Foreground="{DynamicResource OrangeBrush}" FontWeight="Bold" >Deteils settings</Label>
                                 <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Margin="0,2,0,0" Kind="Settings" Height="22" Width="22" />
                             </StackPanel>
@@ -47,7 +55,7 @@
 
                         <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Right">
                             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" Margin="10,5,0,0" FontSize="14">Userlevel :</Label>
-                            <ComboBox Width="80"></ComboBox>
+                            <ComboBox Width="85" Margin="0,3,0,0" FontWeight="Bold" Foreground="White"  ItemsSource="{Binding Source={StaticResource dataFromEnum}}" SelectedItem="{Binding UserLevel}"></ComboBox>
                         </StackPanel>
 
                         <StackPanel  Margin="10,0,0,0"  DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -46,7 +46,7 @@ namespace TwitchBot
                 else
                 {
                     credentials = new ConnectionCredentials(BotName,ConfigSet.Config.Auth.StreamerAuth.Tokens.AccessToken);
-                    BotName = "@" + ConfigSet.Config.BotConfig.BotName + " : ";
+                    BotName = "@" + ConfigSet.Config.BotConfig.BotName + " -> ";
                 }
                 Client = new TwitchClient();
                 Client.Initialize(credentials, ConfigSet.Config.BotConfig.StreamName);
@@ -108,14 +108,8 @@ namespace TwitchBot
         {
             MyPlayer.Instance.OnSongChanged += ChangedSongNotify;
             Client.SendMessage(e.Channel, $"{BotName} Joined to chanel !");
-        }
-        private static void ChangedSongNotify(object sender, Song e)
-        {
-            if (ConfigSet.Config.PlayerConfig.CurrentSongNotify)
-            {
-                TwitchBotGlobalObjects.Bot.SendMessage(MyPlayer.Instance.GetCurrentSongInfo());
-            }
-        }
+        }      
+
         private void Client_OnConnectedError(object sender, OnConnectionErrorArgs e)
         {
             MessageTimerController.Instance.Stop();
@@ -123,6 +117,15 @@ namespace TwitchBot
             MessageBox.Show($"Bot cant connect to chanel");
             Client.Connect();
         }
+
+        private static void ChangedSongNotify(object sender, Song e)
+        {
+            if (ConfigSet.Config.PlayerConfig.CurrentSongNotify)
+            {
+                TwitchBotGlobalObjects.Bot.SendMessage(MyPlayer.Instance.GetCurrentSongInfo());
+            }
+        }
+
 
         private void OnUserJoined(object sender, OnUserJoinedArgs e)
         {       
@@ -139,14 +142,10 @@ namespace TwitchBot
         {
             _viewersController.OnUserLeft(sender, e);
         }
-
         private void OnNewSubscriber(object sender, OnNewSubscriberArgs e)
         {
             MessageBox.Show("New subscriber!!!");
         }
-   
-    
-
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
             ExecuteCommandIfCommandMessage(e.ChatMessage);                   
@@ -183,30 +182,10 @@ namespace TwitchBot
         {
             Client.SendMessage(Channel,BotName+message);
         }
-
         public void WhispMessage(string user, string message)
         {
             Client.SendWhisper(user,BotName+message);
         }
-
-        public static void MinRangCheck(Viewer user)
-        {
-            if (ConfigSet.Config.PlayerConfig.MinRequestRang == TwitchRangs.Follower)
-            {
-                if (!user.IsFollower)
-                {
-                    throw new Exception($"You must be '{ConfigSet.Config.PlayerConfig.MinRequestRang}' or upper");
-                }
-            }
-            if (ConfigSet.Config.PlayerConfig.MinRequestRang == TwitchRangs.Subscriber)
-            {
-                if (!user.IsSubscriber)
-                {
-                    throw new Exception($"You must be '{ConfigSet.Config.PlayerConfig.MinRequestRang}' or upper");
-                }
-            }
-        }
-
         public static void CommandMessage<T>(string user, string message, T command)where T:BotCommand<T>
         {
             if (command.Message)

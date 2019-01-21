@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TwitchAssistant.UserInterface.ViewModels;
+using TwitchAssistant.UserInterface.Windows;
+using TwitchBot.CommandsSystem;
+using TwitchBot.CommandsSystem.Commands;
 
 namespace TwitchAssistant.UserInterface.Views
 {
@@ -25,6 +28,15 @@ namespace TwitchAssistant.UserInterface.Views
         {
             DataContext = new PlayerCommandsViewModel();
             InitializeComponent();
+        }
+        private void ButtonBase_OnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            int id = Int32.Parse(((Button)sender).Tag.ToString());
+            DetailsCommandSettingsWindow settingsWindow = new DetailsCommandSettingsWindow();
+            PlayerBotCommand xCommand = CommandsController.PlayerCommandsList.FirstOrDefault(command => command.Id == id);
+            settingsWindow.DataContext = new DetailsCommandSettingsViewModel<PlayerBotCommand>(xCommand);
+            settingsWindow.ShowDialog();
+
         }
     }
 }

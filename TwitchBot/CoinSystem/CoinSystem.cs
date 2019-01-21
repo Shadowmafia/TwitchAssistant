@@ -28,7 +28,7 @@ namespace TwitchBot.CoinSystem
         private double _GetInterval()
         {
             if (TwitchBotGlobalObjects.IsStreamOnline)
-            {
+            {   
                 return ConfigSet.Config.CoinConfig.StreamOnlineAccrualInterval;
             }
             else

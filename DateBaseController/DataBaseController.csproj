@@ -100,10 +100,10 @@
   <ItemGroup>
     <Compile Include="Context\TwitchAssistantContext.cs" />
     <Compile Include="Context\TwitchAssistantModelInitializer.cs" />
-    <Compile Include="ModelsRepositoryes\DefaultCommandRepository.cs" />
-    <Compile Include="ModelsRepositoryes\IRepository.cs" />
+    <Compile Include="ModelsRepositoryes\BaseRepository.cs" />
+    <Compile Include="ModelsRepositoryes\CommandsRepositoryes\DefaultCommandRepository.cs" />
     <Compile Include="ModelsRepositoryes\MessageTimerRepository.cs" />
-    <Compile Include="ModelsRepositoryes\PlayerCommandRepository.cs" />
+    <Compile Include="ModelsRepositoryes\CommandsRepositoryes\PlayerCommandRepository.cs" />
     <Compile Include="ModelsRepositoryes\ViewerRepository.cs" />
     <Compile Include="Models\CommandsModels\BaseCommand.cs" />
     <Compile Include="Models\CommandsModels\PlayerCommand.cs" />

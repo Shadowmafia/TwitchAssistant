@@ -12,7 +12,6 @@ namespace DateBaseController.Models
             Booster = 0;
             MessageTimeOut = 1000;
         }
-
         public int Id { get; set; }
 
         [Required]

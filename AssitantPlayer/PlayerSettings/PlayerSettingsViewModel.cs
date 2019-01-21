@@ -140,7 +140,9 @@ namespace AssitantPlayer.PlayerSettings
             {
                 new RangItem(TwitchRangs.Unfollower),
                 new RangItem(TwitchRangs.Follower),
-                new RangItem(TwitchRangs.Subscriber)
+                new RangItem(TwitchRangs.Subscriber),
+                new RangItem(TwitchRangs.Moderator),
+                new RangItem(TwitchRangs.Broadcaster)
             };
 
         }

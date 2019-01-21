@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataClasses.Enums;
+using DateBaseController.Models;
 using TwitchBot.CommandsSystem.Commands;
 using TwitchLib.Client.Models;
 
@@ -32,7 +34,7 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
                 if (ConfigSet.Config.PlayerConfig.ChatPlaylistOn)
                 {
                     var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
-                    Bot.MinRangCheck(tmpUser);   
+                    MinRangCheck(tmpUser);
                     bool coinSystemSuccess = false;
 
                     if (ConfigSet.Config.PlayerConfig.IsUsingCoinSystem)
@@ -78,13 +80,12 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
         private static void SongRequestFirst(ChatMessage user, string body, PlayerBotCommand command)
         {
             string playerResponse = "empty";
-
             try
             {
                 if (ConfigSet.Config.PlayerConfig.ChatPlaylistOn)
                 {
                     var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
-                    Bot.MinRangCheck(tmpUser);
+                    MinRangCheck(tmpUser);
                     bool coinSystemSuccess = false;
 
                     if (ConfigSet.Config.PlayerConfig.IsUsingCoinSystem)
@@ -125,20 +126,18 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
             {
                 playerResponse = e.Message;
             }
-
             Bot.CommandMessage(user.Username, playerResponse, command);
         }
         private static void SkipSong(ChatMessage user, string body, PlayerBotCommand command)
         {
             string responseMessage = "";
             bool coinSystemSuccess = false;
-
             try
             {
                 if (ConfigSet.Config.PlayerConfig.IsUsingCoinSystem)
                 {
                     var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
-                    Bot.MinRangCheck(tmpUser);
+                    MinRangCheck(tmpUser);
 
                     if (CoinSystem.CoinSystem.Instance.SubtractCoins(tmpUser, ConfigSet.Config.PlayerConfig.SkipSongPrice))
                     {
@@ -159,7 +158,6 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
             {
                 responseMessage = e.Message;
             }
-
             Bot.CommandMessage(user.Username, responseMessage, command);
         }
         public static void CurentSong(ChatMessage user, string body, PlayerBotCommand command)
@@ -200,5 +198,49 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
             Bot.CommandMessage(user.Username, responseMessage, command);
         }
 
+        public static void MinRangCheck(Viewer user)
+        {
+            string errString =$"Player error : 'You must be {ConfigSet.Config.PlayerConfig.MinRequestRang} or upper'";
+            switch (ConfigSet.Config.PlayerConfig.MinRequestRang)
+            {
+                case TwitchRangs.Unfollower:
+                    break;
+                case TwitchRangs.Follower:
+                    {
+                        if (!(user.IsFollower || user.IsModerator || user.IsModerator || user.IsBroadcaster))
+                        {
+                            throw new Exception(errString);
+                        }
+                    }
+                    break;
+                case TwitchRangs.Subscriber:
+                    {
+                        if (!(user.IsSubscriber || user.IsModerator || user.IsBroadcaster))
+                        {
+                            throw new Exception(errString);
+                        }
+                    }
+                    break;
+                case TwitchRangs.Moderator:
+                    {
+                        if (!(user.IsModerator || user.IsBroadcaster))
+                        {
+                            throw new Exception(errString);
+                        }
+
+                    }
+                    break;
+                case TwitchRangs.Broadcaster:
+                    {
+                        if (!user.IsBroadcaster)
+                        {
+                            throw new Exception($"Player error : 'You must be Broadcaster'");
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

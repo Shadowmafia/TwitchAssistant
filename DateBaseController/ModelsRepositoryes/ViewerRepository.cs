@@ -9,44 +9,31 @@ using System.Threading.Tasks;
 
 namespace DateBaseController.ModelsRepositoryes
 {
-    public class ViewerRepository : IRepository<Viewer>
+    public class ViewerRepository : BaseRepository<Viewer>
     {
-
-        private TwitchAssistantContext _db;
-        List<Viewer> _viewers;
-        public ViewerRepository(TwitchAssistantContext context)
+        public ViewerRepository(TwitchAssistantContext context) : base(context)
         {
-            this._db = context;
-            _viewers = _db.Viewers.ToList();
+            _items = _db.Viewers.ToList();
         }
 
-        public Viewer Get(int id)
+        public override Viewer Get(int id)
         {
-           return _viewers.Find((viewer)=>viewer.Id==id);
-        }
-        public IEnumerable<Viewer> GetAll()
-        {
-            return _viewers;
-        }
-        public void Add(Viewer viewer)
-        {
-            _viewers.Add(viewer);
-            _db.Entry(viewer).State = EntityState.Added;
-        }
-        public void Update(Viewer viewer)
-        {
-            _db.Entry(viewer).State = EntityState.Modified;
+            return _items.Find((viewer) => viewer.Id == id);
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             Viewer viewer = _db.Viewers.Find(id);
             if (viewer != null)
             {
-                _viewers.Remove(viewer);
+                _items.Remove(viewer);
                 _db.Entry(viewer).State = EntityState.Deleted;
             }
         }
-        
+
+        public override void AddOrUpdate(IEnumerable<Viewer> items)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

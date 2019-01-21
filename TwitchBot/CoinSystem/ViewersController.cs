@@ -13,47 +13,37 @@ namespace TwitchBot.CoinSystem
 
     public class ViewersController
     {
-        private  string _channelId;
-        private readonly Timer _timer;
         public ViewersController()
         {
-            _channelId = TwitchApiController.GetChanel().Result.Id;
             SyncUsersTwitchRang();
-
+            AssistantDb.Instance.SaveChanges();
         }
-        public void Start()
-        {
-            _channelId = TwitchApiController.GetChanel().Result.Id;
-            _timer.Start();
-        }
-
-        public void Stop()
-        {
-            _timer.Stop();
-        }
-    
+   
         public void SyncUsersTwitchRang()
-        {        
-            List<ChannelFollow> followers = TwitchApiController.Api.V5.Channels.GetAllFollowersAsync(_channelId).Result;
+        {
+            SyncFollowes();
+            SyncSubscribers();
+            SyncBroadcasterAndModerators();
+        }
+        public async void SyncFollowes()
+        {
+            //Sync followers
+            List<ChannelFollow> followers = await TwitchApiController.GetFollowes();
             TwitchBotGlobalObjects.ChanelData.Followers.Clear();
             foreach (var follower in followers)
             {
                 TwitchBotGlobalObjects.ChanelData.Followers.Add(follower);
             }
-
             //Unfollow exist user in  date base  with was unfollow.
             var usersToUnfollow = AssistantDb.Instance.Viewers.GetAll().Where(new Func<Viewer, bool>((user) =>
             {
-                return user.IsFollower && 
+                return user.IsFollower &&
                        !TwitchBotGlobalObjects.ChanelData.Followers.Any(follow => follow.User.Id == user.Id.ToString());
             }));
-
-
             foreach (var unfollower in usersToUnfollow)
             {
                 unfollower.IsFollower = false;
             }
-
 
             //Add new  followers  witch not  exist in the  date base.
             var newUsersFollowers = TwitchBotGlobalObjects.ChanelData.Followers.Where(
@@ -64,14 +54,12 @@ namespace TwitchBot.CoinSystem
                     }
                 )
             );
-
             foreach (var newUsers in newUsersFollowers)
             {
                 int viewerId = int.Parse(newUsers.User.Id);
                 Viewer joinedViewer = new Viewer() { Id = viewerId, Username = newUsers.User.Name, IsFollower = true };
-                AssistantDb.Instance.Viewers.Add(joinedViewer);              
+                AssistantDb.Instance.Viewers.Add(joinedViewer);
             }
-
             //Update exist users follow  status.
             var existUsersToFollower = AssistantDb.Instance.Viewers.GetAll().Where(
                 new Func<Viewer, bool>(
@@ -81,15 +69,79 @@ namespace TwitchBot.CoinSystem
                            TwitchBotGlobalObjects.ChanelData.Followers.Any(follow => follow.User.Id == user.Id.ToString());
                 })
             );
-
             foreach (var userToFollower in existUsersToFollower)
             {
                 userToFollower.IsFollower = true;
             }
-
-            AssistantDb.Instance.SaveChanges();
         }
-   
+        public async void SyncSubscribers()
+        {
+            try
+            {   //Sync followers
+                ChannelSubscribers subscribers = await TwitchApiController.GetSubscribers();
+
+                TwitchBotGlobalObjects.ChanelData.Subscribers.Clear();
+                foreach (var subscriber in subscribers.Subscriptions)
+                {
+                    TwitchBotGlobalObjects.ChanelData.Subscribers.Add(subscriber);
+                }
+                //Unfollow exist user in  date base  with was unfollow.
+                var usersToUnsub = AssistantDb.Instance.Viewers.GetAll().Where(new Func<Viewer, bool>((user) =>
+                {
+                    return user.IsSubscriber &&
+                           !TwitchBotGlobalObjects.ChanelData.Subscribers.Any(sub => sub.User.Id == user.Id.ToString());
+                }));
+                foreach (var unsub in usersToUnsub)
+                {
+                    unsub.IsSubscriber = false;
+                }
+
+                //Add new  followers  witch not  exist in the  date base.
+                var newSubscribers = TwitchBotGlobalObjects.ChanelData.Subscribers.Where(
+                    new Func<TwitchLib.Api.V5.Models.Subscriptions.Subscription, bool>(
+                        (sub) =>
+                        {
+                            return !AssistantDb.Instance.Viewers.GetAll().Any(user => user.Id.ToString() == sub.User.Id);
+                        }
+                    )
+                );
+                foreach (var newUsers in newSubscribers)
+                {
+                    int viewerId = int.Parse(newUsers.User.Id);
+                    Viewer joinedViewer = new Viewer() { Id = viewerId, Username = newUsers.User.Name, IsSubscriber = true };
+                    AssistantDb.Instance.Viewers.Add(joinedViewer);
+                }
+                //Update exist users follow  status.
+                var existUsersToSub = AssistantDb.Instance.Viewers.GetAll().Where(
+                    new Func<Viewer, bool>(
+                    (user) =>
+                    {
+                        return !user.IsSubscriber &&
+                               TwitchBotGlobalObjects.ChanelData.Subscribers.Any(sub => sub.User.Id == user.Id.ToString());
+                    })
+                );
+                foreach (var userToSub in existUsersToSub)
+                {
+                    userToSub.IsFollower = true;
+                }
+
+            }
+            catch
+            {
+
+            }        
+        }
+        public async void SyncBroadcasterAndModerators()
+        {
+            /*
+            List<TwitchLib.Api.Core.Models.Undocumented.Chatters.ChatterFormatted> watchers = await TwitchApiController.GetChatters();
+            foreach (var watcher in watchers)
+            {
+                
+            }
+            */
+        }
+
         internal void OnUserJoined(object sender, OnUserJoinedArgs e)
         {
             if (!TwitchBotGlobalObjects.ChanelData.Watchers.Any(user => user.Username == e.Username))
@@ -100,7 +152,7 @@ namespace TwitchBot.CoinSystem
 
                     if (joinedUser == null)
                     {
-                        var user = TwitchApiController.Api.V5.Users.GetUserByNameAsync(e.Username).Result;
+                        var user = TwitchApiController.Api.V5.Users.GetUserByNameAsync(e.Username).Result;                       
                         int viewerId = int.Parse(user.Matches[0].Id);
                         joinedUser = new Viewer() { Id = viewerId, Username = e.Username, Rang = new Rang() { RangSets = new List<RangSet>() { new RangSet() } } };
                     
@@ -119,7 +171,6 @@ namespace TwitchBot.CoinSystem
                 }
             }
         }
-
         public void OnUserLeft(object sender, OnUserLeftArgs onUserLeftArgs)
         {
             var LeftUser= TwitchBotGlobalObjects.ChanelData.Watchers.First(user => user.Username == onUserLeftArgs.Username);

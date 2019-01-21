@@ -638,7 +638,7 @@ namespace AssitantPlayer
                     {
                         qeuePosition = ChatPlayList.Count - LastChatSong.Index;
                     }
-                    resp = $"Song was added, you position in qeue : '{qeuePosition}'";
+                    resp = $"Song {song.Title} . Was added, you position in qeue : #{qeuePosition}";
                 }
                 else
                 {
@@ -681,7 +681,7 @@ namespace AssitantPlayer
                         ChatPlayList.Insert(LastChatSong.Index, song);
                     }
 
-                    resp = $"song was added out of turn! you position in qeue : '{qeuePosition}'";
+                    resp = $"Song {song.Title} . Was added out of turn! you position in qeue : #{qeuePosition}";
                 }
                 else
                 {

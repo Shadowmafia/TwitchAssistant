@@ -17,7 +17,6 @@ namespace DateBaseController.Models.CommandsModels
         public bool Whisp { get; set; }
         public bool Message { get; set; }
 
-
         public bool IsUserLevelErrorResponse { get; set; }
         public TwitchRangs UserLevel { get; set; }
 
@@ -25,10 +24,13 @@ namespace DateBaseController.Models.CommandsModels
         public bool IsGlobalCooldown { get; set; }
         public bool IsGlobalErrorResponse { get; set; }
 
+        public bool IsWhispErrors { get; set; }
+        public bool IsChatErrors { get; set; }
+        /*
         public long UserCooldown { get; set; }
         public bool IsUserCooldown { get; set; }
         public bool IsUserErrorResponse { get; set; }
-
+        */
         public string Action { get; set; }
     }
 }

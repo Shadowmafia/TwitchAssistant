@@ -23,6 +23,9 @@ namespace DateBaseController.Models
 
         public bool IsFollower { get; set; }
         public bool IsSubscriber { get; set; }
+        public bool IsModerator { get; set; }
+        public bool IsBroadcaster { get; set; }
+
         public DateTime WatchingTime { get; set; }
 
         public DateTime LastConnectToStream { get; set; }
