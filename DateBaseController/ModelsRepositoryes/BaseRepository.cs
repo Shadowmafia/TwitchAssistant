@@ -1,5 +1,6 @@
 ﻿using DateBaseController.Context;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DateBaseController.ModelsRepositoryes
     public abstract class BaseRepository<T> where T : class
     {
         protected TwitchAssistantContext _db;
-        protected List<T> _items;
+        protected BlockingCollection<T> _items;
         public  BaseRepository(TwitchAssistantContext context)
         {
             this._db = context;

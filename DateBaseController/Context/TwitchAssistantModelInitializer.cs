@@ -19,9 +19,7 @@ namespace DateBaseController.Context
         }
 
         protected override void Seed(TwitchAssistantContext context)
-        {
-
-         
+        {        
             MessageTimer[] timers = new MessageTimer[]
             {
                 new MessageTimer(){LastShow = DateTime.Now,Interval = new TimeSpan(0,5,0).Ticks,IsEnabled = true,Message = "enter !help for get all commands!"},

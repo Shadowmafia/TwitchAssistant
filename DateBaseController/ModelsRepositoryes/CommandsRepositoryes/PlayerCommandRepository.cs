@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace DateBaseController.ModelsRepositoryes.CommandsRepositoryes
     {
         public PlayerCommandRepository(TwitchAssistantContext context) : base(context)
         {
-            _items = _db.PlayerCommands.ToList();
+            _items = new BlockingCollection<PlayerCommand>(new ConcurrentQueue<PlayerCommand>(_db.PlayerCommands));
         }
 
         public override void AddOrUpdate(IEnumerable<PlayerCommand> items)
@@ -24,14 +25,14 @@ namespace DateBaseController.ModelsRepositoryes.CommandsRepositoryes
             PlayerCommand command = _db.PlayerCommands.Find(id);
             if (command != null)
             {
-                _items.Remove(command);
+                _items.TakeWhile(item => item == command);
                 _db.Entry(command).State = EntityState.Deleted;
             }
         }
 
         public override PlayerCommand Get(int id)
         {
-            return _items.Find((command) => command.Id == id);
+            return _items.FirstOrDefault(command => command.Id == id);
         }
 
     }

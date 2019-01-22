@@ -35,7 +35,7 @@ namespace TwitchBot.CommandsSystem.Commands
         public bool IsUserErrorResponse { get; set; }
         */
 
-        protected DateTime LastCall { get; set; }   
+        protected DateTime LastCall { get; set; }
         protected Action<ChatMessage, string, T> _method { get; set; }
 
 
@@ -84,25 +84,25 @@ namespace TwitchBot.CommandsSystem.Commands
             Viewer user = vievers.FirstOrDefault(watcher => watcher.Username == viewer.Username);
 
             canExecute = CheckUserLevel(user, ref errorResponse);
-            if (IsUserLevelErrorResponse&& canExecute==false)
+            if (IsUserLevelErrorResponse && canExecute == false)
             {
                 TwitchBotGlobalObjects.Bot.SendMessage(errorResponse);
             }
-            if (IsGlobalCooldown&& canExecute)
+            if (IsGlobalCooldown && canExecute)
             {
                 canExecute = CheckGlobalCooldown(ref errorResponse);
                 if (IsGlobalErrorResponse && canExecute == false)
                 {
                     TwitchBotGlobalObjects.Bot.SendMessage(errorResponse);
                 }
-            }        
+            }
             return canExecute;
         }
 
         private bool CheckUserLevel(Viewer user, ref string errorResponse)
         {
             string errString = $"Command error : 'You must be {UserLevel} or upper'";
-            bool canExecute = false;
+            bool canExecute = true;
             if (user != null)
             {
                 switch (UserLevel)
@@ -112,11 +112,7 @@ namespace TwitchBot.CommandsSystem.Commands
                         break;
                     case TwitchRangs.Follower:
                         {
-                            if (user.IsFollower ||user.IsSubscriber || user.IsModerator || user.IsBroadcaster )
-                            {
-                                canExecute = true;
-                            }
-                            else
+                            if (!(user.IsFollower || user.IsSubscriber || user.IsModerator || user.IsBroadcaster))
                             {
                                 canExecute = false;
                                 errorResponse = errString;
@@ -125,11 +121,7 @@ namespace TwitchBot.CommandsSystem.Commands
                         break;
                     case TwitchRangs.Subscriber:
                         {
-                            if (user.IsSubscriber || user.IsModerator || user.IsBroadcaster)
-                            {
-                                canExecute = true;
-                            }
-                            else
+                            if (!(user.IsSubscriber || user.IsModerator || user.IsBroadcaster))
                             {
                                 canExecute = false;
                                 errorResponse = errString;
@@ -138,11 +130,7 @@ namespace TwitchBot.CommandsSystem.Commands
                         break;
                     case TwitchRangs.Moderator:
                         {
-                            if (user.IsModerator || user.IsBroadcaster)
-                            {
-                                canExecute = true;
-                            }
-                            else
+                            if (!(user.IsModerator || user.IsBroadcaster))
                             {
                                 canExecute = false;
                                 errorResponse = errString;
@@ -151,11 +139,7 @@ namespace TwitchBot.CommandsSystem.Commands
                         break;
                     case TwitchRangs.Broadcaster:
                         {
-                            if (user.IsBroadcaster)
-                            {
-                                canExecute = true;
-                            }
-                            else
+                            if (!user.IsBroadcaster)
                             {
                                 canExecute = false;
                                 errorResponse = "Command error : ' You must be broadcaster'";
@@ -181,6 +165,6 @@ namespace TwitchBot.CommandsSystem.Commands
             }
             return canExecute;
         }
-   
+
     }
 }

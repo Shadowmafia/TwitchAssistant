@@ -1,6 +1,7 @@
 ﻿using DateBaseController.Context;
 using DateBaseController.Models;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace DateBaseController.ModelsRepositoryes
     {
         public MessageTimerRepository(TwitchAssistantContext context) : base(context)
         {
-            _items = _db.MessageTimers.ToList();
+            _items = new BlockingCollection<MessageTimer>(new ConcurrentQueue<MessageTimer>(_db.MessageTimers));
         }
 
         public override void AddOrUpdate(IEnumerable<MessageTimer> items)
@@ -25,13 +26,13 @@ namespace DateBaseController.ModelsRepositoryes
         {
             MessageTimer timer = _db.MessageTimers.Find(id);
             if (timer != null)
-                _items.Remove(timer);
+                _items.TakeWhile(item=>item==timer);
             _db.Entry(timer).State = EntityState.Deleted;
         }
 
         public override MessageTimer Get(int id)
         {
-            return _items.Find((timer) => timer.Id == id);
+            return _items.FirstOrDefault((timer) => timer.Id == id);
         }
     }
 }

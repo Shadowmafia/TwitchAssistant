@@ -12,7 +12,6 @@ namespace DateBaseController.Models
             Priority = 0;
             Name = "TwitchRangs";
         }
-
         public int Id { get; set; }
         public string Name { get; set; }
 

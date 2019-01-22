@@ -1,6 +1,7 @@
 ﻿using DateBaseController.Context;
 using DateBaseController.Models;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,12 +14,12 @@ namespace DateBaseController.ModelsRepositoryes
     {
         public ViewerRepository(TwitchAssistantContext context) : base(context)
         {
-            _items = _db.Viewers.ToList();
+            _items = new BlockingCollection<Viewer>(new ConcurrentQueue<Viewer>(_db.Viewers));
         }
 
         public override Viewer Get(int id)
         {
-            return _items.Find((viewer) => viewer.Id == id);
+            return _items.FirstOrDefault((viewer) => viewer.Id == id);
         }
 
         public override void Delete(int id)
@@ -26,7 +27,7 @@ namespace DateBaseController.ModelsRepositoryes
             Viewer viewer = _db.Viewers.Find(id);
             if (viewer != null)
             {
-                _items.Remove(viewer);
+                _items.TakeWhile(item=>item==viewer);
                 _db.Entry(viewer).State = EntityState.Deleted;
             }
         }
