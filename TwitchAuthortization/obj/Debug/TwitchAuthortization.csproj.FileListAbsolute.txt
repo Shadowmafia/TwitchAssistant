@@ -12,3 +12,17 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\obj\Debug\Twit
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\Debug\CefSharp.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\Debug\CefSharp.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAuthortization\bin\Debug\CefSharp.xml
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\TwitchAuthortization.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\TwitchAuthortization.pdb
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\Newtonsoft.Json.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\Tools.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\CefSharp.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\Tools.pdb
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\Newtonsoft.Json.xml
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\CefSharp.pdb
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\bin\Debug\CefSharp.xml
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\obj\Debug\TwitchAuthortization.csprojAssemblyReference.cache
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\obj\Debug\TwitchAuthortization.csproj.CoreCompileInputs.cache
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\obj\Debug\TwitchAuthortization.csproj.CopyComplete
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\obj\Debug\TwitchAuthortization.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAuthortization\obj\Debug\TwitchAuthortization.pdb

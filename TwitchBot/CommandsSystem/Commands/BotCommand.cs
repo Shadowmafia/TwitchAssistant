@@ -1,6 +1,7 @@
 ﻿using DataClasses.Enums;
 using DateBaseController;
 using DateBaseController.Models;
+using DateBaseController.Models.CommandsModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,21 +39,26 @@ namespace TwitchBot.CommandsSystem.Commands
         protected Action<ChatMessage, string, T> _method { get; set; }
 
 
-        public BotCommand(string name, int id, string description, bool isEnabled, bool whisp, bool message, Action<ChatMessage, string, T> action,bool isUserLevelErrorResponse, TwitchRangs userLevel, TimeSpan globalCooldown, bool isGlobalCooldown,bool isGlobalErrorResponse)
+        public BotCommand(BaseCommand commandFromDataBase)
         {
-            Name = name;
-            Id = id;
-            Description = description;
-            IsEnabled = isEnabled;
-            Whisp = whisp;
-            Message = message;
-            _method = action;
-            IsUserLevelErrorResponse = isUserLevelErrorResponse;
-            UserLevel = userLevel;
-            GlobalCooldown = globalCooldown;
-            IsGlobalCooldown = isGlobalCooldown;
-            IsGlobalErrorResponse = isGlobalErrorResponse;
+            Name = commandFromDataBase.Name;
+            Id = commandFromDataBase.Id;
+            Description = commandFromDataBase.Description;
+            IsEnabled = commandFromDataBase.IsEnabled;
+            Whisp = commandFromDataBase.Whisp;
+            Message = commandFromDataBase.Message;
 
+            IsUserLevelErrorResponse = commandFromDataBase.IsUserLevelErrorResponse;
+            UserLevel = commandFromDataBase.UserLevel;
+
+            GlobalCooldown = new TimeSpan(commandFromDataBase.GlobalCooldown);
+            IsGlobalCooldown = commandFromDataBase.IsGlobalCooldown;
+            IsGlobalErrorResponse = commandFromDataBase.IsGlobalErrorResponse;
+
+            IsWhispErrors = commandFromDataBase.IsWhispErrors;
+            IsChatErrors = commandFromDataBase.IsChatErrors;
+
+            Action = commandFromDataBase.Action;
             LastCall = DateTime.Now - new TimeSpan(10, 0, 0);
         }
         public void SetNewAction(Action<ChatMessage, string, T> action)

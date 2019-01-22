@@ -182,7 +182,7 @@ namespace YoutubePlayerLib.Cef
             InitializeComponent();
             HttpServer.InitHttpServer(SucsesReqest);
             HttpServer.Run();
-            WebBrowser.Address = @"http://localhost:8080/YouPlayer/";
+            WebBrowser.Address = @"http://localhost:10200/YouPlayer/";
 
             //set startup value for Player
             WebBrowser.LoadingStateChanged += CheckkIfLoadingDone;

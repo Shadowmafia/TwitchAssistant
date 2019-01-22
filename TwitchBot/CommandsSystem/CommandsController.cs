@@ -90,28 +90,21 @@ namespace TwitchBot.CommandsSystem
         }
 
         private static void InitAllCommands()
-        {
+        {          
             List<DefaultCommand> defaultCommands = AssistantDb.Instance.DefaultCommands.GetAll().ToList();
             foreach (var command in defaultCommands)
             {
                 TimeSpan cooldown = new TimeSpan(command.GlobalCooldown);
-                DefaultBotCommand newCommand = new DefaultBotCommand(command.Name, command.Id, command.Description, command.IsEnabled, command.Whisp, command.Message, DefaultCommandsFunctional.Actions[command.Action], command.IsUserLevelErrorResponse, command.UserLevel, cooldown, command.IsGlobalCooldown, command.IsUserLevelErrorResponse);
-                newCommand.Action = command.Action;
-                newCommand.IsWhispErrors = command.IsWhispErrors;
-                newCommand.IsChatErrors = command.IsChatErrors;
+                DefaultBotCommand newCommand = new DefaultBotCommand(command);
+                newCommand.SetNewAction(DefaultCommandsFunctional.Actions[command.Action]);
                 DefaultCommandsList.Add(newCommand);
             }
-
+            
             List<PlayerCommand> playerCommands = AssistantDb.Instance.PlayerCommands.GetAll().ToList();
             foreach (var command in playerCommands)
             {
-                TimeSpan cooldown = new TimeSpan(command.GlobalCooldown);
-                PlayerBotCommand newCommand = new PlayerBotCommand(command.Name, command.Id, command.Description,
-                    command.IsEnabled, command.Whisp, command.Message,
-                    PlayerCommandsFunctional.Actions[command.Action], command.IsUserLevelErrorResponse, command.UserLevel, cooldown, command.IsGlobalCooldown, command.IsGlobalErrorResponse);
-                newCommand.Action = command.Action;
-                newCommand.IsWhispErrors = command.IsWhispErrors;
-                newCommand.IsChatErrors = command.IsChatErrors;
+                PlayerBotCommand newCommand = new PlayerBotCommand(command);
+                newCommand.SetNewAction(PlayerCommandsFunctional.Actions[command.Action]);
                 PlayerCommandsList.Add(newCommand);               
             }
         }

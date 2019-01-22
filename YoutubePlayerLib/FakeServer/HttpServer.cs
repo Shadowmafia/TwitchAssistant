@@ -15,7 +15,7 @@ namespace YoutubePlayerLib.FakeServer
 
         static HttpServer()
         {
-            _listener.Prefixes.Add($"http://localhost:8080/YouPlayer/");
+            _listener.Prefixes.Add($"http://localhost:10200/YouPlayer/");
         }
 
         public static void InitHttpServer(Func<HttpListenerRequest, string> method)

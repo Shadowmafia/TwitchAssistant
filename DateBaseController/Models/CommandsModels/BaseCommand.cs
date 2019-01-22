@@ -9,6 +9,7 @@ namespace DateBaseController.Models.CommandsModels
 {
     public class BaseCommand
     {
+
         //Basic bot command fields....
         public int Id { get; set; }
         public string Name { get; set; }
@@ -26,11 +27,13 @@ namespace DateBaseController.Models.CommandsModels
 
         public bool IsWhispErrors { get; set; }
         public bool IsChatErrors { get; set; }
+
         /*
         public long UserCooldown { get; set; }
         public bool IsUserCooldown { get; set; }
         public bool IsUserErrorResponse { get; set; }
         */
+
         public string Action { get; set; }
     }
 }
