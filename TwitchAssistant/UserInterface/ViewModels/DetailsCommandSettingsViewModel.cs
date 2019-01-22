@@ -24,7 +24,6 @@ namespace TwitchAssistant.UserInterface.ViewModels
             }
         } 
 
- 
         public DetailsCommandSettingsViewModel(T command)
         {
             BotCommand = command;

@@ -19,7 +19,7 @@ namespace DateBaseController.ModelsRepositoryes
         }
         public IEnumerable<T> GetAll()
         {
-            return _items;
+            return _items.ToList();
         }
         public void Add(T item)
         {

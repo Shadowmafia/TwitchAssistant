@@ -93,8 +93,7 @@ namespace TwitchBot.CommandsSystem
         {          
             List<DefaultCommand> defaultCommands = AssistantDb.Instance.DefaultCommands.GetAll().ToList();
             foreach (var command in defaultCommands)
-            {
-                TimeSpan cooldown = new TimeSpan(command.GlobalCooldown);
+            {             
                 DefaultBotCommand newCommand = new DefaultBotCommand(command);
                 newCommand.SetNewAction(DefaultCommandsFunctional.Actions[command.Action]);
                 DefaultCommandsList.Add(newCommand);
