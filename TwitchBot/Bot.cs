@@ -126,7 +126,6 @@ namespace TwitchBot
             }
         }
 
-
         private void OnUserJoined(object sender, OnUserJoinedArgs e)
         {       
             try

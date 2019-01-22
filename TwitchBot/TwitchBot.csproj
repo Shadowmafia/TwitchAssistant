@@ -175,6 +175,7 @@
     <Compile Include="CoinSystem\ChannelData.cs" />
     <Compile Include="CoinSystem\CoinSystem.cs" />
     <Compile Include="CoinSystem\ViewersController.cs" />
+    <Compile Include="CommandsSystem\CommandsFunctional\CustomCommandsFunctional.cs" />
     <Compile Include="CommandsSystem\CommandsFunctional\DefaultCommandsFunctional.cs" />
     <Compile Include="CommandsSystem\CommandsFunctional\PlayerCommandsFunctional.cs" />
     <Compile Include="CommandsSystem\Commands\BotCommand.cs" />

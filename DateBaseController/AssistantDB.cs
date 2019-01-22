@@ -24,6 +24,7 @@ namespace DateBaseController
 
         private DefaultCommandRepository _defaultCommandRepository;
         private PlayerCommandRepository _playerCommandRepository;
+        private CustomCommandRepository _customCommandRepository;
 
         public ViewerRepository Viewers
         {
@@ -60,6 +61,16 @@ namespace DateBaseController
                 if (_playerCommandRepository == null)
                     _playerCommandRepository = new PlayerCommandRepository(_db);
                 return _playerCommandRepository;
+            }
+        }
+
+        public CustomCommandRepository CustomCommands
+        {
+            get
+            {
+                if (_customCommandRepository == null)
+                    _customCommandRepository = new CustomCommandRepository(_db);
+                return _customCommandRepository;
             }
         }
 

@@ -5,11 +5,12 @@ using DateBaseController.Models.CommandsModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using TwitchLib.Client.Models;
 
 namespace TwitchBot.CommandsSystem.Commands
 {
-    public class BotCommand<T> where T : class
+    public abstract class BotCommand<T> where T : class
     {
         public string Name { get; set; }
         public int Id { get; set; }
@@ -29,6 +30,7 @@ namespace TwitchBot.CommandsSystem.Commands
         public bool IsChatErrors { get; set; }
 
         public string Action { get; set; }
+
         /*
         public TimeSpan UserCooldown { get; set; }
         public bool IsUserCooldown { get; set; }
@@ -39,6 +41,10 @@ namespace TwitchBot.CommandsSystem.Commands
         protected Action<ChatMessage, string, T> _method { get; set; }
 
 
+        public BotCommand()
+        {
+
+        }
         public BotCommand(BaseCommand commandFromDataBase)
         {
             Name = commandFromDataBase.Name;
@@ -86,14 +92,29 @@ namespace TwitchBot.CommandsSystem.Commands
             canExecute = CheckUserLevel(user, ref errorResponse);
             if (IsUserLevelErrorResponse && canExecute == false)
             {
-                TwitchBotGlobalObjects.Bot.SendMessage(errorResponse);
+                if (IsWhispErrors)
+                {
+                    TwitchBotGlobalObjects.Bot.WhispMessage(viewer.Username, errorResponse);                 
+                }
+                if (IsChatErrors)
+                {
+                    TwitchBotGlobalObjects.Bot.SendMessage(errorResponse);
+                }
+               
             }
             if (IsGlobalCooldown && canExecute)
             {
                 canExecute = CheckGlobalCooldown(ref errorResponse);
                 if (IsGlobalErrorResponse && canExecute == false)
                 {
-                    TwitchBotGlobalObjects.Bot.SendMessage(errorResponse);
+                    if (IsWhispErrors)
+                    {
+                        TwitchBotGlobalObjects.Bot.WhispMessage(viewer.Username, errorResponse);
+                    }
+                    if (IsChatErrors)
+                    {
+                        TwitchBotGlobalObjects.Bot.SendMessage(errorResponse);
+                    }
                 }
             }
             return canExecute;

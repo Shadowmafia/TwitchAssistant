@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="TwitchAssistant.UserInterface.Views.CustomCommandsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TwitchAssistant.UserInterface.Views"
+             mc:Ignorable="d" 
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:enums="clr-namespace:DataClasses.Enums;assembly=DataClasses"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:TwitchRangs"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <DataTemplate x:Key="CommandItemTemplate">
+            <StackPanel>
+                <Grid Margin="16,0,16,0" HorizontalAlignment="Stretch">
+                    <StackPanel  Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Label Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Description :</Label>
+                        <TextBox Text="{Binding Description}"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
+                    </StackPanel>
+                    <StackPanel Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                        <Button Tag="{Binding Id}" Click="DetailSettingsBtn_OnClick" Background="#00000000" BorderBrush="#70702222" Height="35"  HorizontalAlignment="Center">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FFD67619" RenderingBias="Quality" BlurRadius="40" Direction="0"/>
+                            </Button.Effect>
+                            <StackPanel Margin="-10,0,-10,0" Orientation="Horizontal">
+                                <Label Margin="0,-2,0,0" FontSize="12"  Foreground="{DynamicResource OrangeBrush}" FontWeight="Bold" >Deteils settings</Label>
+                                <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Margin="0,2,0,0" Kind="Settings" Height="22" Width="22" />
+                            </StackPanel>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+                <materialDesign:Card Padding="10,0,10,10" Margin="16,5,16,16">
+                    <StackPanel>
+                        <DockPanel  HorizontalAlignment="Stretch" LastChildFill="True">
+
+
+                            <StackPanel DockPanel.Dock="Left" Margin="15,0,0,0">
+                                <Label Margin="0,0,0,0" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Command</Label>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Foreground="{StaticResource OrangeBrush}">!</Label>
+                                    <TextBox Text="{Binding Name}"  Width="65" VerticalAlignment="Center" HorizontalContentAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
+                                </StackPanel>
+                            </StackPanel>
+                            <Button Click="ButtonBase_OnClick" DockPanel.Dock="Right" Tag="{Binding Id}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"  Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="5,10,0,0">
+                                <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="Delete" VerticalAlignment="Center" Width="35" Height="35"></materialDesign:PackIcon>
+                            </Button>
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" Margin="10,5,0,0" FontSize="14">Enable :</Label>
+                                <ToggleButton DockPanel.Dock="Left" ToolTip="Enable/Disable timer" IsChecked="{Binding IsEnabled}" Margin="10,10,0,0"></ToggleButton>
+                            </StackPanel>
+                            <StackPanel Margin="0,0,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" DockPanel.Dock="Right">
+                                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" Margin="10,5,0,0" FontSize="14">Userlevel :</Label>
+                                <ComboBox Width="85" Margin="0,3,0,0" FontWeight="Bold" Foreground="White"  ItemsSource="{Binding Source={StaticResource dataFromEnum}}" SelectedItem="{Binding UserLevel}"></ComboBox>
+                            </StackPanel>
+                            <StackPanel  Margin="10,0,0,0"  DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <StackPanel Margin="0,0,0,0" DockPanel.Dock="Left">
+                                    <Label HorizontalAlignment="Center" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Response targets</Label>
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Chat :</Label>
+                                            <CheckBox IsChecked="{Binding Message}"></CheckBox>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Whisp :</Label>
+                                            <CheckBox IsChecked="{Binding Whisp}"></CheckBox>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                           
+                        </DockPanel>
+                        <StackPanel HorizontalAlignment="Center" Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Center">
+                            <Label Margin="0,0,0,0"  Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Response message :</Label>
+                            <TextBox Text="{Binding ResponseMessage}" HorizontalAlignment="Center"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                </materialDesign:Card>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Commands}" ItemTemplate="{StaticResource CommandItemTemplate}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+        <Button Command="{Binding AddCustomCommand}" Width="165" Height="34" HorizontalAlignment="Center" VerticalAlignment="Bottom" Panel.ZIndex="1" Margin="0,0,0,15">
+            <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+                <Label Margin="0,-2,0,0" FontSize="14"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" >Add  command</Label>
+                <materialDesign:PackIcon Margin="5,0,0,0" Kind="Add" Height="26" Width="26" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

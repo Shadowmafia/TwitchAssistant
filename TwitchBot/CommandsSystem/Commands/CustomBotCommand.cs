@@ -9,10 +9,14 @@ using TwitchLib.Client.Models;
 
 namespace TwitchBot.CommandsSystem.Commands
 {
-    class CustomBotCommand : BotCommand<CustomBotCommand>
+    public class CustomBotCommand : BotCommand<CustomBotCommand>
     {
         public CustomBotCommand(BaseCommand commandFromDataBase) : base(commandFromDataBase)
         {
+        }
+        public CustomBotCommand()
+        {
+
         }
 
         public string ResponseMessage { get; set; }

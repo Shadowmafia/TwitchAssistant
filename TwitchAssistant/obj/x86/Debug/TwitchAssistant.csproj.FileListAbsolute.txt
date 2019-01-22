@@ -634,3 +634,5 @@ C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAssistant\obj\x86\Debug\Twit
 C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant.csproj.CopyComplete
 C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant.exe
 C:\Users\asp\Documents\GitHub\TwitchAssistant\TwitchAssistant\obj\x86\Debug\TwitchAssistant.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Views\CustomCommandsView.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\UserInterface\Views\CustomCommandsView.baml

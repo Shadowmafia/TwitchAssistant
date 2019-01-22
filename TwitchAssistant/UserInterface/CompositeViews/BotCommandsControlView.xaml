@@ -31,7 +31,17 @@
                     <views:PlayerCommandsView Margin="0,3,0,0"></views:PlayerCommandsView>
                 </Grid>
             </TabItem>
+            <TabItem  Cursor="Hand"   Height="40" Width="131">
+                <TabItem.Header>
+                    <StackPanel Margin="3,0,0,0"  Orientation="Horizontal">
+                        <Label VerticalAlignment="Center">Custom commands</Label>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <views:CustomCommandsView Margin="0,3,0,0"></views:CustomCommandsView>
+                </Grid>
+            </TabItem>
         </TabControl>
-
+        
     </Grid>
 </UserControl>

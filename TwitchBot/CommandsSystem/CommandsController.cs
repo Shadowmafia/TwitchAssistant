@@ -15,7 +15,7 @@ namespace TwitchBot.CommandsSystem
     {
         public static ObservableCollection<DefaultBotCommand> DefaultCommandsList = new ObservableCollection<DefaultBotCommand>();
         public static ObservableCollection<PlayerBotCommand> PlayerCommandsList = new ObservableCollection<PlayerBotCommand>();
-
+        public static ObservableCollection<CustomBotCommand> CustomCommandsList = new ObservableCollection<CustomBotCommand>();
         static CommandsController()
         {
             InitAllCommands();
@@ -30,6 +30,8 @@ namespace TwitchBot.CommandsSystem
                 PlayerBotCommand xPlayerCommand = PlayerCommandsList.FirstOrDefault(command => "!" + command.Name == commandName);
                 TryExecuteCommand(user, commandBody, xPlayerCommand);
 
+                CustomBotCommand xCustomCommand = CustomCommandsList.FirstOrDefault(command => "!" + command.Name == commandName);
+                TryExecuteCommand(user, commandBody, xCustomCommand);
                 return true;
             }
             catch (Exception e)
@@ -106,6 +108,15 @@ namespace TwitchBot.CommandsSystem
                 newCommand.SetNewAction(PlayerCommandsFunctional.Actions[command.Action]);
                 PlayerCommandsList.Add(newCommand);               
             }
+
+            List<CustomCommand> customCoommands = AssistantDb.Instance.CustomCommands.GetAll().ToList();
+            foreach (var command in customCoommands)
+            {
+                CustomBotCommand newCommand = new CustomBotCommand(command);
+                newCommand.SetNewAction(CustomCommandsFunctional.Actions[command.Action]);
+                newCommand.ResponseMessage = command.ResponseMessage;
+                CustomCommandsList.Add(newCommand);
+            }
         }
         public static void SaveCommands()
         {
@@ -156,7 +167,32 @@ namespace TwitchBot.CommandsSystem
                 });
             }
             AssistantDb.Instance.PlayerCommands.AddOrUpdate(playerCommands);
-            
+
+
+            List<CustomCommand> customCommands = new List<CustomCommand>();
+            foreach (var command in CustomCommandsList)
+            {
+                customCommands.Add(new CustomCommand()
+                {
+                    Id = command.Id,
+                    Name = command.Name,
+                    Message = command.Message,
+                    IsEnabled = command.IsEnabled,
+                    Whisp = command.Whisp,
+                    Description = command.Description,
+                    IsUserLevelErrorResponse = command.IsUserLevelErrorResponse,
+                    UserLevel = command.UserLevel,
+                    GlobalCooldown = command.GlobalCooldown.Ticks,
+                    IsGlobalCooldown = command.IsGlobalCooldown,
+                    IsGlobalErrorResponse = command.IsUserLevelErrorResponse,
+                    IsWhispErrors = command.IsWhispErrors,
+                    IsChatErrors = command.IsChatErrors,
+                    Action = command.Action,
+                    ResponseMessage = command.ResponseMessage                 
+                });
+            }
+            AssistantDb.Instance.CustomCommands.AddOrUpdate(customCommands);
+
 
             AssistantDb.Instance.SaveChanges();
         }
