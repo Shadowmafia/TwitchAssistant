@@ -16,8 +16,8 @@ namespace TwitchBot.CommandsSystem.Commands
         public int Id { get; set; }
         public string Description { get; set; }
         public bool IsEnabled { get; set; }
-        public bool Whisp { get; set; }
-        public bool Message { get; set; }
+        public bool IsWhisp { get; set; }
+        public bool IsMessage { get; set; }
 
         public bool IsUserLevelErrorResponse { get; set; }
         public TwitchRangs UserLevel { get; set; }
@@ -29,7 +29,7 @@ namespace TwitchBot.CommandsSystem.Commands
         public bool IsWhispErrors { get; set; }
         public bool IsChatErrors { get; set; }
 
-        public string Action { get; set; }
+        public string ActionName { get; set; }
 
         /*
         public TimeSpan UserCooldown { get; set; }
@@ -51,8 +51,8 @@ namespace TwitchBot.CommandsSystem.Commands
             Id = commandFromDataBase.Id;
             Description = commandFromDataBase.Description;
             IsEnabled = commandFromDataBase.IsEnabled;
-            Whisp = commandFromDataBase.Whisp;
-            Message = commandFromDataBase.Message;
+            IsWhisp = commandFromDataBase.Whisp;
+            IsMessage = commandFromDataBase.Message;
 
             IsUserLevelErrorResponse = commandFromDataBase.IsUserLevelErrorResponse;
             UserLevel = commandFromDataBase.UserLevel;
@@ -64,7 +64,7 @@ namespace TwitchBot.CommandsSystem.Commands
             IsWhispErrors = commandFromDataBase.IsWhispErrors;
             IsChatErrors = commandFromDataBase.IsChatErrors;
 
-            Action = commandFromDataBase.Action;
+            ActionName = commandFromDataBase.Action;
             LastCall = DateTime.Now - new TimeSpan(10, 0, 0);
         }
         public void SetNewAction(Action<ChatMessage, string, T> action)

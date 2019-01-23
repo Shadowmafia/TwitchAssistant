@@ -127,9 +127,9 @@ namespace TwitchBot.CommandsSystem
                 {
                     Id = command.Id,
                     Name = command.Name,
-                    Message = command.Message,
+                    Message = command.IsMessage,
                     IsEnabled = command.IsEnabled,
-                    Whisp = command.Whisp,
+                    Whisp = command.IsWhisp,
                     Description = command.Description,
                     IsUserLevelErrorResponse = command.IsUserLevelErrorResponse,
                     UserLevel = command.UserLevel,
@@ -138,7 +138,7 @@ namespace TwitchBot.CommandsSystem
                     IsGlobalErrorResponse = command.IsUserLevelErrorResponse,
                     IsWhispErrors = command.IsWhispErrors,
                     IsChatErrors = command.IsChatErrors,
-                    Action = command.Action
+                    Action = command.ActionName
                 });
             }          
             AssistantDb.Instance.DefaultCommands.AddOrUpdate(defaultCommands);
@@ -152,9 +152,9 @@ namespace TwitchBot.CommandsSystem
                 {
                     Id = command.Id,
                     Name = command.Name,
-                    Message = command.Message,
+                    Message = command.IsMessage,
                     IsEnabled = command.IsEnabled,
-                    Whisp = command.Whisp,
+                    Whisp = command.IsWhisp,
                     Description = command.Description,
                     IsUserLevelErrorResponse = command.IsUserLevelErrorResponse,
                     UserLevel = command.UserLevel,
@@ -163,7 +163,7 @@ namespace TwitchBot.CommandsSystem
                     IsGlobalErrorResponse = command.IsUserLevelErrorResponse,
                     IsWhispErrors = command.IsWhispErrors,
                     IsChatErrors = command.IsChatErrors,
-                    Action = command.Action
+                    Action = command.ActionName
                 });
             }
             AssistantDb.Instance.PlayerCommands.AddOrUpdate(playerCommands);
@@ -176,9 +176,9 @@ namespace TwitchBot.CommandsSystem
                 {
                     Id = command.Id,
                     Name = command.Name,
-                    Message = command.Message,
+                    Message = command.IsMessage,
                     IsEnabled = command.IsEnabled,
-                    Whisp = command.Whisp,
+                    Whisp = command.IsWhisp,
                     Description = command.Description,
                     IsUserLevelErrorResponse = command.IsUserLevelErrorResponse,
                     UserLevel = command.UserLevel,
@@ -187,7 +187,7 @@ namespace TwitchBot.CommandsSystem
                     IsGlobalErrorResponse = command.IsUserLevelErrorResponse,
                     IsWhispErrors = command.IsWhispErrors,
                     IsChatErrors = command.IsChatErrors,
-                    Action = command.Action,
+                    Action = command.ActionName,
                     ResponseMessage = command.ResponseMessage                 
                 });
             }

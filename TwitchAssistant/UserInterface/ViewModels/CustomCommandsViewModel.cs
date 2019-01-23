@@ -34,8 +34,8 @@ namespace TwitchAssistant.UserInterface.ViewModels
             {
                 Id= newCommandId,
                 Name = "YouCommandName",
-                Message = true,
-                Whisp = false,
+                IsMessage = true,
+                IsWhisp = false,
                 IsEnabled = true,            
                 Description = "You command description",
                 IsUserLevelErrorResponse = true,
@@ -45,10 +45,10 @@ namespace TwitchAssistant.UserInterface.ViewModels
                 IsGlobalErrorResponse = false,
                 IsWhispErrors = false,
                 IsChatErrors = false,
-                Action = "SendCustomCommandMessage",
+                ActionName = "SendCustomCommandMessage",
                 ResponseMessage = "You message"
             };
-            command.SetNewAction(CustomCommandsFunctional.Actions[command.Action]);
+            command.SetNewAction(CustomCommandsFunctional.Actions[command.ActionName]);
             Commands.Add(command);
         }
 

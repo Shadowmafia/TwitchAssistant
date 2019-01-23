@@ -681,7 +681,7 @@ namespace AssitantPlayer
                         ChatPlayList.Insert(LastChatSong.Index, song);
                     }
 
-                    resp = $"Song {song.Title} . Was added out of turn! you position in qeue : #{qeuePosition}";
+                    resp = $"Song {song.Title} . Was added out of turn! you position in qeue : #{qeuePosition+1}";
                 }
                 else
                 {

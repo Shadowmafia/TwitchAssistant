@@ -131,7 +131,7 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
         private static void SkipSong(ChatMessage user, string body, PlayerBotCommand command)
         {
             string responseMessage = "";
-            bool coinSystemSuccess = false;
+            bool coinSystemSuccess = true;
             try
             {
                 if (ConfigSet.Config.PlayerConfig.IsUsingCoinSystem)
@@ -139,12 +139,9 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
                     var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
                     MinRangCheck(tmpUser);
 
-                    if (CoinSystem.CoinSystem.Instance.SubtractCoins(tmpUser, ConfigSet.Config.PlayerConfig.SkipSongPrice))
+                    if (!CoinSystem.CoinSystem.Instance.SubtractCoins(tmpUser, ConfigSet.Config.PlayerConfig.SkipSongPrice))
                     {
-                        coinSystemSuccess = true;
-                    }
-                    else
-                    {
+                        coinSystemSuccess = false;
                         responseMessage = $"not enough coins! Skip song price : {ConfigSet.Config.PlayerConfig.SkipSongPrice} . You balance : {tmpUser.Coins} {ConfigSet.Config.CoinConfig.CoinsName}";
                     }
                 }

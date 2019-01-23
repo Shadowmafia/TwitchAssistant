@@ -179,20 +179,20 @@ namespace TwitchBot
 
         public void SendMessage(string message)
         {
-            Client.SendMessage(Channel,BotName+message);
+            Client.SendMessage(Channel,BotName + message);
         }
         public void WhispMessage(string user, string message)
         {
-            Client.SendWhisper(user,BotName+message);
+            Client.SendWhisper(user,BotName + message);
         }
         public static void CommandMessage<T>(string user, string message, T command)where T:BotCommand<T>
         {
-            if (command.Message)
+            if (command.IsMessage)
             {
-                TwitchBotGlobalObjects.Bot.SendMessage($"{user} {message}");
+                TwitchBotGlobalObjects.Bot.SendMessage($"{user} -> {message}");
                 Thread.Sleep(500);
             }
-            if (command.Whisp)
+            if (command.IsWhisp)
             {
                 TwitchBotGlobalObjects.Bot.WhispMessage(user, message);
             }

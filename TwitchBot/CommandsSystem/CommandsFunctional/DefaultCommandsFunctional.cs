@@ -28,15 +28,19 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
         //Db methods
         public static void MyInfo(ChatMessage user, string body, DefaultBotCommand command)
         {
+            
             var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
+            DateTime? startingPoint = new DateTime();
+            TimeSpan watchingTime = tmpUser.WatchingTime.Subtract(startingPoint.Value);
+            string time = $"{watchingTime:hh\\:mm\\:ss}";
             string responseMessage = $@"info by user : {tmpUser.Username} 
-             ||| Coins :{tmpUser.Coins} 
-             ||| Watching Time :{tmpUser.WatchingTime} 
-             ||| IsFollower :{tmpUser.IsFollower} 
-             ||| IsSubscriber :{tmpUser.IsSubscriber} 
-             ||| First connect to Stream :{tmpUser.FirstConnectToStream} 
-             ||| Last connect to Stream :{tmpUser.LastConnectToStream} 
-             ||| Last coin update :{tmpUser.LastCoinUpdate} 
+             ||| { ConfigSet.Config.CoinConfig.CoinsName} : {tmpUser.Coins} 
+             ||| Watching Time : {time}
+             ||| IsFollower : {tmpUser.IsFollower} 
+             ||| IsSubscriber : {tmpUser.IsSubscriber} 
+             ||| First connect to Stream ({tmpUser.FirstConnectToStream}) 
+             ||| Last connect to Stream ({tmpUser.LastConnectToStream})
+             ||| Last coin update ({tmpUser.LastCoinUpdate})
               ";
 
             Bot.CommandMessage(user.Username, responseMessage, command);
@@ -46,15 +50,19 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
             string responseMessage;
             try
             {
+                
                 var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == body);
+                DateTime? startingPoint = new DateTime();
+                TimeSpan watchingTime = tmpUser.WatchingTime.Subtract(startingPoint.Value);
+                string time = $"{watchingTime:hh\\:mm\\:ss}";
                 responseMessage = $@"info by user : {tmpUser.Username} 
-                 ||| {ConfigSet.Config.CoinConfig.CoinsName} :{tmpUser.Coins} 
-                 ||| Watching Time :{tmpUser.WatchingTime} 
-                 ||| IsFollower :{tmpUser.IsFollower} 
-                 ||| IsSubscriber :{tmpUser.IsSubscriber} 
-                 ||| First connect to Stream :{tmpUser.FirstConnectToStream} 
-                 ||| Last connect to Stream :{tmpUser.LastConnectToStream} 
-                 ||| Last coin update :{tmpUser.LastCoinUpdate} 
+                 ||| { ConfigSet.Config.CoinConfig.CoinsName} : {tmpUser.Coins} 
+                 ||| Watching Time : {time} 
+                 ||| IsFollower : {tmpUser.IsFollower} 
+                 ||| IsSubscriber : {tmpUser.IsSubscriber} 
+                 ||| First connect to Stream ({tmpUser.FirstConnectToStream}) 
+                 ||| Last connect to Stream ({tmpUser.LastConnectToStream})
+                 ||| Last coin update ({tmpUser.LastCoinUpdate})
                   ";
             }
             catch (Exception e)
@@ -67,7 +75,7 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
         public static void Coins(ChatMessage user, string body, DefaultBotCommand command)
         {
             var tmpUser = AssistantDb.Instance.Viewers.GetAll().First(user1 => user1.Username == user.Username);
-            string responseMessage = $"You balance : {tmpUser.Coins}";
+            string responseMessage = $"You balance : {tmpUser.Coins} { ConfigSet.Config.CoinConfig.CoinsName}";
             Bot.CommandMessage(user.Username, responseMessage, command);
         }
         //Other methods
@@ -76,7 +84,7 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
             string responseMessage = "";
             if (TwitchBotGlobalObjects.IsStreamOnline)
             {
-                responseMessage = $"Stream up time :  {TwitchBotGlobalObjects.StreamUpTime} .";
+                responseMessage = $"Stream up time ({TwitchBotGlobalObjects.StreamUpTime})";
             }
             else
             {
@@ -86,15 +94,15 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
         }               
         public static void SayHello(ChatMessage user, string body, DefaultBotCommand command)
         {
-            string x = "Hello " + user.Username;
+            string x = "Hello " + user.Username+" !";
             Bot.CommandMessage(user.Username, x, command);
         }
 
         private static void Help(ChatMessage user, string body, DefaultBotCommand command)
         {
-
-            int currentIndex = PrintCommandList(CommandsController.DefaultCommandsList, 0, user, command)-1;
-            PrintCommandList(CommandsController.PlayerCommandsList,currentIndex, user, command);
+            int currentIndex = PrintCommandList(CommandsController.DefaultCommandsList, 0, user, command);
+            currentIndex+=PrintCommandList(CommandsController.PlayerCommandsList,currentIndex, user, command);
+            PrintCommandList(CommandsController.CustomCommandsList, currentIndex, user, command);
         }
         private static int PrintCommandList<T>(ObservableCollection<T> commandList,int startIndex, ChatMessage user, DefaultBotCommand command) where T:BotCommand<T>
         {
@@ -118,8 +126,9 @@ namespace TwitchBot.CommandsSystem.CommandsFunctional
                     i++;
                 }
             }
+            result = result.Remove(result.Length - 2, 2);
             Bot.CommandMessage(user.Username, result, command);
-            return i;
+            return i-1;
         }
     }
 }

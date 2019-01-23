@@ -20,7 +20,7 @@
             <StackPanel>
                 <Grid Margin="16,0,16,0" HorizontalAlignment="Stretch">
                     <StackPanel  Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
-                        <Label Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Description :</Label>
+                        <Label MinWidth="40" Margin="0,0,0,0" HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Description :</Label>
                         <TextBox Text="{Binding Description}"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"  Margin="0,0,0,0"></TextBox>
                     </StackPanel>
                     <StackPanel Margin="15,0,0,0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
@@ -38,7 +38,6 @@
 
                 <materialDesign:Card Padding="10,0,10,10" Margin="16,5,16,16">
                     <DockPanel  HorizontalAlignment="Stretch" LastChildFill="True">
-
 
                         <StackPanel DockPanel.Dock="Left" Margin="15,0,0,0">
                             <Label Margin="0,0,0,0" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Command</Label>
@@ -64,11 +63,11 @@
                                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
                                         <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Chat :</Label>
-                                        <CheckBox IsChecked="{Binding Message}"></CheckBox>
+                                        <CheckBox IsChecked="{Binding IsMessage}"></CheckBox>
                                     </StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Whisp :</Label>
-                                        <CheckBox IsChecked="{Binding Whisp}"></CheckBox>
+                                        <CheckBox IsChecked="{Binding IsWhisp}"></CheckBox>
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
