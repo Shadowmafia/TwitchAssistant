@@ -33,18 +33,18 @@
                     </Button>
                     <CheckBox Content="Followers" IsChecked="{Binding IsOnlyFollowers}"/>
                     <CheckBox Content="Subscribers" IsChecked="{Binding IsOnlySubscriber}"/>
+                    <CheckBox Content="Moderator" IsChecked="{Binding IsOnlySubscriber}"/>
                     <CheckBox Content="Hide offline" IsChecked="{Binding IsOnlyOnline}"/>
-
-                    <Button   Command="{Binding OpenRefreshDialogCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="40,0,0,0">
-                        <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="Delete" VerticalAlignment="Center" Width="25" Height="25"></materialDesign:PackIcon>
-                    </Button>
                 </StackPanel>
+                <Button DockPanel.Dock="Left" Margin="10,0,0,0" Command="{Binding ShowEditUserBaseWindow}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="SettingsBox" VerticalAlignment="Center" Width="25" Height="25"></materialDesign:PackIcon>
+                </Button>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" DockPanel.Dock="Right">
                     <Label FontWeight="Bold" FontSize="16">Serch by name:</Label>
-                    <TextBox  HorizontalContentAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" VerticalAlignment="Center" FontSize="16" Width="150" Text="{Binding NameFilter,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                    <TextBox  HorizontalContentAlignment="Center" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" VerticalAlignment="Center" FontSize="16" Width="100" Text="{Binding NameFilter,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
                         
                     </TextBox>
-                    <Label Margin="25,0,0,0" FontWeight="Bold" VerticalAlignment="Center" FontSize="16">Total :</Label>
+                    <Label Margin="10,0,0,0" FontWeight="Bold" VerticalAlignment="Center" FontSize="16">Total :</Label>
                     <Label FontWeight="Bold" VerticalAlignment="Center" Foreground="#FF905CEE" FontSize="20" Content="{Binding TotalUsers}"></Label>
                 </StackPanel>
             </DockPanel>
@@ -69,32 +69,5 @@
         <DataGrid ItemsSource="{Binding Users}" AutoGenerateColumns="True" Grid.Column="1"/>
         <CheckBox Content="CheckBox" IsChecked="{Binding IsOnlyFolowers}"/>-->
 
-        <materialDesign:DialogHost Visibility="Visible"  Name="ClearChatPlayListDialog" BorderBrush="{StaticResource MaterialDesignShadowBrush}" BorderThickness="2"  Grid.ColumnSpan="2"  Background="{StaticResource MaterialDesignShadowBrush}"  IsOpen="{Binding RefreshCoinsDialog}" CloseOnClickAway="True"  >
-            <materialDesign:DialogHost.DialogContent >
-                <Grid Margin="-2,-2,-2,-2" Background="{StaticResource MaterialDesignPaper}" >
-                    <StackPanel>
-                        <Grid  Background="{StaticResource MaterialDesignShadowBrush}">
-                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,5,10,5" HorizontalAlignment="Right" VerticalAlignment="Top">
-                                <materialDesign:PackIcon  Cursor="Hand" Effect="{StaticResource ButtonEffect}" Foreground="{StaticResource OrangeBrush}" Kind="Close" Width="25" Height="25" ></materialDesign:PackIcon>
-                            </Button>
-                            <TextBlock Margin="40,0,60,0"  Foreground="{DynamicResource MaterialDesignDarkForeground}"  FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">You delete all coins?</TextBlock>
-                        </Grid>
-                        <StackPanel Margin="30" HorizontalAlignment="Center" Orientation="Horizontal">
-                            <Button Command="{Binding RefreshCoinsCommand}" HorizontalAlignment="Center">
-                                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                                    <Label Margin="0,-2,0,0" FontSize="16"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" >Yes</Label>
-                                    <materialDesign:PackIcon Margin="5,0,0,0" Kind="Check" Height="26" Width="26" />
-                                </StackPanel>
-                            </Button>
-                            <Button Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="15,0,0,0" >
-                                <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
-                                    <Label Margin="0,-2,0,0" FontSize="16"  Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" FontWeight="Bold" >No</Label>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
     </Grid>
 </UserControl>

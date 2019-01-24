@@ -300,6 +300,9 @@
     <Compile Include="UserInterface\Windows\DetailsCommandSettingsWindow.xaml.cs">
       <DependentUpon>DetailsCommandSettingsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserInterface\Windows\EditUserBaseWindow.xaml.cs">
+      <DependentUpon>EditUserBaseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\Windows\RootWindow.xaml.cs">
       <DependentUpon>RootWindow.xaml</DependentUpon>
     </Compile>
@@ -352,6 +355,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserInterface\Windows\DetailsCommandSettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Windows\EditUserBaseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

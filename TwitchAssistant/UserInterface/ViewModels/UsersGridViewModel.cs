@@ -7,6 +7,7 @@ using System.Windows.Input;
 using DateBaseController;
 using DateBaseController.Models;
 using Tools.MVVMBaseClasses;
+using TwitchAssistant.UserInterface.Windows;
 using TwitchBot;
 
 namespace TwitchAssistant.UserInterface.ViewModels
@@ -46,34 +47,23 @@ namespace TwitchAssistant.UserInterface.ViewModels
         }
 
 
-        private static bool _refreshCoinsDialog;
-        public bool RefreshCoinsDialog
-        {
-            get { return _refreshCoinsDialog; }
-            set
-            {
-                _refreshCoinsDialog = value;
-                OnPropertyChanged(nameof(RefreshCoinsDialog));
-            }
-        }
-        private ICommand _openRefreshDialogCommand;
-        public ICommand OpenRefreshDialogCommand
+        private ICommand _showEditUserBaseWindow;
+        public ICommand ShowEditUserBaseWindow
         {
             get
             {
-                return _openRefreshDialogCommand ?? (_openRefreshDialogCommand = new Command((arg) => ShowHideRefreshDialog()));
+                return _showEditUserBaseWindow ?? (_showEditUserBaseWindow = new Command((arg) => ShowEditWindow()));
             }
         }
-        private void ShowHideRefreshDialog()
+
+        private void ShowEditWindow()
         {
-            RefreshCoinsDialog = !RefreshCoinsDialog;
+            EditUserBaseWindow tmpWindow = new EditUserBaseWindow();
+            tmpWindow.ShowDialog();
         }
 
 
-        static UsersGridViewModel()
-        {
-            _refreshCoinsDialog = false;
-        }
+    
 
 
         private ICommand _refreshCoinsCommand;
@@ -93,8 +83,6 @@ namespace TwitchAssistant.UserInterface.ViewModels
 
             AssistantDb.Instance.SaveChanges();
             RefreshUserList();
-            ShowHideRefreshDialog();
-            // MessageBox.Show("Implement method!!!");
         }
 
 
@@ -106,6 +94,18 @@ namespace TwitchAssistant.UserInterface.ViewModels
             {
                 _isOnlySubscriber = value;
                 OnPropertyChanged(nameof(IsOnlyFollowers));
+                FilterUsers();
+            }
+        }
+
+        private bool _isOnlyModerator;
+        public bool IsOnlyModerator
+        {
+            get { return _isOnlyModerator; }
+            set
+            {
+                _isOnlyModerator = value;
+                OnPropertyChanged(nameof(IsOnlyModerator));
                 FilterUsers();
             }
         }
@@ -176,6 +176,10 @@ namespace TwitchAssistant.UserInterface.ViewModels
                 if (IsOnlySubscriber)
                 {
                     filter &= Subscribers.Any(user => user.IsSubscriber == true);
+                }
+                if (IsOnlyModerator)
+                {
+                    filter &= Subscribers.Any(user => user.IsModerator == true);
                 }
                 if (IsOnlyOnline)
                 {

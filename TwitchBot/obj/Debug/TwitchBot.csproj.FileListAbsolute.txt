@@ -1,2 +1,4 @@
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\obj\Debug\TwitchBot.csprojAssemblyReference.cache
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchBot\obj\Debug\TwitchBot.csproj.CoreCompileInputs.cache
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\TwitchBot\obj\Debug\TwitchBot.csprojAssemblyReference.cache
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\TwitchBot\obj\Debug\TwitchBot.csproj.CoreCompileInputs.cache

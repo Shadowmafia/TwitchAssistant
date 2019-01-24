@@ -18,3 +18,13 @@ C:\Users\asp\Documents\GitHub\TwitchAssistant\Tools\obj\x86\Debug\Tools.csproj.C
 C:\Users\asp\Documents\GitHub\TwitchAssistant\Tools\obj\x86\Debug\Tools.csproj.CopyComplete
 C:\Users\asp\Documents\GitHub\TwitchAssistant\Tools\obj\x86\Debug\Tools.dll
 C:\Users\asp\Documents\GitHub\TwitchAssistant\Tools\obj\x86\Debug\Tools.pdb
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\bin\x86\Debug\Tools.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\bin\x86\Debug\Tools.pdb
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\bin\x86\Debug\CefSharp.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\bin\x86\Debug\CefSharp.pdb
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\bin\x86\Debug\CefSharp.xml
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\obj\x86\Debug\Tools.csprojAssemblyReference.cache
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\obj\x86\Debug\Tools.csproj.CoreCompileInputs.cache
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\obj\x86\Debug\Tools.csproj.CopyComplete
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\obj\x86\Debug\Tools.dll
+C:\Users\asp\Documents\GitHub\TwitchAssistanta\Tools\obj\x86\Debug\Tools.pdb
