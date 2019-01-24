@@ -6,24 +6,29 @@ using System.Windows.Data;
 using System.Windows.Input;
 using DateBaseController;
 using DateBaseController.Models;
+using Tools;
 using Tools.MVVMBaseClasses;
 using TwitchAssistant.UserInterface.Windows;
 using TwitchBot;
 
 namespace TwitchAssistant.UserInterface.ViewModels
 {
-    public class UsersGridViewModel : ViewModelBase
+    public class UsersGridViewModel : SingletonBaseTemplate<UsersGridViewModel>, INotifyPropertyChanged
     {
-        public List<Viewer> Users { get; set; }
-        public UsersGridViewModel()
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
         {
-            Users = new List<Viewer>();
-
-            RefreshUserList();
-
-            // IsOnlyFolowers = IsOnlyOnline = true;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private UsersGridViewModel()
+        {
+            Users = new List<Viewer>();
+            RefreshUserList();
+        }
+
+        public List<Viewer> Users { get; set; }
+   
         private ICommand _refreshUsersCommand;
         public ICommand RefreshUsersCommand
         {
@@ -32,18 +37,19 @@ namespace TwitchAssistant.UserInterface.ViewModels
                 return _refreshUsersCommand ?? (_refreshUsersCommand = new Command((arg) => RefreshUserList()));
             }
         }
-        private void RefreshUserList()
+        public void RefreshUserList()
         {
 
             Users.Clear();
+            int i = 0;
             //UsersRepository usersRepository = new UsersRepository();
             foreach (var user in AssistantDb.Instance.Viewers.GetAll())
             {
                 Users.Add(user);
-            }
-
-            TotalUsers = AssistantDb.Instance.Viewers.GetAll().ToList().Count;
+                i++;
+            }         
             FilterUsers();
+            UsersCount = i.ToString();
         }
 
 
@@ -60,31 +66,8 @@ namespace TwitchAssistant.UserInterface.ViewModels
         {
             EditUserBaseWindow tmpWindow = new EditUserBaseWindow();
             tmpWindow.ShowDialog();
+           
         }
-
-
-    
-
-
-        private ICommand _refreshCoinsCommand;
-        public ICommand RefreshCoinsCommand
-        {
-            get
-            {
-                return _refreshCoinsCommand ?? (_refreshCoinsCommand = new Command((arg) => RefreshCoins()));
-            }
-        }
-        private void RefreshCoins()
-        {
-            foreach (var user in AssistantDb.Instance.Viewers.GetAll())
-            {
-                user.Coins = 0;
-            }
-
-            AssistantDb.Instance.SaveChanges();
-            RefreshUserList();
-        }
-
 
         private bool _isOnlySubscriber;
         public bool IsOnlySubscriber
@@ -134,15 +117,15 @@ namespace TwitchAssistant.UserInterface.ViewModels
             }
         }
 
-        private int _totalUsers;
-        public int TotalUsers
+
+        private string _usersCount;
+        public string UsersCount
         {
-            get { return _totalUsers; }
+            get { return _usersCount; }
             set
             {
-                _totalUsers = value;
-                OnPropertyChanged(nameof(TotalUsers));
-                FilterUsers();
+                _usersCount = value;
+                OnPropertyChanged(nameof(UsersCount));
             }
         }
 
@@ -174,12 +157,12 @@ namespace TwitchAssistant.UserInterface.ViewModels
                     filter &= TwitchBotGlobalObjects.ChanelData.Followers.Any(follow => follow.User.Id == u.Id.ToString());
                 }
                 if (IsOnlySubscriber)
-                {
-                    filter &= Subscribers.Any(user => user.IsSubscriber == true);
+                {                  
+                    filter &= Subscribers.Any(user => user.Id == u.Id && user.IsSubscriber == true);
                 }
                 if (IsOnlyModerator)
                 {
-                    filter &= Subscribers.Any(user => user.IsModerator == true);
+                    filter &= Subscribers.Any(user => user.Id == u.Id && user.IsModerator == true);
                 }
                 if (IsOnlyOnline)
                 {

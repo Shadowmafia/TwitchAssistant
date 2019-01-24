@@ -24,7 +24,7 @@ namespace DateBaseController.ModelsRepositoryes
 
         public override void Delete(int id)
         {
-            Viewer viewer = _db.Viewers.Find(id);
+            Viewer viewer = _db.Viewers.FirstOrDefault(user=>user.Id==id);
             if (viewer != null)
             {
                 _items.TakeWhile(item=>item==viewer);
@@ -35,6 +35,17 @@ namespace DateBaseController.ModelsRepositoryes
         public override void AddOrUpdate(IEnumerable<Viewer> items)
         {
             throw new NotImplementedException();
+        }
+        public void DeletAll()
+        {
+            while (_items.Count > 0)
+            {
+                var obj = _items.Take();
+            }
+            foreach (var item in _db.Viewers)
+            {
+                _db.Viewers.Remove(item);
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TwitchAssistant.UserInterface.Views
     {
         public UsersGridView()
         {
-            this.DataContext = new UsersGridViewModel();
+            this.DataContext = UsersGridViewModel.Instance;
             InitializeComponent();
         }
     }

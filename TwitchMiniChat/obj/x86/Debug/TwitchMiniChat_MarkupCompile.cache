@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\asp\Documents\GitHub\TwitchAssistanta\TwitchMiniChat\obj\x86\Debug\
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchMiniChat\obj\x86\Debug\
 TwitchMiniChat
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 3-986074842
 
 10-291776297
-30876053510
+302082056537
 MiniChatWindow.xaml;ThemesEditorWindow\ThemesEditorControls\UserMiniChatEditorView.xaml;ThemesEditorWindow\ThemesEditorWindow.xaml;
 
 False

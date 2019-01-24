@@ -33,7 +33,7 @@
                     </Button>
                     <CheckBox Content="Followers" IsChecked="{Binding IsOnlyFollowers}"/>
                     <CheckBox Content="Subscribers" IsChecked="{Binding IsOnlySubscriber}"/>
-                    <CheckBox Content="Moderator" IsChecked="{Binding IsOnlySubscriber}"/>
+                    <CheckBox Content="Moderator" IsChecked="{Binding IsOnlyModerator}"/>
                     <CheckBox Content="Hide offline" IsChecked="{Binding IsOnlyOnline}"/>
                 </StackPanel>
                 <Button DockPanel.Dock="Left" Margin="10,0,0,0" Command="{Binding ShowEditUserBaseWindow}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" >
@@ -45,7 +45,7 @@
                         
                     </TextBox>
                     <Label Margin="10,0,0,0" FontWeight="Bold" VerticalAlignment="Center" FontSize="16">Total :</Label>
-                    <Label FontWeight="Bold" VerticalAlignment="Center" Foreground="#FF905CEE" FontSize="20" Content="{Binding TotalUsers}"></Label>
+                    <Label FontWeight="Bold" VerticalAlignment="Center" Foreground="#FF905CEE" FontSize="20" Content="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}, Path=DataContext.UsersCount, Mode=TwoWay}"></Label>
                 </StackPanel>
             </DockPanel>
         </Grid>
@@ -57,6 +57,7 @@
                 <materialDesign:MaterialDataGridTextColumn Header="Watching time" Binding="{Binding Path=WatchingTime,Converter={StaticResource WatchingTimeConverter}}"/>
                 <DataGridCheckBoxColumn   Header="Follower"  Binding="{Binding Path=IsFollower}"/>
                 <DataGridCheckBoxColumn  Header="Subscriber" Binding="{Binding Path=IsSubscriber}"/>
+                <DataGridCheckBoxColumn  Header="Moderator" Binding="{Binding Path=IsModerator}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Last user connect to stream" Binding="{Binding Path=LastConnectToStream}"/>
                 <materialDesign:MaterialDataGridTextColumn Header="First connect to stream" Binding="{Binding Path=FirstConnectToStream}"/>
             </DataGrid.Columns>

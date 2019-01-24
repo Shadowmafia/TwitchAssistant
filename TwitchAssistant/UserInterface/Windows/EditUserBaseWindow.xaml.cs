@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DateBaseController;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TwitchAssistant.UserInterface.ViewModels;
 
 namespace TwitchAssistant.UserInterface.Windows
 {
@@ -62,15 +64,29 @@ namespace TwitchAssistant.UserInterface.Windows
 
         private void DeleteAllCoins()
         {
-
+            foreach (var user in AssistantDb.Instance.Viewers.GetAll())
+            {
+                user.Coins = 0;
+            }
+            AssistantDb.Instance.SaveChanges();
+            UsersGridViewModel.Instance.RefreshUserList();
         }
+
         private void DeleteAllWathingTimes()
         {
-
+            foreach (var user in AssistantDb.Instance.Viewers.GetAll())
+            {
+                user.WatchingTime = new DateTime();
+            }
+            AssistantDb.Instance.SaveChanges();
+            UsersGridViewModel.Instance.RefreshUserList();
         }
+
         private void DeleteAllUsers()
         {
-
+            AssistantDb.Instance.Viewers.DeletAll();
+            AssistantDb.Instance.SaveChanges();
+            UsersGridViewModel.Instance.RefreshUserList();
         }
 
     }

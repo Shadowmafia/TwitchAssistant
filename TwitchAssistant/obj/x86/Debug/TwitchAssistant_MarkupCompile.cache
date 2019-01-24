@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\asp\Documents\GitHub\TwitchAssistanta\TwitchAssistant\obj\x86\Debug\
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x86\Debug\
 TwitchAssistant
 none
 false
 DEBUG;TRACE
-C:\Users\asp\Documents\GitHub\TwitchAssistanta\TwitchAssistant\App.xaml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\App.xaml
 149858261
 
 31-1390595582
-176-1508757863
+1761726590291
 UserInterface\CompositeViews\SettingsControlView.xaml;UserInterface\CompositeViews\BotCommandsControlView.xaml;UserInterface\Views\CustomCommandsView.xaml;UserInterface\Views\DefaultCommandsView.xaml;UserInterface\Views\CoinSystemControlView.xaml;UserInterface\Views\PlayerCommandsView.xaml;UserInterface\Views\TimersControlView.xaml;UserInterface\Views\GeneralSettingsControlView.xaml;UserInterface\Views\UsersGridView.xaml;UserInterface\Views\ConfigControlView.xaml;UserInterface\Windows\AuthBrowserWindow.xaml;UserInterface\Windows\DetailsCommandSettingsWindow.xaml;UserInterface\Windows\EditUserBaseWindow.xaml;UserInterface\Windows\RootWindow.xaml;
 
 False
