@@ -29,11 +29,11 @@ namespace TwitchAssistant.UserInterface.ViewModels
 
         private void AddCommand()
         {
-            int newCommandId = Commands.Count;
+            int newCommandId = Guid.NewGuid().GetHashCode();
             CustomBotCommand command = new CustomBotCommand()
             {
                 Id= newCommandId,
-                Name = "YouCommandName",
+                Name = "Command",
                 IsMessage = true,
                 IsWhisp = false,
                 IsEnabled = true,            

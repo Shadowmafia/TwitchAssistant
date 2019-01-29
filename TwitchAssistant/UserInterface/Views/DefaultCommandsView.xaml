@@ -61,7 +61,7 @@
 
                         <StackPanel  Margin="10,0,0,0"  DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Margin="0,0,0,0" DockPanel.Dock="Left">
-                                <Label HorizontalAlignment="Center" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Message response</Label>
+                                <Label HorizontalAlignment="Center" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" FontSize="16">Response targets</Label>
                                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                     <StackPanel Orientation="Horizontal">
                                         <Label HorizontalAlignment="Center" Foreground="#FF905CEE" FontWeight="Bold" FontSize="14">Chat :</Label>

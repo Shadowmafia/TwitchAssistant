@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         Style="{StaticResource CustomWindowStyle}"
         
-        Title="EditUserBaseWindow"  Height="275.529" Width="272.775" WindowStartupLocation="CenterScreen">
+        Title="Edit user base"  Height="275.529" Width="272.775" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <DropShadowEffect x:Key="ButtonEffect" Color="#FFD67619" RenderingBias="Quality" BlurRadius="40" Direction="0"/>
