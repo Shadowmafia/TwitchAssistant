@@ -316,3 +316,7 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserI
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Windows\DetailsCommandSettingsWindow.g.cs
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Views\PlayerCommandsView.baml
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Windows\DetailsCommandSettingsWindow.baml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Views\CustomCommandsView.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Windows\EditUserBaseWindow.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Views\CustomCommandsView.baml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Debug\UserInterface\Windows\EditUserBaseWindow.baml

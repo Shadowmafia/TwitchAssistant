@@ -21,3 +21,12 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\obj\x64\Release\
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\obj\x64\Release\DataBaseController.csproj.CopyComplete
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\obj\x64\Release\DateBaseController.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\obj\x64\Release\DateBaseController.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\DataClasses.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\TwitchAuthortization.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\TwitchLib.Client.Enums.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\Newtonsoft.Json.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\netstandard.dll
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\DataClasses.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\DataClasses.dll.config
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\TwitchAuthortization.pdb
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\DateBaseController\bin\x64\Release\Newtonsoft.Json.xml

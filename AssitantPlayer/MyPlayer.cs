@@ -201,7 +201,7 @@ namespace AssitantPlayer
             tmp.ChatPlayList = ChatPlayList;
             tmp.StreamerPlayList = StreamerPlaylist;
             string stringConfig = JsonConvert.SerializeObject(tmp);
-            using (BinaryWriter writer = new BinaryWriter(File.Open(ConfigSet.PlayerSaveFilePath, FileMode.OpenOrCreate)))
+            using (BinaryWriter writer = new BinaryWriter(File.Create(ConfigSet.PlayerSaveFilePath)))
             {
                 writer.Write(stringConfig);
             }

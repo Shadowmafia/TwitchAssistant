@@ -88,7 +88,7 @@
             </TabItem>
 
             <Grid  Name="ChatConfigSettings" >
-                <Label VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="30">Chat config</Label>
+                <Label VerticalAlignment="Center"  HorizontalAlignment="Center" FontSize="30">Chat filter</Label>
             </Grid>
         </TabControl>
     </Grid>

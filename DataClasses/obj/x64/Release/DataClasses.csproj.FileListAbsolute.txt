@@ -255,13 +255,7 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\obj\x64\Release\DataCla
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\CefSharp.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\CefSharp.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\CefSharp.XML
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\DateBaseController.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\MaterialDesignColors.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\MaterialDesignThemes.Wpf.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\EntityFramework.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\SQLite.CodeFirst.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\DateBaseController.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\DateBaseController.dll.config
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\MaterialDesignThemes.Wpf.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\MaterialDesignThemes.Wpf.xml
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\DataClasses\bin\x64\Release\EntityFramework.xml

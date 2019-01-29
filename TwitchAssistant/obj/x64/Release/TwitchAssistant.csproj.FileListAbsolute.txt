@@ -311,3 +311,11 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\Twi
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Release\TwitchMiniChat.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Release\TwitchMiniChat.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\bin\x64\Release\TwitchMiniChat.dll.config
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Views\CustomCommandsView.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Views\PlayerCommandsView.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Windows\DetailsCommandSettingsWindow.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Windows\EditUserBaseWindow.g.cs
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Views\CustomCommandsView.baml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Views\PlayerCommandsView.baml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Windows\DetailsCommandSettingsWindow.baml
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\obj\x64\Release\UserInterface\Windows\EditUserBaseWindow.baml

@@ -137,10 +137,13 @@ namespace DateBaseController.Context
                     IsChatErrors = false
                 },
             };
-   
+
+            CustomCommand[] customCommands = new CustomCommand[] { };
+         
 
             context.DefaultCommands.AddRange(defaultCommands);
             context.PlayerCommands.AddRange(playerCommands);
+            context.CustomCommands.AddRange(customCommands);
             base.Seed(context);
         }
 

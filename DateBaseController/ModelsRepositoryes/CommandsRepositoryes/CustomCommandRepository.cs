@@ -15,7 +15,7 @@ namespace DateBaseController.ModelsRepositoryes.CommandsRepositoryes
     {
         public CustomCommandRepository(TwitchAssistantContext context) : base(context)
         {
-            _items = new BlockingCollection<CustomCommand>(new ConcurrentQueue<CustomCommand>(_db.CustomCommands));
+           _items = new BlockingCollection<CustomCommand>(new ConcurrentQueue<CustomCommand>(_db.CustomCommands));
         }
         public override void AddOrUpdate(IEnumerable<CustomCommand> items)
         {

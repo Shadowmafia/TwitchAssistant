@@ -144,9 +144,3 @@ C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\obj\x64\Release\Ass
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\CefSharp.dll
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\CefSharp.pdb
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\CefSharp.XML
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\DateBaseController.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\EntityFramework.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\SQLite.CodeFirst.dll
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\DateBaseController.pdb
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\DateBaseController.dll.config
-C:\Users\Shadowmafia\Desktop\TwitchAssistant\AssistantConfig\bin\x64\Release\EntityFramework.xml
