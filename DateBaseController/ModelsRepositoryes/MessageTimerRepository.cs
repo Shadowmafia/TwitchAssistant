@@ -26,8 +26,10 @@ namespace DateBaseController.ModelsRepositoryes
         {
             MessageTimer timer = _db.MessageTimers.Find(id);
             if (timer != null)
-                _items.TakeWhile(item=>item==timer);
-            _db.Entry(timer).State = EntityState.Deleted;
+            {
+                _items.TryTake(out timer);
+                _db.Entry(timer).State = EntityState.Deleted;
+            }
         }
 
         public override MessageTimer Get(int id)

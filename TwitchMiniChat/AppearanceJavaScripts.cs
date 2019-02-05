@@ -11,6 +11,7 @@ namespace TwitchMiniChat
     public class AppearanceJavaScriptsExecuter
     {
         private ChromiumWebBrowser chromiumWebBrowser;
+        private bool _confirmBackgroundPreparetion =false;
         public AppearanceJavaScriptsExecuter(ChromiumWebBrowser webBrowser)
         {
             chromiumWebBrowser = webBrowser;
@@ -122,6 +123,11 @@ namespace TwitchMiniChat
         }
         public void ChangeBackGroundColorScript(string R,string G,string B,string A)
         {
+            if (!_confirmBackgroundPreparetion)
+            {
+                PreparationForBackGround();
+                _confirmBackgroundPreparetion = true;
+            }
             string changeColorScript = $@"
             var ChatBody = document.getElementsByTagName('body');
             ChatBody[0].setAttribute('style', 'background:rgba({R},{G},{B},{A}) !important');       

@@ -12,7 +12,6 @@ namespace TwitchMiniChat
     /// </summary>
     public partial class MiniChatWindow : Window
     {
-
         public ChromiumWebBrowser ChatBrowser { get; set; }
         public MiniChatWindow()
         {
@@ -27,7 +26,6 @@ namespace TwitchMiniChat
             ChatBrowser.BrowserSettings.BackgroundColor = 0x00;
             ChatBrowser.Name = "ChatBrowser";
            
-
             this.DataContext = new MiniChatViewModel(this);
             InitializeComponent();
             BrowserContainer.Children.Add(ChatBrowser);

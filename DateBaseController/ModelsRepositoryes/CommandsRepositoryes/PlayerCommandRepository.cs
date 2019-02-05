@@ -25,7 +25,7 @@ namespace DateBaseController.ModelsRepositoryes.CommandsRepositoryes
             PlayerCommand command = _db.PlayerCommands.Find(id);
             if (command != null)
             {
-                _items.TakeWhile(item => item == command);
+                _items.TryTake(out command);
                 _db.Entry(command).State = EntityState.Deleted;
             }
         }

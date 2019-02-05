@@ -198,7 +198,6 @@ namespace TwitchMiniChat
                     {
                         _javaScriptsExecuter.HideChatSettingsAndInputScriptWithDeley();
                     }
-                    _javaScriptsExecuter.PreparationForBackGround();
                     UserMiniChatEditorViewModel tmp = new UserMiniChatEditorViewModel(_miniChatWindow);
                     tmp.ChangeBackgroundColor();
                 }

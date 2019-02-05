@@ -56,6 +56,7 @@ namespace TwitchMiniChat.ThemesEditorWindow.ThemesEditorControls
         private void DefaultSettings()
         {
             BgColor = Color.FromArgb(255, 239, 238, 241);
+            javaScriptsExecuter = new AppearanceJavaScriptsExecuter(_miniChatWindow.ChatBrowser);
             _miniChatWindow.ChatBrowser.Reload();
         }
     }

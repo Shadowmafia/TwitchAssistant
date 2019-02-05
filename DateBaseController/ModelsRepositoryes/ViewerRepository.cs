@@ -27,7 +27,7 @@ namespace DateBaseController.ModelsRepositoryes
             Viewer viewer = _db.Viewers.FirstOrDefault(user=>user.Id==id);
             if (viewer != null)
             {
-                _items.TakeWhile(item=>item==viewer);
+                _items.TryTake(out viewer);
                 _db.Entry(viewer).State = EntityState.Deleted;
             }
         }

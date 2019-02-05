@@ -26,7 +26,7 @@ namespace DateBaseController.ModelsRepositoryes.CommandsRepositoryes
             CustomCommand command = _db.CustomCommands.Find(id);
             if (command != null)
             {
-                _items.TakeWhile(item => item == command);
+                _items.TryTake(out command);
                 _db.Entry(command).State = EntityState.Deleted;
             }
         }

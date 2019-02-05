@@ -116,6 +116,7 @@ namespace AssistantConfig
                 StreamName = "imshadowmafia",
                 BotColor = new BotColor() { RbgColor = new System.Windows.Media.SolidColorBrush(Color.FromRgb(255, 0, 0)), Color = ChatColorPresets.Red }
             };
+
             Auth = new AuthorizationConfig()
             {
                 BotAuth = new AuthorizationInstance()
@@ -133,6 +134,7 @@ namespace AssistantConfig
                     }
                 }
             };
+
             CoinConfig = new CoinSystemConfig()
             {
                 StreamOfflineAccrualInterval = 1,
