@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         Style="{StaticResource CustomWindowStyle}"
 
-        Title="Details settings" WindowStartupLocation="CenterScreen" Height="359.672" Width="284.306">
+        Title="Details settings" WindowStartupLocation="CenterScreen" Height="359.672" Width="284.306" Icon="/TwitchAssistant;component/Resources/bg.png">
     <Window.Resources>
         <uiConverters:TimespanToStringConverter x:Key="TimeSpanConverter"/>
     </Window.Resources>

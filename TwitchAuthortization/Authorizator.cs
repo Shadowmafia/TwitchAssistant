@@ -19,15 +19,15 @@ namespace TwitchAuthortization
         /// <summary>
         /// Redirect uri must be with out "/" in end .
         /// </summary>
-        public Authorizator(string ClientId, string ClientSecret, string RedirectUri)
+        public Authorizator(string clientId, string clientSecret, string redirectUri)
         {
-            _twitchClientId = ClientId;
-            _twitchClientSecret = ClientSecret;
-            _twitchRedirectUri = RedirectUri;
+            _twitchClientId = clientId;
+            _twitchClientSecret = clientSecret;
+            _twitchRedirectUri = redirectUri;
         }
 
         /// <summary>
-        /// This method starting http server and wait when user give access to him channel, afer method send reqest and return object with twitch tokens.
+        /// This method starting http server and wait when user give access to him channel, after method send request and return object with twitch access tokens.
         /// (return null if authorization error).
         /// </summary>
         /// <param name="callBack">TwitchAuthResponse this object with all twitch token</param>
@@ -50,7 +50,7 @@ namespace TwitchAuthortization
         }
 
         /// <summary>
-        /// You can acces tokens with out http server if you have twtich code
+        /// You can get access tokens with out http server if you have twtich auth code
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>

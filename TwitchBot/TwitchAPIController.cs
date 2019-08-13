@@ -38,7 +38,9 @@ namespace TwitchBot
         
         public static async Task<ChannelAuthed> GetChanel()
         {
+          
             ChannelAuthed chanel = await Api.V5.Channels.GetChannelAsync(ConfigSet.Config.Auth.StreamerAuth.Tokens.AccessToken);
+         
             return chanel;
         }
 
@@ -62,15 +64,23 @@ namespace TwitchBot
             List<TwitchLib.Api.Core.Models.Undocumented.Chatters.ChatterFormatted> x = await Api.Undocumented.GetChattersAsync(Channel.Name);
             return x;
         }
+
         public static async Task<List<TwitchLib.Api.V5.Models.Channels.ChannelFollow>> GetFollowes()
         {
             var x = await Api.V5.Channels.GetAllFollowersAsync(Channel.Id);
             return x;
         }
+
         public static async Task<TwitchLib.Api.V5.Models.Channels.ChannelSubscribers> GetSubscribers()
-        {           
+        {
+            var tst = await GetAllGames();
             var x = await Api.V5.Channels.GetChannelSubscribersAsync(Channel.Id);
+            var tst2 = tst;
             return x;
+
+            
+
+
         }
       
       
@@ -110,10 +120,12 @@ namespace TwitchBot
             TimeSpan? upTime = await Api.V5.Streams.GetUptimeAsync(Channel.Id);
             return upTime ?? null;
         }
+
         public static async Task<bool> CheckStreamOnline()
         {
            return await Api.V5.Streams.BroadcasterOnlineAsync(Channel.Id);
         }
+
         public static string CheckAccessToken(string accessToken)
         {
             NameValueCollection headers = new NameValueCollection();

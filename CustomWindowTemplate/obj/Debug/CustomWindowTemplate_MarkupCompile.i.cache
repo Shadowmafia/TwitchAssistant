@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\asp\Documents\GitHub\TwitchAssistanta\CustomWindowTemplate\obj\Debug\
+C:\Users\Shadowmafia\Desktop\TwitchAssistant\CustomWindowTemplate\obj\Debug\
 CustomWindowTemplate
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 3806602527
 
-15934616949
-15-1333732555
+12-1415555543
+151433182264
 AllTemplates.xaml;Templates\CustomWindowTemplate.xaml;Templates\NoneWindowTemplate.xaml;
 
-True
+False
 

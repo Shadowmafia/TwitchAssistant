@@ -239,12 +239,13 @@
             <Grid Row="0">
                 <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5,0,0" Orientation="Horizontal">
                     <Label HorizontalAlignment="Center" Foreground="{StaticResource OrangeBrush}" FontWeight="Bold" Margin="5,0,0,0" FontSize="16" >Streamer playlist</Label>
+                    
                     <Button ToolTip="Save playlist to file" Command="{Binding SaveStreamerPlaylistInFileCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0">
-                        <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="File" VerticalAlignment="Center" Width="25" Height="25"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon Foreground="{StaticResource OrangeBrush}" Kind="Download" VerticalAlignment="Center" Width="25" Height="25"></materialDesign:PackIcon>
                     </Button>
 
                     <Button ToolTip="Load playlist from file" Command="{Binding LoadStreamerPlaylistFromFileCommand}" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0">
-                        <materialDesign:PackIcon  Foreground="{StaticResource OrangeBrush}" Kind="Download" VerticalAlignment="Center" Width="25" Height="30"></materialDesign:PackIcon>
+                        <materialDesign:PackIcon  Foreground="{StaticResource OrangeBrush}" Kind="Upload" VerticalAlignment="Center" Width="25" Height="30"></materialDesign:PackIcon>
                     </Button>
 
                     <Button ToolTip="Clear playlist"  Click="ShowClearStreamerPlaylistDialog"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}"  HorizontalAlignment="Left" Margin="0,0,0,0">

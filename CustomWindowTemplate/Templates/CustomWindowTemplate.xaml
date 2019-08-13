@@ -101,28 +101,33 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="75"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"                                           
-                                    templateLogic:ControlDoubleClickBehavior.ExecuteCommand="{StaticResource CloseCommand}"                                                
-                                    templateLogic:ControlDoubleClickBehavior.ExecuteCommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Padding="0">
-                        <Image DockPanel.Dock="Left" Style="{StaticResource WindowIcon}" Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}},Path=Icon}"                                         
-                                    Width="16"                                           
-                                    templateLogic:ShowSystemMenuBehavior.TargetWindow="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"                                           
-                                    templateLogic:ShowSystemMenuBehavior.LeftButtonShowAt="{Binding ElementName=WindowContent}"/>
-                    </Label>
-                    <Label Grid.Column="1" DockPanel.Dock="Left" Content="{TemplateBinding Property=Title}" Margin="60,-3,0,0"                                                                                  
-                                    HorizontalContentAlignment="Center"
-                                    VerticalContentAlignment="Center"
-                                    HorizontalAlignment="Stretch"
-                                    VerticalAlignment="Stretch"
-                                    Foreground="{StaticResource WindowForeColor}"                                           
-                                    FontSize="14"
-                                    FontWeight="Bold"
-                                    templateLogic:WindowDragBehavior.LeftMouseButtonDrag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                                    templateLogic:ControlDoubleClickBehavior.ExecuteCommand="{StaticResource MaximizeCommand}"
-                                    templateLogic:ControlDoubleClickBehavior.ExecuteCommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                                    templateLogic:ShowSystemMenuBehavior.TargetWindow="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
-                                    templateLogic:ShowSystemMenuBehavior.RightButtonShow="true">
-                    </Label>
+                    <Grid 
+                        Background="{StaticResource WindowBackColor }"
+                        templateLogic:WindowDragBehavior.LeftMouseButtonDrag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                        Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Label templateLogic:ControlDoubleClickBehavior.ExecuteCommand="{StaticResource CloseCommand}"                                                
+                               templateLogic:ControlDoubleClickBehavior.ExecuteCommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" Padding="0">
+                                <Image Margin="50,0,0,0" DockPanel.Dock="Right" Style="{StaticResource WindowIcon}" Source="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}},Path=Icon}"                                         
+                                   Width="20"                                           
+                                   templateLogic:ShowSystemMenuBehavior.TargetWindow="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+                            </Label>
+                            <Label  Content="{TemplateBinding Property=Title}" Margin="10,-3,0,0"                                                                                  
+                               HorizontalContentAlignment="Center"
+                               VerticalContentAlignment="Center"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               Foreground="{StaticResource WindowForeColor}"                                           
+                               FontSize="14"
+                               FontWeight="Bold"
+                               
+                               templateLogic:ControlDoubleClickBehavior.ExecuteCommand="{StaticResource MaximizeCommand}"
+                               templateLogic:ControlDoubleClickBehavior.ExecuteCommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                               templateLogic:ShowSystemMenuBehavior.TargetWindow="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"
+                               templateLogic:ShowSystemMenuBehavior.RightButtonShow="true">
+                            </Label>
+                        </StackPanel>
+                    </Grid>
                     <StackPanel Grid.Column="2" Orientation="Horizontal">
                         <Button VerticalAlignment="Top" DockPanel.Dock="Right" Margin="0,0,0,0" Style="{StaticResource WindowButton}" Command="{StaticResource MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}">
                             <materialDesign:PackIcon Kind="WindowMinimize" Width="17" Height="17" FontWeight="Bold" Foreground="#FFA2A2A2"></materialDesign:PackIcon>

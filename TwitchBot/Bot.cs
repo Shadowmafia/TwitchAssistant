@@ -10,6 +10,7 @@ using DateBaseController.ModelsRepositoryes;
 using TwitchBot.CoinSystem;
 using TwitchBot.CommandsSystem;
 using TwitchBot.CommandsSystem.Commands;
+using TwitchBot.FilterSystem;
 using TwitchBot.TimerSystem;
 using TwitchLib.Client;
 using TwitchLib.Client.Events;
@@ -102,6 +103,7 @@ namespace TwitchBot
             CoinSystem.CoinSystem.Instance.Start();
             Client.ChangeChatColor(ConfigSet.Config.BotConfig.StreamName, ConfigSet.Config.BotConfig.BotColor.Color);
             TwitchBotGlobalObjects.TwitchBotConnectedState = TwitchBotConnectedState.Connected;
+
             Channel = e.AutoJoinChannel;
         }
         private void OnJoinedChannel(object sender, OnJoinedChannelArgs e)
@@ -147,7 +149,11 @@ namespace TwitchBot
         }
         private void OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
-            ExecuteCommandIfCommandMessage(e.ChatMessage);                   
+            ExecuteCommandIfCommandMessage(e.ChatMessage);
+            ThreadPool.QueueUserWorkItem((o) =>
+            {
+                ChatFilterController.FilterMessage(e.ChatMessage);
+            });
         }
 
         private void ExecuteCommandIfCommandMessage(ChatMessage chatMessage)

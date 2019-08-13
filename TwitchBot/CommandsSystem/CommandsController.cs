@@ -24,7 +24,7 @@ namespace TwitchBot.CommandsSystem
         {         
             try
             {
-                CheckAndAddOrEditUserIfNeed(user);
+                TwitchBotGlobalObjects.CheckAndAddOrEditUserIfNeed(user);
                 DefaultBotCommand xBotCommand = DefaultCommandsList.FirstOrDefault(command => "!" + command.Name == commandName);
                 TryExecuteCommand(user,commandBody, xBotCommand);
                 PlayerBotCommand xPlayerCommand = PlayerCommandsList.FirstOrDefault(command => "!" + command.Name == commandName);
@@ -50,46 +50,7 @@ namespace TwitchBot.CommandsSystem
                 }
             }
         }
-        private static void CheckAndAddOrEditUserIfNeed(ChatMessage user)
-        {
-           
-            Viewer joinedUser = AssistantDb.Instance.Viewers.GetAll().FirstOrDefault(viewer => viewer.Username == user.Username);           
-            if (joinedUser == null)
-            {
-                var result = TwitchApiController.Api.V5.Users.GetUserByNameAsync(user.Username).Result;
-                int viewerId = int.Parse(result.Matches[0].Id);
-                joinedUser = new Viewer() { Id = viewerId, Username = user.Username, Rang = new Rang() { RangSets = new List<RangSet>() { new RangSet() } } };
-                joinedUser.IsModerator = user.IsModerator;
-                joinedUser.IsSubscriber = user.IsSubscriber;
-                joinedUser.IsBroadcaster = user.IsBroadcaster;
-                var x = TwitchBotGlobalObjects.ChanelData.Followers.FirstOrDefault(tmpUser => tmpUser.User.Id == user.UserId);
-                if (x != null)
-                {
-                    joinedUser.IsFollower = true;
-                }
-                AssistantDb.Instance.Viewers.Add(joinedUser);
-                joinedUser = AssistantDb.Instance.Viewers.Get(joinedUser.Id);
-                joinedUser.LastCoinUpdate = DateTime.Now;
-                joinedUser.LastConnectToStream = DateTime.Now;
-                AssistantDb.Instance.SaveChanges();
-                TwitchBotGlobalObjects.ChanelData.Watchers.Add(joinedUser);
-            }
-            else
-            {
-                joinedUser.IsBroadcaster = user.IsBroadcaster;
-                joinedUser.IsModerator = user.IsModerator;
-                joinedUser.IsSubscriber = user.IsSubscriber;
-                var x = TwitchBotGlobalObjects.ChanelData.Followers.FirstOrDefault(tmpUser => tmpUser.User.Id == user.UserId);
-                if (x != null)
-                {
-                    joinedUser.IsFollower = true;
-                }
-                else
-                {
-                    joinedUser.IsFollower = false;
-                }
-            }
-        }
+
 
         private static void InitAllCommands()
         {          

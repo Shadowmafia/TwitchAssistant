@@ -172,6 +172,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bot.cs" />
+    <Compile Include="FilterSystem\BaseFilter.cs" />
+    <Compile Include="FilterSystem\MessageFilters\BadWordsFilter.cs" />
+    <Compile Include="FilterSystem\MessageFilters\CapsFilter.cs" />
+    <Compile Include="FilterSystem\ChatFilterController.cs" />
+    <Compile Include="FilterSystem\MessageFilters\LinksFilter.cs" />
+    <Compile Include="FilterSystem\MessageFilters\NoneExistedCommandsFilter.cs" />
+    <Compile Include="FilterSystem\MessageFilters\SpamFilter.cs" />
     <Compile Include="CoinSystem\ChannelData.cs" />
     <Compile Include="CoinSystem\CoinSystem.cs" />
     <Compile Include="CoinSystem\ViewersController.cs" />
@@ -184,6 +191,7 @@
     <Compile Include="CommandsSystem\Commands\DefaultBotCommand.cs" />
     <Compile Include="CommandsSystem\Commands\GameApiBotCommand.cs" />
     <Compile Include="CommandsSystem\Commands\PlayerBotCommand.cs" />
+    <Compile Include="FilterSystem\UserActionInFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PubSub.cs" />
     <Compile Include="TimerSystem\MessageTimerController.cs" />

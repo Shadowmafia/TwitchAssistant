@@ -38,8 +38,7 @@ namespace TwitchBot.CommandsSystem.Commands
         */
 
         protected DateTime LastCall { get; set; }
-        protected Action<ChatMessage, string, T> _method { get; set; }
-
+        protected Action<ChatMessage, string, T> _method { get; set; } 
 
         public BotCommand()
         {

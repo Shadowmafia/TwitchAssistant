@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -24,7 +25,9 @@ namespace AssitantPlayer
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-       
+
+      
+
         public event EventHandler<Song> OnSongChanged;
         protected virtual void OnOnSongChanged(Song e)
         {
@@ -79,11 +82,14 @@ namespace AssitantPlayer
             }
         }
 
+        private Timer _timer;
         private MyPlayer()
         {
-       
+                
             StreamerPlaylist.CollectionChanged += StreamerReindexSongs;
             ChatPlayList.CollectionChanged += ChatReindexSongs;
+            _timer = new Timer();
+            _timer.Interval = 500;
             //GlobalObjects.Player = this;
             // CurrentSong = CreateSongById("lEHM9HZf0IA");
 
@@ -526,17 +532,41 @@ namespace AssitantPlayer
                 {
                     item.IsSelected = false;
                 }
+
                 foreach (var item in ChatPlayList)
                 {
                     item.IsSelected = false;
                 }
+
                 CurrentSong.IsSelected = true;
+
+                _timer.Elapsed += _timer_Elapsed;
+                _timer.Start();
 
             }
             else
             {
                 StartStopPlayer();
             }
+        }
+
+        private void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            _timer.Elapsed -= _timer_Elapsed;
+            if (_player.Player.StartCommand.CanExecute(null))
+            {
+                _player.Player.StartCommand.Execute(null);
+            }
+            _timer.Stop();
+        }
+
+        private void Test(object sender, YoutubePlayerState e)
+        {
+            if (e == YoutubePlayerState.buffering)
+            {
+                _player.Player.StartCommand.Execute(null);
+            }
+            _player.Player.bound.PlayerPlayingChanged -= Test;
         }
 
         public void DeleteChatSongByIndex(int index)

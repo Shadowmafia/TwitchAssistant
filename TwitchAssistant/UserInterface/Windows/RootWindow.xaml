@@ -14,7 +14,7 @@
         xmlns:views="clr-namespace:TwitchAssistant.UserInterface.Views"
         xmlns:compositeViews="clr-namespace:TwitchAssistant.UserInterface.CompositeViews"
         mc:Ignorable="d"
-        Title="Twitch Assistant" Name="RootWindowView"  MinHeight="200" MinWidth="300" Height="500" Width="850" Background="{DynamicResource MaterialDesignPaper}" Loaded="RootWindowView_OnLoaded" Closed="RootWindowView_OnClosed">
+        Title="Twitch Assistant" Name="RootWindowView"  MinHeight="200" MinWidth="300" Height="500" Width="850" Background="{DynamicResource MaterialDesignPaper}" Loaded="RootWindowView_OnLoaded" Closed="RootWindowView_OnClosed" Icon="/TwitchAssistant;component/Resources/bg.png">
     
     <Window.Resources>
         <Style x:Key="CheckBotStatusButtonOff"  TargetType="Button">

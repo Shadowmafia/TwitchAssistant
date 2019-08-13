@@ -13,8 +13,7 @@ namespace TwitchAuthortization
     {
         private static readonly HttpListener _listener = new HttpListener();
         private static Func<string,Task<TwitchAuthResponse>> _responderMethod;
-
-      
+  
         public static void InitHttpServer(Func<string, Task<TwitchAuthResponse>> method,string redirectUri)
         {
             if (method == null)

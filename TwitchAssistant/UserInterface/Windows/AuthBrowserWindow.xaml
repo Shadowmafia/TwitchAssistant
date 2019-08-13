@@ -8,7 +8,7 @@
         AllowsTransparency="True"
         Style="{StaticResource CustomWindowStyle}"
 
-        Title="Authorization browser" Height="512.963" Width="407.408" Loaded="Window_Loaded">
+        Title="Authorization browser" Height="512.963" Width="407.408" Loaded="Window_Loaded" Icon="/TwitchAssistant;component/Resources/bg.png">
     <Grid Name="BrowserContainer">
        
     </Grid>

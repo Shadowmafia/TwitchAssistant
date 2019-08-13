@@ -20,7 +20,7 @@
         Topmost="{Binding Topmost}"
      
         Width="{Binding Width,Mode=TwoWay}" Height="{Binding Height,Mode=TwoWay}"
-        Top="{Binding Top,Mode=TwoWay}" Left="{Binding Left,Mode=TwoWay}" d:DesignWidth="354" d:DesignHeight="427">
+        Top="{Binding Top,Mode=TwoWay}" Left="{Binding Left,Mode=TwoWay}" d:DesignWidth="354" d:DesignHeight="427" >
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

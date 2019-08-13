@@ -12,9 +12,9 @@ TRACE
 C:\Users\Shadowmafia\Desktop\TwitchAssistant\TwitchAssistant\App.xaml
 149858261
 
-31-1390595582
-176332525219
+351288666868
+1761033969605
 UserInterface\CompositeViews\SettingsControlView.xaml;UserInterface\CompositeViews\BotCommandsControlView.xaml;UserInterface\Views\CustomCommandsView.xaml;UserInterface\Views\DefaultCommandsView.xaml;UserInterface\Views\CoinSystemControlView.xaml;UserInterface\Views\PlayerCommandsView.xaml;UserInterface\Views\TimersControlView.xaml;UserInterface\Views\GeneralSettingsControlView.xaml;UserInterface\Views\UsersGridView.xaml;UserInterface\Views\ConfigControlView.xaml;UserInterface\Windows\AuthBrowserWindow.xaml;UserInterface\Windows\DetailsCommandSettingsWindow.xaml;UserInterface\Windows\EditUserBaseWindow.xaml;UserInterface\Windows\RootWindow.xaml;
 
-False
+True
 

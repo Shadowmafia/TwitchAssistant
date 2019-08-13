@@ -28,11 +28,8 @@ namespace TwitchAssistant.UIConverters
             {
                 return time.Ticks;
             }
-            else
-            {
-                return  new TimeSpan();
-            }
-           
+            return  new TimeSpan();
+                     
         }
     }
 }
